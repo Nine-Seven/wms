@@ -1,0 +1,19 @@
+Ext.define('cms.model.bdef.bdef_DefDockModel',{
+	extend:'Ext.data.Model',
+	fields:[
+	{name:'warehouseNo'},
+	{name:'dockNo'},
+	{name:'dockName'},
+	{name:'dockType'},
+	{name:'adjustBoard'},
+	{name:'locateType'},
+	{name:'rgstName'},
+	{name:'rgstDate'},
+	{name:'updtName'},
+	{name:'updtDate'},
+	{name:'dockTypeText'},
+	{name:'adjustBoardText'},
+	{name:'locateTypeText'}
+	],	
+	idProperty:'warehouseNo,DockNo'
+});

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+	default-lazy-init="false">
+	<!-- 虚拟库存调整 -->
+	<bean id="stock_AdjustAccountsAction" class="com.sealinkin.stock.action.Stock_AdjustAccountsAction" scope="prototype">
+		<property name="stock_AdjustAccountsServiceImpl" ref="stock_AdjustAccountsServiceImpl"></property>
+	</bean>	
+	<!-- 库存调账手建单 -->
+	<bean id="stock_PlanImportAction" class="com.sealinkin.stock.action.Stock_PlanImportAction" scope="prototype">
+		<property name="stock_PlanImportServiceImpl" ref="stock_PlanImportServiceImpl"></property>
+	</bean>	
+	<!-- 库存调账确认 -->
+	<bean id="stock_ConfirmAction" class="com.sealinkin.stock.action.Stock_ConfirmAction" scope="prototype">
+		<property name="stock_ConfirmServiceImpl" ref="stock_ConfirmServiceImpl"></property>
+	</bean>	
+</beans>
+

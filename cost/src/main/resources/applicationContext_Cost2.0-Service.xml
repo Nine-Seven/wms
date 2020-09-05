@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/aop 
+            http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context/spring-context-2.5.xsd
+            http://www.springframework.org/schema/tx 
+            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+    
+    <!-- 计费公式管理-->
+	<bean id="cost_FormulasetImpl" class="com.sealinkin.cost.service.impl.Cost_FormulasetImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+	<!-- 计费取值方式维护-->
+	                                                                       
+	<bean id="cost_BillingRuleImpl" class="com.sealinkin.cost.service.impl.Cost_BillingRuleImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+ 
+    <!-- 杂项费用维护 -->
+	<bean id="cost_OtherImpl" class="com.sealinkin.cost.service.impl.Cost_OtherImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+	
+    <!-- 科目设置维护-->
+	<bean id="cost_AccountImpl" class="com.sealinkin.cost.service.impl.Cost_AccountImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+	
+    <!-- 消费清单查询-->
+	<bean id="cost_ExpensesListImpl" class="com.sealinkin.cost.service.impl.Cost_ExpensesListImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+	
+    <!-- 未出账清单查询-->
+	<bean id="cost_NoAccountListImpl" class="com.sealinkin.cost.service.impl.Cost_NoAccountListImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+	
+    <!-- 已出账账单查询-->
+	<bean id="cost_FinancialImpl" class="com.sealinkin.cost.service.impl.Cost_FinancialImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+	
+    <!-- 手工出账-->
+	<bean id="cost_ManualAccountImpl" class="com.sealinkin.cost.service.impl.Cost_ManualAccountImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+	
+	<!-- 收款-->
+	<bean id="cost_ReceivingImpl" class="com.sealinkin.cost.service.impl.Cost_ReceivingImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+	
+    <!-- 手工生成费用明细-->
+	<bean id="cost_ManualCostImpl" class="com.sealinkin.cost.service.impl.Cost_ManualCostImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+	
+	<!-- 手工录入消费清单-->
+	<bean id="cost_HandleListImpl" class="com.sealinkin.cost.service.impl.Cost_HandleListImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+</beans>

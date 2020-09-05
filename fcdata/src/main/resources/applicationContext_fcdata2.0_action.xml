@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- 盘点手建单 -->
+	<bean id="fcdata_PlanAction" class="com.sealinkin.fcdata.action.Fcdata_PlanAction" scope="prototype">
+		<property name="fcdata_PlanImpl" ref="fcdata_PlanImpl"/>
+	</bean>
+	
+	<!-- 盘点发单 -->
+	<bean id="fcdata_CheckAction" class="com.sealinkin.fcdata.action.Fcdata_CheckAction" scope="prototype">
+		<property name="fcdata_CheckImpl" ref="fcdata_CheckImpl"/>
+	</bean>
+	
+	<!-- 盘点手建单 -->
+	<bean id="fcdata_RequestAction" class="com.sealinkin.fcdata.action.Fcdata_RequestAction" scope="prototype">
+		<property name="fcdata_RequestImpl" ref="fcdata_RequestImpl"/>
+	</bean>
+	
+</beans>
+

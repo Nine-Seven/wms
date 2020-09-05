@@ -1,0 +1,15 @@
+Ext.define('cms.model.bset.bset_User_RoleModel',{
+	extend:'Ext.data.Model',
+	fields:[
+		{name:'flag'},
+		{name:'roleId'},
+		{name:'roleName'},
+		{name:'workerNo'},
+		{name:'workerName'},
+		{name:'rgstName'},
+		{name:'rgstDate'},
+		{name:'updtName'},
+		{name:'updtDate'}
+		],
+	idProperty:'roleId,workerNo'
+});

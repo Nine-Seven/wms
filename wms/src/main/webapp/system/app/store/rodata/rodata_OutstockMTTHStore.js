@@ -1,0 +1,21 @@
+Ext.define('cms.store.rodata.rodata_OutstockMTTHStore',{
+	extend:'Ext.data.Store',
+	model:'cms.model.rodata.rodata_OutstockMModel',
+	//autoLoad:true,
+	proxy:{
+		type:'ajax',
+		method:'post',
+		url:'rodata_OutstockMTTHAction_getRodataOutstockM',
+		reader:{
+			type:'json',
+			root:'rootList',
+			totalProperty:'totalCount'
+		}
+	},
+	listeners:{
+	load:function( th, records,  successful,  eOpts ){
+		//debugger;
+		console.log(records);
+	}
+	}
+});

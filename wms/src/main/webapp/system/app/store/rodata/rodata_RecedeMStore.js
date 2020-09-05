@@ -1,0 +1,19 @@
+/**
+ *退厂单头
+ *创建：zhouhuan
+ */
+Ext.define('cms.store.rodata.rodata_RecedeMStore',{
+	extend:'Ext.data.Store',
+	pageSize : appConfig.getPageSize(),
+	model:'cms.model.rodata.rodata_RecedeMModel',
+	autoLoad:true,
+	proxy:{
+		type:'ajax',
+		method:'post',
+		url:'rodata_RecedeMAction_getRodata_RecedeM',
+		reader:{
+			root:'rootList',
+			totalProperty:'totalCount'
+		}
+	}
+});

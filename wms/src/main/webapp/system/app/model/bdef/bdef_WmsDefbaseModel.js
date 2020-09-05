@@ -1,0 +1,16 @@
+Ext.define('cms.model.bdef.bdef_WmsDefbaseModel',{
+	extend:'Ext.data.Model',
+	fields:[
+			{name:'colname'},
+			{name:'groupNo'},
+		    {name:'subGroupNo'},
+			{name:'useLevel'},
+			{name:'sdefine'},
+			{name:'ndefine'},
+			{name:'memo'},
+			{name:'subGroupNoText'},
+			{name:'sdefineText'},
+			{name:'groupNoText'}
+		],	
+		idProperty:'colname'
+});

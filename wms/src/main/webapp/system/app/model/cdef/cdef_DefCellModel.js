@@ -1,0 +1,43 @@
+Ext.define('cms.model.cdef.cdef_DefCellModel', {
+    extend: 'Ext.data.Model',
+    fields: [
+		{name:'ownerNo'},
+		{name:'wareNo'},
+		{name:'areaNo'},
+		{name:'stockNo'},
+		{name:'stockX'},
+		{name:'bayX'},
+		{name:'stockY'},
+		{name:'mixFlag'},
+		{name:'mixSupplier'},
+		{name:'maxQty'},
+		{name:'maxWeight'},
+		{name:'maxVolume'},
+		{name:'maxCase'},
+		{name:'limitType'},
+		{name:'limitRate'},
+		{name:'BPick'},
+		{name:'cellStatus'},
+		{name:'heckStatus'},
+		{name:'AFlag'},
+		{name:'pickFlag'},
+		{name:'rgstName'},
+		{name:'rgstDate'},
+		{name:'updtName'},
+		{name:'updtDate'},
+		{name:'prefix'},
+		{name:'pickOrder'},
+		{name:'dispCellNo'},
+		{name:'mixOwner'},
+		{name:'enterpriseNo'},
+		{name:'warehouseNo'},
+		{name:'cellNo'},
+		{name:'areaUsetype'},
+		{name:'areaAttribute'},
+		{name:'wareName'},//库区编码+名称的组合
+		{name:'areaName'},
+		{name:'keepLabelFlag'}
+   
+    ],
+    idProperty:'enterpriseNo,warehouseNo,cellNo'
+});

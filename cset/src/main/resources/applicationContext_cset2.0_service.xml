@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/aop 
+            http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context/spring-context-2.5.xsd
+            http://www.springframework.org/schema/tx 
+            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+    <!-- 保拣关系设置 -->
+	<bean id="cset_AreaBackupImpl" class="com.sealinkin.cset.service.impl.Cset_AreaBackupImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 商品储位对照关系 -->
+	<bean id="cset_CellArticleImpl" class="com.sealinkin.cset.service.impl.Cset_CellArticleImpl">
+		<property name="genDao" ref="genDao" />
+		<property name="getArticleForBarcodeImpl" ref="getArticleForBarcodeImpl" />		
+	</bean>
+	
+	<!-- 仓别维护 -->
+	<bean id="cset_deflocServiceImpl" class="com.sealinkin.cset.service.impl.Cset_deflocServiceImpl">
+		<property name="genDao" ref="genDao" />	
+	</bean>
+
+	<!-- 类别储位对照关系 -->
+	<bean id="cset_GroupArticleImpl" class="com.sealinkin.cset.service.impl.Cset_GroupArticleImpl">
+		<property name="genDao" ref="genDao" />
+		<property name="getArticleForBarcodeImpl" ref="getArticleForBarcodeImpl" />		
+	</bean>
+    <!-- 货主货位对照关系 -->
+	<bean id="cset_CellOwnerImpl" class="com.sealinkin.cset.service.impl.Cset_CellOwnerImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	<!-- 暂存区维护 -->
+	<bean id="cset_BufferImpl" class="com.sealinkin.cset.service.impl.Cset_BufferImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

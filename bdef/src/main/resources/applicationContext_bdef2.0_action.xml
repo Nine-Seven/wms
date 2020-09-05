@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="bdef_ArticleGroupAction" class="com.sealinkin.bdef.action.Bdef_ArticleGroupAction" scope="prototype">
+		<property name="bdef_ArticleGroupImpl" ref="bdef_ArticleGroupImpl"/>
+	</bean>
+	
+	<!-- 接口配置 -->
+	<bean id="bdef_WmsInterfacePlatAction" class="com.sealinkin.bdef.action.Bdef_WmsInterfacePlatAction" scope="prototype">
+		<property name="bdef_WmsInterfacePlatImpl" ref="bdef_WmsInterfacePlatImpl"/>
+	</bean>
+	
+	<!-- 商品资料 -->
+	<bean id="bdef_DefarticleAction" class="com.sealinkin.bdef.action.Bdef_DefarticleAction" scope="prototype">
+		<property name="bdef_DefarticleImpl" ref="bdef_DefarticleImpl"/>
+	</bean>
+	
+	<!-- 货主资料 -->
+	<bean id="bdef_DefOwnerAction" class="com.sealinkin.bdef.action.Bdef_DefOwnerAction" scope="prototype">
+		<property name="bdef_DefOwnerImpl" ref="bdef_DefOwnerImpl"/>
+	</bean>
+	
+	<!-- 员工资料 -->
+	<bean id="bdef_DefWorkerAction" class="com.sealinkin.bdef.action.Bdef_DefWorkerAction" scope="prototype">
+		<property name="bdef_DefWorkerImpl" ref="bdef_DefWorkerImpl"/>
+	</bean>	
+	
+	<!-- 供应商 -->
+	<bean id="bdef_DefSupplierAction" class="com.sealinkin.bdef.action.Bdef_DefSupplierAction" scope="prototype">
+		<property name="bdef_DefSupplierImpl" ref="bdef_DefSupplierImpl"/>
+	</bean>	
+	
+	<!-- 码头 -->
+	<bean id="bdef_DefDockAction" class="com.sealinkin.bdef.action.Bdef_DefDockAction" scope="prototype">
+		<property name="bdef_DefDockImpl" ref="bdef_DefDockImpl"/>
+	</bean>	
+	
+	<!-- 客户 -->
+	<bean id="bdef_DefCustAction" class="com.sealinkin.bdef.action.Bdef_DefCustAction" scope="prototype">
+		<property name="bdef_DefCustImpl" ref="bdef_DefCustImpl"/>
+	</bean>	
+	
+	<!-- 工作站 -->
+	<bean id="bdef_DefWorkstationAction" class="com.sealinkin.bdef.action.Bdef_DefWorkstationAction" scope="prototype">
+		<property name="bdef_DefWorkstationImpl" ref="bdef_DefWorkstationImpl"/>
+	</bean>	
+	
+	<!-- 承运商资料维护-->
+	<bean id="bdef_DefShipperAction" class="com.sealinkin.bdef.action.Bdef_DefShipperAction" scope="prototype">
+		<property name="bdef_DefShipperImpl" ref="bdef_DefShipperImpl"/>
+	</bean>	
+	
+	<!-- 打印机维护 -->
+	<bean id="bdef_DefPrinterAction" class="com.sealinkin.bdef.action.Bdef_DefPrinterAction" scope="prototype">
+		<property name="bdef_defprinterImpl" ref="bdef_defprinterImpl"/>
+	</bean>	
+	
+	<!-- 客户与线路 -->
+	<bean id="oset_DefLineAction" class="com.sealinkin.bdef.action.Oset_DefLineAction" scope="prototype">
+		<property name="oset_DefLineImpl" ref="oset_DefLineImpl"/>
+	</bean>	
+	
+	<!-- 系统参数配置 -->
+	<bean id="bdef_WmsDefbaseAction" class="com.sealinkin.bdef.action.Bdef_WmsDefbaseAction" scope="prototype">
+		<property name="bdef_WmsDefbaseImpl" ref="bdef_WmsDefbaseImpl"></property>
+	</bean>	
+	
+	<!-- 货主参数配置 -->
+	<bean id="bdef_WmsOwnerBaseAction" class="com.sealinkin.bdef.action.Bdef_WmsOwnerBaseAction" scope="prototype">
+		<property name="bdef_WmsOwnerBaseImpl" ref="bdef_WmsOwnerBaseImpl"/>
+	</bean>	
+	
+	<!-- 仓别参数配置 -->
+	<bean id="bdef_WmsWarehouseBaseAction" class="com.sealinkin.bdef.action.Bdef_WmsWarehouseBaseAction" scope="prototype">
+		<property name="bdef_WmsWarehouseBaseImpl" ref="bdef_WmsWarehouseBaseImpl"/>
+	</bean>	
+	
+	<!-- 货主仓别参数配置 -->
+   <bean id="bdef_WmsWarehouseOwnerBaseAction" class="com.sealinkin.bdef.action.Bdef_WmsWarehouseOwnerBaseAction" scope="prototype">
+		<property name="bdef_WmsWarehouseOwnerBaseImpl" ref="bdef_WmsWarehouseOwnerBaseImpl"/>
+
+	</bean>	  
+	<!-- 租仓策略配置 -->
+   <bean id="bset_ValuePolicySetAction" class="com.sealinkin.bdef.action.Bset_ValuePolicySetAction" scope="prototype">
+		<property name="bset_ValuePolicySetImpl" ref="bset_ValuePolicySetImpl"/>
+	</bean>	  
+
+	<!-- 计费公式管理 -->
+   <bean id="bill_FormulasetAction" class="com.sealinkin.bdef.action.Bill_FormulasetAction" scope="prototype">
+		<property name="bill_FormulasetImpl" ref="bill_FormulasetImpl"/>
+	</bean> 
+
+    <!-- 科目和计费项目的关系维护-->
+   <bean id="bill_AccountAction" class="com.sealinkin.bdef.action.Bill_AccountAction" scope="prototype">
+		<property name="bill_AccountImpl" ref="bill_AccountImpl"/>
+   </bean> 
+
+    <!-- 租仓费用算算-->
+   <bean id="bill_ResetBillAction" class="com.sealinkin.bdef.action.Bill_ResetBillAction" scope="prototype">
+		<property name="bill_ResetBillImpl" ref="bill_ResetBillImpl"/>
+   </bean>    
+    <!-- 费用清单维护-->
+   <bean id="bill_BaseAmountAction" class="com.sealinkin.bdef.action.Bill_BaseAmountAction" scope="prototype">
+		<property name="bill_BaseAmountImpl" ref="bill_BaseAmountImpl"/>
+   </bean>  
+   <!-- 条码信息采集-->
+   <bean id="bset_Article_BarcodeAction" class="com.sealinkin.bdef.action.Bset_Article_BarcodeAction" scope="prototype">
+		<property name="bset_Article_BarcodeImpl" ref="bset_Article_BarcodeImpl"/>
+   </bean> 
+   
+   <!-- 客户与电子标签储位对应关系-->
+   <bean id="bdef_CsetCustDpscellAction" class="com.sealinkin.bdef.action.Bdef_CsetCustDpscellAction" scope="prototype">
+		<property name="bdef_CsetCustDpscellImpl" ref="bdef_CsetCustDpscellImpl"/>
+   </bean> 
+   
+    <!-- 色码维护-->
+   <bean id="bdef_ColourCodeAction" class="com.sealinkin.bdef.action.Bdef_ColourCodeAction" scope="prototype">
+		<property name="bdef_ColourCodeImpl" ref="bdef_ColourCodeImpl"/>
+   </bean> 
+	<!-- 数据导入-->
+   <bean id="dataImportAction" class="com.sealinkin.bdef.action.DataImportAction" scope="prototype">
+		<property name="dataImportImpl" ref="dataImportImpl"/>
+   </bean>	
+	<!-- 商品与商品群组关系-->
+   <bean id="bdef_ArticleFamilyAction" class="com.sealinkin.bdef.action.Bdef_ArticleFamilyAction" scope="prototype">
+		<property name="bdef_ArticleFamilyImpl" ref="bdef_ArticleFamilyImpl"/>
+   </bean>	
+   <!-- 设备维护-->
+   <bean id="Divice_DivideAction" class="com.sealinkin.bdef.action.Divice_DivideAction" scope="prototype">
+		<property name="Divice_DivideImpl" ref="Divice_DivideImpl"/>
+   </bean>
+   
+   <!-- 打印机群组与打印机组关系维护-->
+   <bean id="pntdef_PrinterGrpgatherAction" class="com.sealinkin.bdef.action.Pntdef_PrinterGrpgatherAction" scope="prototype">
+		<property name="pntdef_PrinterGrpgatherImpl" ref="pntdef_PrinterGrpgatherImpl"/>
+   </bean>	
+
+   <!-- 工作站与设备组关系维护-->
+   <bean id="bset_workstationDivideAction" class="com.sealinkin.bdef.action.Bset_workstationDivideAction" scope="prototype">
+		<property name="bset_workstationDivideImpl" ref="bset_workstationDivideImpl"/>
+   </bean>	
+
+   <!-- 文件管理 -->
+   <bean id='bdef_DefAppendixAction' class="com.sealinkin.bdef.action.Bdef_DefAppendixAction" scope="prototype">
+   		<property name="bdef_DefAppendixImpl" ref="bdef_DefAppendixImpl"/>
+   </bean>
+   
+   <!-- 车辆信息维护 -->
+   <bean id='bdef_DefCarAction' class="com.sealinkin.bdef.action.Bdef_DefCarAction" scope="prototype">
+   		<property name="bdef_DefCarImpl" ref="bdef_DefCarImpl"/>
+   </bean>
+   
+   <!-- 任务切分规则配置 huangb 20160612 -->
+   <bean id='bdef_WmsTaskallotRuleMAction' class="com.sealinkin.bdef.action.Bdef_WmsTaskallotRuleMAction" scope="prototype">
+   		<property name="bdef_WmsTaskallotRuleMImpl" ref="bdef_WmsTaskallotRuleMImpl"/>
+   </bean>
+   
+   
+    <!-- 策略配置 -->
+   <bean id='bdef_WmsDefstrategyAction' class="com.sealinkin.bdef.action.Bdef_WmsDefstrategyAction" scope="prototype">
+   		<property name="bdef_WmsDefstrategyImpl" ref="bdef_WmsDefstrategyImpl"/>
+   </bean>
+   
+   <!-- 监控日志查询 -->
+   <bean id='bdef_ControlLogAction' class="com.sealinkin.bdef.action.Bdef_ControlLogAction" scope="prototype">
+   		<property name="bdef_ControlLogServiceImpl" ref="bdef_ControlLogServiceImpl"/>
+   </bean>
+   
+   	<!-- 物流箱策略配置 -->
+	<bean id="bdef_WmsLogiboxRuleAction" class="com.sealinkin.bdef.action.Bdef_WmsLogiboxRuleAction" scope="prototype">
+		<property name="bdef_WmsLogiboxRuleImpl" ref="bdef_WmsLogiboxRuleImpl"/>
+	</bean>
+	
+	 <!-- 拣货策略配置 -->
+   <bean id='Bdef_WmsOutPickAction' class="com.sealinkin.bdef.action.Bdef_WmsOutPickAction" scope="prototype">
+   		<property name="Bdef_WmsOutPickImpl" ref="Bdef_WmsOutPickImpl"/>
+   </bean>
+</beans>
+

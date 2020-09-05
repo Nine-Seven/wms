@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="print" />
+        <module name="fcdata" />
+        <module name="bdef" />
+        <module name="model" />
+        <module name="acdata" />
+        <module name="cdef" />
+        <module name="cset" />
+        <module name="auth" />
+        <module name="cost" />
+        <module name="report" />
+        <module name="odata" />
+        <module name="rf_server" />
+        <module name="rodata" />
+        <module name="stock" />
+        <module name="wms" />
+        <module name="comm" />
+        <module name="sodata" />
+        <module name="idata" />
+        <module name="ridata" />
+        <module name="mdata" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="acdata" target="1.8" />
+      <module name="auth" target="1.8" />
+      <module name="bdef" target="1.8" />
+      <module name="cdef" target="1.8" />
+      <module name="comm" target="1.8" />
+      <module name="cost" target="1.8" />
+      <module name="cset" target="1.8" />
+      <module name="fcdata" target="1.8" />
+      <module name="idata" target="1.8" />
+      <module name="mdata" target="1.8" />
+      <module name="model" target="1.8" />
+      <module name="odata" target="1.8" />
+      <module name="print" target="1.8" />
+      <module name="report" target="1.8" />
+      <module name="rf_server" target="1.8" />
+      <module name="ridata" target="1.8" />
+      <module name="rodata" target="1.8" />
+      <module name="sodata" target="1.8" />
+      <module name="stock" target="1.8" />
+      <module name="wms" target="1.8" />
+      <module name="wms-parent" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

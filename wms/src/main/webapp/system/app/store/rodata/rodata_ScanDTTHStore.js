@@ -1,0 +1,19 @@
+/**
+ *退厂扫描未扫描商品信息
+ *创建：chensr
+ */
+Ext.define('cms.store.rodata.rodata_ScanDTTHStore',{
+	extend:'Ext.data.Store',
+	pageSize : appConfig.getPageSize(),
+	model:'cms.model.rodata.rodata_OutstockDModel',
+	autoLoad:false,
+	proxy:{
+		type:'ajax',
+		method:'post',
+		url:'rodata_ScanTTHAction_getRodata_ScanD',
+		reader:{
+			root:'rootList',
+			totalProperty:'totalCount'
+		}
+	}
+});

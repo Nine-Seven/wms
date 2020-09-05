@@ -1,0 +1,69 @@
+/**
+ * 创建人:JUN
+ */
+Ext.define('cms.model.idata.idata_CheckDModel', {
+    extend: 'Ext.data.Model',
+    fields: [
+		{name:'warehouseNo'},
+		{name:'checkNo'},
+		{name:'ownerNo'},
+		{name:'rowId'},
+		{name:'articleNo'},
+		{name:'packingQty'},
+		{name:'qcNo'},
+		{name:'barcode'},
+		{name:'produceDate'},
+		{name:'expireDate'},
+		{name:'quality'},
+		{name:'lotNo'},
+		{name:'rsvBatch1'},
+		{name:'rsvBatch2'},
+		{name:'rsvBatch3'},
+		{name:'rsvBatch4'},
+		{name:'rsvBatch5'},
+		{name:'rsvBatch6'},
+		{name:'rsvBatch7'},
+		{name:'rsvBatch8'},
+		{name:'temperature'},
+		{name:'stockType'},
+		{name:'stockValue'},
+		{name:'deptNo'},
+		{name:'checkQty'},
+		{name:'checkWorker1'},
+		{name:'qcWorker'},
+		{name:'checkStartDate'},
+		{name:'checkEndDate'},
+		{name:'iqcStatus'},
+		{name:'unloadWorker'},
+		{name:'authorizedWorker'},
+		{name:'outQty'},
+		{name:'checkWorker2'},
+		{name:'price'},
+		
+		{name:'articleName'},
+		{name:'spec'},
+		{name:'packingUnit'},
+		{name:'pkQty'},
+		{name:'labelNo'},
+		{name:'subLabelNo'},
+		{name:'cellNo'},
+		{name:'qualityText'},
+		{name:'ownerArticleNo'},
+		{name:'printFlag'},
+		{name:'promptType'},
+		{name:'promptFlag'},
+		{name:'packingUnitQmin'},//中包装单位
+		{name:'Unit'},//基本包装单位
+		{name:'packingSpec'},//箱包装规格
+		{name:'packingSpecQmin'},//中包装规格
+		{name:'realBox'},//实际箱数
+		{name:'realDis'},//实际散数
+		{name:'realQmin'},//实际中包数
+		{name:'planBox'},//计划箱数
+		{name:'planDis'},//计划散数
+		{name:'planQmin'},//计划中包数
+		{name:'qminOperatePacking'},//最小操作包装数量
+		{name:'unitPacking'}//基本包装数量
+    ],
+    idProperty:'warehouseNo,checkNo,ownerNo,rowId'
+});

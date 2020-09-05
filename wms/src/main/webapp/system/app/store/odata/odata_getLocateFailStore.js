@@ -1,0 +1,19 @@
+/**
+ *出货集单头档
+ *创建：lich
+ */
+Ext.define('cms.store.odata.odata_getLocateFailStore',{
+	extend:'Ext.data.Store',
+	model:'cms.model.odata.odata_LocateShortLogModel',
+	pageSize : appConfig.getPageSize(),
+	autoLoad:false,
+	proxy:{
+		type:'ajax',
+		method:'post',
+		url:'odata_LocateAction_getLocateFail.action',
+		reader:{
+			root:'rootList',
+			totalProperty:'totalCount'
+		}
+	}
+});

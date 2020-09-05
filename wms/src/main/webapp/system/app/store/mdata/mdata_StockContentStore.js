@@ -1,0 +1,15 @@
+Ext.define('cms.store.mdata.mdata_StockContentStore',{
+	extend:'Ext.data.Store',
+	model:'cms.model.stock.stock_ContentModel',
+	autoLoad:false,
+	proxy:{
+		type:'ajax',
+		method:'post',
+		url:'mdata_PlanMAction_getStock_ContentList.action',
+		reader:{
+			type:'json',
+			root:'rootList',
+			totalProperty:'totalCount'
+		}
+	}
+});

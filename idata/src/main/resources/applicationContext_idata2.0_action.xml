@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	
+	<!-- 进货手建单 -->
+	<bean id="idata_ImPortAction" class="com.sealinkin.idata.action.Idata_ImPortAction" scope="prototype">
+		<property name="idata_ImPortImpl" ref="idata_ImPortImpl"/>
+	</bean>
+	
+	<!-- 验收 -->
+	<bean id="idata_CheckAction" class="com.sealinkin.idata.action.Idata_CheckAction" scope="prototype">
+		<property name="idata_CheckImpl" ref="idata_CheckImpl"/>
+	</bean>
+	
+	<!-- 进货预约 -->
+	<bean id="idata_Order_TimeAction" class="com.sealinkin.idata.action.Idata_Order_TimeAction" scope="prototype">
+		<property name="idata_Order_TimeImpl" ref="idata_Order_TimeImpl"/>
+	</bean>
+	
+	<!-- 上架回单 -->
+	<bean id="idata_InstockAction" class="com.sealinkin.idata.action.Idata_InstockAction" scope="prototype">
+		<property name="idata_InstockImpl" ref="idata_InstockImpl"/>
+	</bean>
+	
+	<!-- 直通验收批次管理 -->
+	<bean id="idata_StraightCheckBatchAction" class="com.sealinkin.idata.action.Idata_StraightCheckBatchAction" scope="prototype">
+		<property name="idata_StraightCheckBatchImpl" ref="idata_StraightCheckBatchImpl"/>
+	</bean>
+	
+	<!-- 直通验收作业 -->
+	<bean id="idata_StraightCheckWorkAction" class="com.sealinkin.idata.action.Idata_StraightCheckWorkAction" scope="prototype">
+		<property name="idata_StraightCheckWorkImpl" ref="idata_StraightCheckWorkImpl"/>
+	</bean>
+	
+	<!-- 指定储位验收 -->
+	<bean id="idata_StorageCloseAction" class="com.sealinkin.idata.action.Idata_StorageCloseAction" scope="prototype">
+		<property name="idata_StorageCloseImpl" ref="idata_StorageCloseImpl"/>
+	</bean>
+	
+	<!-- 移动台车验收 -->
+	<bean id="idata_MovieTrolleyCheckAction" class="com.sealinkin.idata.action.Idata_MovieTrolleyCheckAction" scope="prototype">
+		<property name="idata_MovieTrolleyCheckImpl" ref="idata_MovieTrolleyCheckImpl"/>
+	</bean>
+	<!-- 门卫登记 -->
+	<bean id="idata_GuardRegisteAction" class="com.sealinkin.idata.action.Idata_GuardRegisteAction" scope="prototype">
+		<property name="idata_GuardRegisteImpl" ref="idata_GuardRegisteImpl"/>
+	</bean>
+</beans>
+

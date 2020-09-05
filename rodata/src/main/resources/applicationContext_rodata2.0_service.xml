@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/aop 
+            http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context/spring-context-2.5.xsd
+            http://www.springframework.org/schema/tx 
+            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+            
+   <!-- 手键退厂单 -->
+	<bean id="rodata_RecedeMImpl" class="com.sealinkin.rodata.service.impl.Rodata_RecedeMImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>  
+	<!-- 退厂发单 -->
+	<bean id="rodata_OutstockDirectImpl" class="com.sealinkin.rodata.service.impl.Rodata_OutstockDirectImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>  
+	<!-- 退厂发单 （天天惠）-->
+	<bean id="rodata_StraightOutstockDirectImpl" class="com.sealinkin.rodata.service.impl.Rodata_StraightOutstockDirectImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>  
+	<!-- 退厂回单 -->
+	<bean id="rodata_OutstockMImpl" class="com.sealinkin.rodata.service.impl.Rodata_OutstockMImpl">
+		<property name="genDao" ref="genDao" />
+	</bean> 
+	
+	 <!-- 手键退厂单（天天惠） -->
+	<bean id="rodata_RecedeMTTHImpl" class="com.sealinkin.rodata.service.impl.Rodata_RecedeMTTHImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 退厂回单 （天天惠）-->
+	<bean id="rodata_OutstockMTTHImpl" class="com.sealinkin.rodata.service.impl.Rodata_OutstockMTTHImpl">
+		<property name="genDao" ref="genDao" />
+	</bean> 
+	
+	<!-- 退厂扫描（天天惠）-->
+	<bean id="rodata_ScanTTHImpl" class="com.sealinkin.rodata.service.impl.Rodata_ScanTTHImpl">
+		<property name="genDao" ref="genDao" />
+		<property name="getArticleForBarcodeImpl" ref="getArticleForBarcodeImpl"/>
+	</bean> 
+	
+	<!-- 退厂确认 （天天惠）-->
+	<bean id="rodata_OutstockComfirmImpl" class="com.sealinkin.rodata.service.impl.Rodata_OutstockComfirmImpl">
+		<property name="genDao" ref="genDao" />
+	</bean> 
+	
+	<!-- 退厂拼箱打包-->
+	<bean id="rodata_LabelPackImpl" class="com.sealinkin.rodata.service.impl.Rodata_LabelPackImpl">
+		<property name="genDao" ref="genDao" />
+	</bean> 
+	
+	<!-- 退厂清场扫描-->
+	<bean id="rodata_ScanQCImpl" class="com.sealinkin.rodata.service.impl.Rodata_ScanQCImpl">
+		<property name="genDao" ref="genDao" />
+		<property name="getArticleForBarcodeImpl" ref="getArticleForBarcodeImpl"/>
+	</bean> 
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

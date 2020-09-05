@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	
+	
+	<!-- 标签报表 -->
+	<bean id="report_Action" class="com.sealinkin.report.action.Report_Action" scope="prototype">
+		<property name="report_Impl" ref="report_Impl"/>
+	</bean>
+	
+	<!-- 报表设置 -->
+	<bean id="report_SetAction" class="com.sealinkin.report.action.Report_SetAction" scope="prototype">
+		<property name="report_setImpl" ref="report_setImpl"/>
+	</bean>
+	
+	<!-- 自定义设置 -->
+	<bean id="auto_SetAction" class="com.sealinkin.report.action.Auto_SetAction" scope="prototype">
+		<property name="auto_SetIpml" ref="auto_SetIpml"/>
+	</bean>
+	
+	<!-- 自定义设置子模块 -->
+	<bean id="auto_Action" class="com.sealinkin.report.action.Auto_Action" scope="prototype">
+		<property name="auto_Impl" ref="auto_Impl"/>
+	</bean>
+	
+</beans>
+

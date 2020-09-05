@@ -1,0 +1,19 @@
+/**
+ *出货头档
+ *创建：lich
+ */
+Ext.define('cms.store.odata.odata_ExpMStore',{
+	extend:'Ext.data.Store',
+	model:'cms.model.odata.odata_ExpMModel',
+	pageSize : appConfig.getPageSize(),
+	autoLoad:false,
+	proxy:{
+		type:'ajax',
+		method:'post',
+		url:'odata_ExpAction_getExp_MList',
+		reader:{
+			root:'rootList',
+			totalProperty:'totalCount'
+		}
+	}
+});

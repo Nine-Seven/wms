@@ -1,0 +1,9 @@
+.addBtu{
+	background-image: url('../../resources/icons/fam/add.gif') !important;
+}
+.delBtu{
+	background-image: url('../../resources/icons/fam/delete.gif') !important;
+}
+.modBtu{
+	background-image: url('../../resources/icons/fam/accept.gif') !important;
+}

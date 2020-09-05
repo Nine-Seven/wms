@@ -1,0 +1,13 @@
+Ext.define('cms.model.wms.wms_PntsetModuleReportQueryModel',{
+extend:'Ext.data.Model',
+fields:[{name:'moduleid'},
+		{name:'columnid'},
+		{name:'columnname'},
+		{name:'xtype'},
+		{name:'fieldtable'},
+		{name:'fieldcolumn'},
+		{name:'orderno'},
+		{name:'enterpriseNo'}
+		],
+idProperty:'moduleid,columnid,enterpriseNo'
+});

@@ -1,0 +1,19 @@
+/**
+ *移库回单
+ *创建：zhouhuan
+ */
+Ext.define('cms.store.odata.odata_OutstockDStore',{
+	extend:'Ext.data.Store',
+	model:'cms.model.odata.odata_OutstockDModel',
+	autoLoad:false,
+	proxy:{
+		type:'ajax',
+		method:'post',
+		url:'odata_OutstockDAction_getOdata_OutstockD.action',
+		reader:{
+			type:'json',
+			root:'rootList',
+			totalProperty:'totalCount'
+		}
+	}
+});

@@ -1,0 +1,11 @@
+Ext.define('cms.model.bset.bset_PrintGroup_DockModel',{
+	extend:'Ext.data.Model',
+	fields:
+		[
+	       {name:'dockNo'},
+	       {name:'dockName'},
+	       {name:'printerGroupNo'},
+	       {name:'printerGroupName'},
+	       {name:'warehouseNo'}
+	    ]
+});

@@ -1,0 +1,55 @@
+/**
+ * 退货发单
+ * zhouhuan
+ */
+Ext.define('cms.model.rodata.rodata_OutstockDirectModel',{
+	extend:'Ext.data.Model',
+	fields:[
+		 {name: 'operateDate'},
+	     {name: 'directSerial'},
+	     {name: 'warehouseNo'},
+	     {name: 'ownerNo'},
+	     {name: 'sourceNo'},
+	     {name: 'operateType'},
+	     {name: 'articleNo'},
+	     {name: 'articleId'},
+	     {name: 'packingQty'},
+	     {name: 'SCellNo'},
+	     {name: 'SCellId'},
+	     {name: 'SContainerNo'},
+	     {name: 'DCellNo'},
+	     {name: 'DCellId'},
+	     {name: 'DContainerNo'},
+	     {name: 'locateQty'},
+	     {name: 'status'},
+	     {name: 'supplierNo'},
+	     {name: 'classType'},
+	     {name: 'poId'},
+	     {name: 'stockType'},
+	     {name: 'stockValue'},
+	     {name: 'rgstName'},
+	     {name: 'rgstDate'},
+	     {name: 'updtName'},
+	     {name: 'updtDate'},
+	     {name: 'waveNo'},
+	     
+	     {name:'AClass'},
+	     {name:'recedeNo'},
+		 {name: 'barcode'},
+		 {name: 'articleName'},
+		 {name: 'quality'},		 
+		 {name:'qualityText'},
+		 {name:'ownerArticleNo'},
+		 {name:'dropValue'},
+		 {name:'value'},
+		 {name: 'qminOperatePacking'},
+		 {name:'unitPacking'},
+		 {name:'packingUnit'},
+		 {name:'packingUnitQmin'},
+		 {name:'Unit'},
+		 {name:'packingSpec'},
+		 {name:'packingSpecQmin'},
+		 {name: 'spec'}
+		],
+	idProperty:'operateDate,directSerial'
+});

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+	default-lazy-init="false">
+	<!-- 计费公式管理 -->
+   <bean id="cost_FormulasetAction" class="com.sealinkin.cost.action.Cost_FormulasetAction" scope="prototype">
+		<property name="cost_FormulasetImpl" ref="cost_FormulasetImpl"/>
+	</bean> 
+	<!-- 计费取值方式维护 -->
+   <bean id="cost_BillingRuleAction" class="com.sealinkin.cost.action.Cost_BillingRuleAction" scope="prototype">
+		<property name="cost_BillingRuleImpl" ref="cost_BillingRuleImpl"/>
+	</bean>                                       
+	
+	<!-- 杂项费用维护-->
+   <bean id="cost_OtherAction" class="com.sealinkin.cost.action.Cost_OtherAction" scope="prototype">
+		<property name="cost_OtherImpl" ref="cost_OtherImpl"/>
+   </bean> 
+   
+	<!-- 科目设置维护-->
+   <bean id="cost_AccountAction" class="com.sealinkin.cost.action.Cost_AccountAction" scope="prototype">
+		<property name="cost_AccountImpl" ref="cost_AccountImpl"/>
+   </bean> 
+   
+   <!-- 消费清单查询-->
+   <bean id="cost_ExpensesListAction" class="com.sealinkin.cost.action.Cost_ExpensesListAction" scope="prototype">
+		<property name="cost_ExpensesListImpl" ref="cost_ExpensesListImpl"/>
+   </bean> 
+   
+   <!-- 未出账清单查询-->
+   <bean id="cost_NoAccountListAction" class="com.sealinkin.cost.action.Cost_NoAccountListAction" scope="prototype">
+		<property name="cost_NoAccountListImpl" ref="cost_NoAccountListImpl"/>
+   </bean> 
+   
+   <!-- 已出账账单查询-->
+   <bean id="cost_FinancialAction" class="com.sealinkin.cost.action.Cost_FinancialAction" scope="prototype">
+		<property name="cost_FinancialImpl" ref="cost_FinancialImpl"/>
+   </bean> 
+
+   <!-- 手工出账-->
+   <bean id="cost_ManualAccountAction" class="com.sealinkin.cost.action.Cost_ManualAccountAction" scope="prototype">
+		<property name="cost_ManualAccountImpl" ref="cost_ManualAccountImpl"/>
+   </bean> 
+
+   <!-- 收款-->
+   <bean id="cost_ReceivingAction" class="com.sealinkin.cost.action.Cost_ReceivingAction" scope="prototype">
+		<property name="cost_ReceivingImpl" ref="cost_ReceivingImpl"/>
+   </bean> 
+   
+   <!-- 手工生成费用明细-->
+   <bean id="cost_ManualCostAction" class="com.sealinkin.cost.action.Cost_ManualCostAction" scope="prototype">
+		<property name="cost_ManualCostImpl" ref="cost_ManualCostImpl"/>
+   </bean> 
+   
+   <!-- 手工录入消费清单-->
+   <bean id="cost_HandleListAction" class="com.sealinkin.cost.action.Cost_HandleListAction" scope="prototype">
+		<property name="cost_HandleListImpl" ref="cost_HandleListImpl"/>
+   </bean> 
+   
+</beans>
+

@@ -1,0 +1,105 @@
+/**
+ * 模块名称：承运商资料维护
+ * 模块编码：1E01
+ * 创建：周欢
+ */
+Ext.define('cms.view.bdef.window.bdef_DefShipperAddorEditWindow',{
+	extend:'Ext.window.Window',
+	alias:'widget.bdef_DefShipperAddorEditWindow',
+	layout:'border',
+	id:'bdef_DefShipperAddorEditWindow',
+	width:900,
+	height:435,
+	modal:true,
+	items:[
+	{
+	    xtype:'form',
+	    region:'center',
+	    id:'formBdef_DefShipperAddorEdit1E01',
+	    frame:true,
+	    items:[
+	    {
+            xtype:'fieldset',
+  			layout: {
+      		type: 'table',
+      	        columns: 3
+      	    },
+      	    defaults:{
+    	   		xtype:'textfield',
+    	   		margin:'5 4 1 4',
+    	   		labelAlign:'right',
+    	   		labelWidth:120
+       	    },
+       	    items:[
+	        {
+        	    fieldLabel:$i18n.shipper_no,//承运商编号
+        	    id:'txtShipperNo1E01',
+        	    maxLength:15,
+        	    allowBlank:false,
+    		    beforeLabelTextTpl:required
+	        },{
+        	    fieldLabel:$i18n.shipper_name,//承运商名称
+        	    id:'txtShipperName1E01',
+        	     colspan:2,
+        	    maxLength:100
+	        },{
+        	    fieldLabel:$i18n.address,//地址
+        	    id:'txtAddress1E01',
+        	    maxLength:100,
+        	    width:558,
+        	    colspan:2
+	        },{
+        	    fieldLabel:$i18n.tel,//电话
+        	    id:'txtTel1E01',
+        	    maxLength:15
+	        },{
+        	    fieldLabel:$i18n.contact,//联系人
+        	    id:'txtContact1E01',
+        	    maxLength:20
+            },{
+            	xtype:'wms_DefFieldValCombo',
+        	    fieldLabel:$i18n.status,//状态
+        	    id:'cmbStatus1E01',
+	 	    	store:Ext.create("cms.store.common.comboStore").load(
+				{
+					params:{str:"N,DEF_STATUS"}
+				})
+            },{
+            	xtype:'numberfield',
+        	    fieldLabel:$i18n.disprice,//里程单价
+        	    id:'txtDisprice1E01',
+        	    maxLength:8
+            },{
+            	xtype:'numberfield',
+        	    fieldLabel:$i18n.graprice,//重量单价
+        	    id:'txtGraprice1E01',
+        	    maxLength:8
+            },{
+            	xtype:'datefield',
+        	    fieldLabel:$i18n.compact_date,//合同日期
+        	    id:'dateCompactDate1E01'
+            },{
+            	xtype:'datefield',
+        	    fieldLabel:$i18n.end_date,//到期日
+        	    id:'dateEndDate'
+            },{
+            	xtype:'numberfield',
+        	    fieldLabel:$i18n.multi,//增值单位
+        	    id:'numMulti1E01'
+            },{
+            	xtype:'numberfield',
+        	    fieldLabel:$i18n.volprice,//材积单价
+        	    id:'numVolprice1E01'
+            },{
+            	xtype:'textfield',
+        	    fieldLabel:$i18n.memo,//材积单价
+        	    id:'txtMemo1E01'
+            }]
+	   }]
+    },{
+		region:'south',
+		xtype:'commMenuWidget5',
+		border:0,
+		id:'bdef_MenuWidget1E01'
+	}]
+});

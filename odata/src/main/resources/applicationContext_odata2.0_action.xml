@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- 拣货发单 -->
+	<bean id="odata_OutstockMAction" class="com.sealinkin.odata.action.Odata_OutstockMAction" scope="prototype">
+		<property name="odata_OutstockMImpl" ref="odata_OutstockMImpl"/>
+	</bean>
+	
+	<!-- 出货调度 -->
+	<bean id="odata_LocateAction" class="com.sealinkin.odata.action.Odata_LocateAction" scope="prototype">
+		<property name="odata_LocateImpl" ref="odata_LocateImpl"/>
+	</bean>
+	
+	<!-- 拣货回单 -->
+	<bean id="odata_OutstockMReceiptAction" class="com.sealinkin.odata.action.Odata_OutstockMReceiptAction" scope="prototype">
+		<property name="odata_OutstockMReceiptImpl" ref="odata_OutstockMReceiptImpl"/>
+	</bean>
+	
+	<!-- 分播回单 -->
+	<bean id="odata_DivideAction" class="com.sealinkin.odata.action.Odata_DivideAction" scope="prototype">
+		<property name="odata_DivideImpl" ref="odata_DivideImpl"/>
+	</bean>
+	
+	<!-- 出货手建单 -->
+	<bean id="odata_ExpAction" class="com.sealinkin.odata.action.Odata_ExpAction" scope="prototype">
+		<property name="odata_ExpImpl" ref="odata_ExpImpl"/>
+	</bean>
+	
+	<!-- 出货装车作业 -->
+	<bean id="odata_CarPlanAction" class="com.sealinkin.odata.action.Odata_CarPlanAction" scope="prototype">
+		<property name="odata_CarPlanImpl" ref="odata_CarPlanImpl"/>
+	</bean>
+	<!-- 出货装车作业(小嘴) -->
+	<bean id="odata_CarPlanForXzAction" class="com.sealinkin.odata.action.Odata_CarPlanForXzAction" scope="prototype">
+		<property name="odata_CarPlanForXzImpl" ref="odata_CarPlanForXzImpl"/>
+	</bean>
+	
+	<!-- 出货策略配置 -->
+	<bean id="odata_TacticsAction" class="com.sealinkin.odata.action.Odata_TacticsAction" scope="prototype">
+		<property name="odata_TacticsImpl" ref="odata_TacticsImpl"/>
+	</bean>
+		
+	<!-- BYM出货订单接口-->
+	<bean id="odata_BYMSheetAction" class="com.sealinkin.odata.action.Odata_BYMSheetAction" scope="prototype">
+		<property name="odata_BYMSheetImpl" ref="odata_BYMSheetImpl"/>
+	</bean>
+	
+	<!-- 切单规则配置 -->
+	<bean id="oset_TaskAllotAction" class="com.sealinkin.odata.action.Oset_TaskAllotAction" scope="prototype">
+		<property name="oset_TaskAllotImpl" ref="oset_TaskAllotImpl"/>
+	</bean>
+	
+	<!-- 出货装车作业（天天惠） -->
+	<bean id="odata_CarPlanForTthAction" class="com.sealinkin.odata.action.Odata_CarPlanForTthAction" scope="prototype">
+		<property name="odata_CarPlanForTthImpl" ref="odata_CarPlanForTthImpl"/>
+	</bean>
+
+	<!-- 出货整理打包 -->
+	<bean id="odata_ArrangePackAction" class="com.sealinkin.odata.action.Odata_ArrangePackAction" scope="prototype">
+		<property name="odata_ArrangeImpl" ref="odata_ArrangeImpl"/>
+	</bean>	
+	
+	<!-- 波次规则计划 -->
+	<bean id="odata_WmsWavePlanAction" class="com.sealinkin.odata.action.Odata_WmsWavePlanAction" scope="prototype">
+		<property name="odata_WmsWavePlanImpl" ref="odata_WmsWavePlanImpl"/>
+	</bean>	
+	
+	<!-- 出货整理打包（电商）-->
+	<bean id="odata_CheckPackOnlineAction" class="com.sealinkin.odata.action.Odata_CheckPackOnlineAction" scope="prototype">
+		<property name="odata_CheckPackOnlineImpl" ref="odata_CheckPackOnlineImpl"/>
+	</bean>	
+	
+	<!-- 病单处理 -->
+	<bean id="odata_ExpCancelAction" class="com.sealinkin.odata.action.Odata_ExpCancelAction" scope="prototype">
+		<property name="odata_ExpCancelImpl" ref="odata_ExpCancelImpl"/>
+	</bean>
+	
+	<!-- 分播墙拣货 -->
+	<bean id="odata_DivideWallAction" class="com.sealinkin.odata.action.Odata_DivideWallAction" scope="prototype">
+		<property name="odata_DivideWallImpl" ref="odata_DivideWallImpl"/>
+	</bean>		
+	<!-- 病单审核 -->
+	<bean id="odata_ExpCancelCheckAction" class="com.sealinkin.odata.action.Odata_ExpCancelCheckAction" scope="prototype">
+		<property name="odata_ExpCancelCheckImpl" ref="odata_ExpCancelCheckImpl"/>
+	</bean>	
+	
+	<!-- 出货自提确认 -->
+	<bean id="odata_OJComfirmAction" class="com.sealinkin.odata.action.Odata_OJComfirmAction" scope="prototype">
+		<property name="odata_OJComfirmImpl" ref="odata_OJComfirmImpl"/>
+	</bean>	
+	
+	<!-- 出货日期确认 -->
+	<bean id="odata_CustSendDateAction" class="com.sealinkin.odata.action.Odata_CustSendDateAction" scope="prototype">
+		<property name="odata_CustSendDateImpl" ref="odata_CustSendDateImpl"/>
+	</bean>	
+	
+	<!-- 出车回单 -->
+	<bean id="odata_CarReceiptAction" class="com.sealinkin.odata.action.Odata_CarReceiptAction" scope="prototype">
+		<property name="odata_CarReceiptImpl" ref="odata_CarReceiptImpl"/>
+	</bean>	
+	<!-- 流水标签回单 -->
+	<bean id="odata_OutstockMWaterAction" class="com.sealinkin.odata.action.Odata_OutstockMWaterAction" scope="prototype">
+		<property name="odata_OutstockMWaterImpl" ref="odata_OutstockMWaterImpl"/>
+	</bean>	
+	<!-- 出库扫描 -->
+	<bean id="odata_ExpCheckAction" class="com.sealinkin.odata.action.Odata_ExpCheckAction" scope="prototype">
+		<property name="odata_ExpCheckImpl" ref="odata_ExpCheckImpl"/>
+	</bean>	
+		<!-- 拆零复核打包 -->
+	<bean id="odata_BArrangePackAction" class="com.sealinkin.odata.action.Odata_BArrangePackAction" scope="prototype">
+		<property name="odata_BArrangeImpl" ref="odata_BArrangeImpl"/>
+	</bean>	
+	
+		<!--自动出货调度 -->
+	<bean id="odata_LocateAutoAction" class="com.sealinkin.odata.action.Odata_LocateAutoAction" scope="prototype">
+		<property name="odata_LocateAutoServiceImpl" ref="odata_LocateAutoServiceImpl"/>
+	</bean>	
+	
+	<!--集货作业-->
+	<bean id="odata_PackageAction" class="com.sealinkin.odata.action.Odata_PackageAction" scope="prototype">
+		<property name="odata_PackageServiceImpl" ref="odata_PackageServiceImpl"/>
+	</bean>	
+	
+	<!-- 出货定位策略配置 -->
+	<bean id="Odata_outLocateStrategyAction" class="com.sealinkin.odata.action.Odata_outLocateStrategyAction" scope="prototype">
+		<property name="Odata_outLocateStrategyImpl" ref="Odata_outLocateStrategyImpl"/>
+	</bean>
+	
+	<!-- 复核策略配置 -->
+	<bean id="Odata_CheckStrategyAction" class="com.sealinkin.odata.action.Odata_CheckStrategyAction" scope="prototype">
+		<property name="Odata_CheckStrategyImpl" ref="Odata_CheckStrategyImpl"/>
+	</bean>
+
+	<!-- 接收订单数据接口配置 -->
+	<bean id="odata_ReceiveSeverAction" class="com.sealinkin.odata.action.Odata_ReceiveSeverAction" scope="prototype">
+		<property name="odata_ReceiveSeverImpl" ref="odata_ReceiveSeverImpl"/>
+	</bean>
+	<!-- 接收订单数据接口配置 -->
+	<bean id="odata_ReceiveSeverImpl" class="com.sealinkin.odata.service.impl.Odata_ReceiveSeverImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+</beans>
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+	default-lazy-init="false">
+	
+	<bean id="commAction" class="com.sealinkin.comm.action.CommAction" scope="prototype">
+	</bean>	
+	
+	<bean id="getSystemParameterAction" class="com.sealinkin.comm.action.GetSystemParameterAction" scope="prototype">
+		<property name="getSystemParameterImpl" ref="getSystemParameterImpl"/>
+	</bean>	
+	<!-- 补印查询条件 -->
+	<bean id="wms_PnfsetModuleReportQueryAction" class="com.sealinkin.comm.action.Wms_PnfsetModuleReportQueryAction" scope="prototype">
+		<property name="wms_PnfsetModuleReportQueryImpl" ref="wms_PnfsetModuleReportQueryImpl"/>
+	</bean>	
+	
+	<!-- 查询 -->
+	<bean id="wms_DefModuleQueryColumnmAction" class="com.sealinkin.comm.action.Wms_DefModuleQueryColumnmAction" scope="prototype">
+		<property name="wms_DefModuleQueryColumnmImpl" ref="wms_DefModuleQueryColumnmImpl"/>
+	</bean>	
+	
+	<!-- 分播回单容器号校验- -->
+	<bean id="checkDivideLabelNoAction" class="com.sealinkin.comm.action.CheckDivideLabelNoAction" scope="prototype">
+		<property name="checkDivideLabelNoImpl" ref="checkDivideLabelNoImpl"/>
+	</bean>	
+	
+	<!-- 根据条码获取商品- -->
+	<bean id="getArticleForBarcodeAction" class="com.sealinkin.comm.action.GetArticleForBarcodeAction" scope="prototype">
+		<property name="getArticleForBarcodeImpl" ref="getArticleForBarcodeImpl"/>
+	</bean>	
+	
+	<!-- 校验储位- -->
+	<bean id="checkCellAction" class="com.sealinkin.comm.action.CheckCellAction" scope="prototype">
+		<property name="checkCellImpl" ref="checkCellImpl"/>
+	</bean>	
+	
+	<!-- 导出配置文件 -->
+	<bean id="exportI18nAction" class="com.sealinkin.comm.action.ExportI18nAction" scope="prototype">
+		<property name="exportI18nImpl" ref="exportI18nImpl"/>
+	</bean>
+	
+	<!-- 后台管理控制 -->
+	<bean id="wmsJobConfigAction" class="com.sealinkin.comm.action.WmsJobConfigAction" scope="prototype">
+		<property name="wmsJobConfigImpl" ref="wmsJobConfigImpl"/>
+	</bean>
+</beans>
+

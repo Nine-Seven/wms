@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="rodata" extends="struts" namespace="/">
+		
+		<!-- 手键退厂单 -->
+		<action name="rodata_RecedeMAction_*" method="{1}" class="rodata_RecedeMAction"/>
+		<!-- 退厂发单 -->
+		<action name="rodata_OutstockDirectAction_*" method="{1}" class="rodata_OutstockDirectAction"/>
+
+		<!-- 退厂发单（天天惠） -->
+        <action name="rodata_StraightOutstockDirectAction_*" class="rodata_StraightOutstockDirectAction" method="{1}"/>
+		<!-- 退厂发单 -->
+
+		<action name="rodata_OutstockMAction_*" method="{1}" class="rodata_OutstockMAction"/>
+		
+		<!-- 手键退厂单 -->
+		<action name="rodata_RecedeMTTHAction_*" method="{1}" class="rodata_RecedeMTTHAction"/>
+		
+		<!-- 退厂回单（天天惠） -->
+		<action name="rodata_OutstockMTTHAction_*" method="{1}" class="rodata_OutstockMTTHAction"/>
+		
+		<!-- 退厂扫描（天天惠） -->
+		<action name="rodata_ScanTTHAction_*" method="{1}" class="rodata_ScanTTHAction"/>
+        
+        <!-- 退厂确认（天天惠） -->
+		<action name="rodata_OutstockComfirmAction_*" method="{1}" class="rodata_OutstockComfirmAction"/>
+       
+        <!-- 退厂拼箱打包 -->
+		<action name="rodata_LabelPackAction_*" method="{1}" class="rodata_LabelPackAction"/>
+		
+		 <!-- 退厂清场扫描 -->
+		<action name="rodata_ScanQCAction_*" method="{1}" class="rodata_ScanQCAction"/>
+
+	</package>
+</struts>

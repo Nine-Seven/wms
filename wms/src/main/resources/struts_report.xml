@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="report" extends="struts-default" namespace="/">
+	
+		<!-- 标签报表 -->
+		<action name="report_Action_*" method="{1}" class="report_Action"></action>
+		
+		<!-- 报表设置 -->
+		<action name="report_setAction_*" method="{1}" class="report_SetAction"></action>
+		
+		<!-- 自定义设置 -->
+		<action name="auto_SetAction_*" method="{1}" class="auto_SetAction"></action>
+		
+		<!-- 自定义设置 -->
+		<action name="auto_Action_*" method="{1}" class="auto_Action"></action>
+	</package>
+</struts>

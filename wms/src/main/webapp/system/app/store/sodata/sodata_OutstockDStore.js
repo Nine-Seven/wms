@@ -1,0 +1,19 @@
+/**
+ *获取报损回单明细
+ *创建：hkl
+ */
+Ext.define('cms.store.sodata.sodata_OutstockDStore',{
+	extend:'Ext.data.Store',
+	model:'cms.model.sodata.sodata_OutStockDModel',
+	pageSize : appConfig.getPageSize(),
+	storeId:'sodata_OutstockDStore',
+	proxy:{
+		type:'ajax',
+		method:'post',
+		url:'sodata_OutStockAction_getOutStock_DList.action',
+		reader:{
+			root:'rootList',
+			totalProperty:'totalCount'
+		}
+	}
+});

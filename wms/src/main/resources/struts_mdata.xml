@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+	<package name="mdata" extends="struts" namespace="/">
+	     <!-- 移库手建单 -->
+		<action name="mdata_PlanMAction_*" method="{1}" class="mdata_PlanMAction" ></action>
+		 <!-- 移库发单 -->
+		<action name="odata_OutstockDirectAction_*" method="{1}" class="odata_OutstockDirectAction" ></action>
+		 <!-- 移库回单 -->
+		<action name="odata_OutstockDAction_*" method="{1}" class="odata_OutstockDAction" ></action>
+	</package>
+</struts>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- 手键退厂单 -->
+	<bean id="rodata_RecedeMAction" class="com.sealinkin.rodata.action.Rodata_RecedeMAction" scope="prototype">
+		<property name="rodata_RecedeMImpl" ref="rodata_RecedeMImpl"/>
+	</bean>
+	<!-- 退厂发单 -->
+	<bean id="rodata_OutstockDirectAction" class="com.sealinkin.rodata.action.Rodata_OutstockDirectAction" scope="prototype">
+		<property name="rodata_OutstockDirectImpl" ref="rodata_OutstockDirectImpl"/>
+	</bean>
+	<!-- 退厂发单(天天惠) -->
+	<bean id="rodata_StraightOutstockDirectAction" class="com.sealinkin.rodata.action.Rodata_StraightOutstockDirectAction" scope="prototype">
+		<property name="rodata_StraightOutstockDirectImpl" ref="rodata_StraightOutstockDirectImpl"/>
+	</bean>
+	<!-- 退厂回单 -->
+	<bean id="rodata_OutstockMAction" class="com.sealinkin.rodata.action.Rodata_OutstockMAction" scope="prototype">
+		<property name="rodata_OutstockMImpl" ref="rodata_OutstockMImpl"/>
+	</bean>
+	
+	<!-- 手键退厂单 (天天惠)-->
+	<bean id="rodata_RecedeMTTHAction" class="com.sealinkin.rodata.action.Rodata_RecedeMTTHAction" scope="prototype">
+		<property name="rodata_RecedeMTTHImpl" ref="rodata_RecedeMTTHImpl"/>
+	</bean>
+	<!-- 退厂回单 (天天惠)-->
+	<bean id="rodata_OutstockMTTHAction" class="com.sealinkin.rodata.action.Rodata_OutstockMTTHAction" scope="prototype">
+		<property name="rodata_OutstockMTTHImpl" ref="rodata_OutstockMTTHImpl"/>
+	</bean>
+	
+	<!-- 退厂扫描(天天惠)-->
+	<bean id="rodata_ScanTTHAction" class="com.sealinkin.rodata.action.Rodata_ScanTTHAction" scope="prototype">
+		<property name="rodata_ScanTTHImpl" ref="rodata_ScanTTHImpl"/>
+	</bean>
+	
+	<!-- 退厂确认 (天天惠)-->
+	<bean id="rodata_OutstockComfirmAction" class="com.sealinkin.rodata.action.Rodata_OutstockComfirmAction" scope="prototype">
+		<property name="rodata_OutstockComfirmImpl" ref="rodata_OutstockComfirmImpl"/>
+	</bean>
+	
+	<!-- 退厂拼箱打包-->
+	<bean id="rodata_LabelPackAction" class="com.sealinkin.rodata.action.Rodata_LabelPackAction" scope="prototype">
+		<property name="rodata_LabelPackImpl" ref="rodata_LabelPackImpl"/>
+	</bean>
+	
+	<!-- 退厂清场扫描-->
+	<bean id="rodata_ScanQCAction" class="com.sealinkin.rodata.action.Rodata_ScanQCAction" scope="prototype">
+		<property name="rodata_ScanQCImpl" ref="rodata_ScanQCImpl"/>
+	</bean>
+</beans>
+

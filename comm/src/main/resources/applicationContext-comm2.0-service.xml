@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/aop 
+            http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context/spring-context-2.5.xsd
+            http://www.springframework.org/schema/tx 
+            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+            
+	<bean id="getSystemParameterImpl" class="com.sealinkin.comm.service.impl.GetSystemParameterImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	<!-- 补印查询条件 -->
+	<bean id="wms_PnfsetModuleReportQueryImpl" class="com.sealinkin.comm.service.impl.Wms_PnfsetModuleReportQueryImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	<!-- 查询 -->
+	<bean id="wms_DefModuleQueryColumnmImpl" class="com.sealinkin.comm.service.impl.Wms_DefModuleQueryColumnmImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 分播回单容器号校验-->
+	<bean id="checkDivideLabelNoImpl" class="com.sealinkin.comm.service.impl.CheckDivideLabelNoImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 校验条码-->
+	<bean id="getArticleForBarcodeImpl" class="com.sealinkin.comm.service.impl.GetArticleForBarcodeImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 校验储位-->
+	<bean id="checkCellImpl" class="com.sealinkin.comm.service.impl.CheckCellImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 导出成配置文件 -->
+	<bean id="exportI18nImpl" class="com.sealinkin.comm.service.impl.ExportI18nImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 后台管理控制 -->
+	<bean id="wmsJobConfigImpl" class="com.sealinkin.comm.service.impl.WmsJobConfigImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+
+	<bean id="SpringContextUtil " class="com.sealinkin.listener.SpringContextUtil " scope="singleton" />
+</beans>
+

@@ -1,0 +1,22 @@
+Ext.define('cms.model.wms.wms_JobConfigModel',{
+extend:'Ext.data.Model',
+fields:[
+        {name:'warehouseNo'},
+		{name:'enterpriseNo'},
+		{name:'procName'},
+		{name:'procNameDesc'},
+		{name:'DNodeId'},
+		{name:'startTimeLimit'},
+		{name:'endTimeLimit'},
+		{name:'lastRunTime'},
+		{name:'driveTable'},
+		{name:'driveLastSerial'},
+		{name:'executeStatus'},
+		{name:'runCountType'},
+		{name:'executeStatusText'},
+		{name:'runCountTypeText'},
+		{name:'runTimeInterval'}
+		
+		],
+idProperty:'warehouseNo,enterpriseNo,procName'
+});

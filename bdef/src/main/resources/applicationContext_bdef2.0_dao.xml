@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+	default-lazy-init="false">
+	
+	<bean id="jdbcproperties"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:bdef_jdbc.properties" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+	</bean>
+	
+	
+	<bean id="dataSource"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<!-- 
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.16.99:1521:sealinkwms" />
+ 		<property name="user" value="wms" />
+		<property name="password" value="wms" />
+		<property name="initialPoolSize" value="10" />
+		<property name="minPoolSize" value="2" />
+		<property name="maxPoolSize" value="20" />
+		<property name="acquireIncrement" value="50" />
+		<property name="checkoutTimeout" value="50000" /> -->
+		
+		<property name="driverClass" value="${driverClass}"></property>
+		<property name="jdbcUrl" value="${jdbc.url.value}" />
+ 		<property name="user" value="${jdbc.user.value}" />
+		<property name="password" value="${jdbc.password.value}" />
+
+		<property name="initialPoolSize" value="${c3p0.initialPoolSize}" />
+		<property name="minPoolSize" value="${c3p0.minPoolSize}" />
+		<property name="maxPoolSize" value="${c3p0.maxPoolSize}" />
+		<property name="acquireIncrement" value="${c3p0.acquireIncrement}" />
+		<property name="checkoutTimeout" value="${c3p0.checkoutTimeout}" />
+		
+	</bean> 
+
+	<!-- 把数据源注入给Session工厂 --> 
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan">
+			<list>
+
+			</list>
+		</property>
+		<property name="mappingLocations" value="classpath:Query*.hbm.xml" />
+		<property name="hibernateProperties">
+			<props>
+				<!--  <prop key="hibernate.dialect">org.hibernate.dialect.SQLServer2008Dialect</prop>-->
+				<!-- <prop key="hibernate.dialect">com.sealinkin.util.FixedSqlServerDBDialect</prop> -->
+				<!-- <prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.dialect">com.sealinkin.util.FixedOracleDBDialect</prop> -->
+				
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				
+				<prop key="hibernate.hbm2ddl.auto">none</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.cache.use_query_cache">false</prop>
+				<prop key="hibernate.jdbc.use_scrollable_resultset">true</prop>
+				<prop key="hibernate.connection.release_mode">auto</prop>
+				<prop key="hibernate.autoReconnect">true</prop>
+				<prop key="current_session_context_class">thread</prop>
+				<prop key="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</prop>
+				<!-- <prop key="hibernate.c3p0.max_size">800</prop>    
+				<prop key="hibernate.c3p0.min_size">10</prop>    
+				<prop key="hibernate.c3p0.timeout">120</prop>    
+				<prop key="hibernate.c3p0.max_statements">100</prop>    
+				<prop key="hibernate.c3p0.idle_test_period">120</prop>    
+				<prop key="hibernate.c3p0.acquire_increment">10</prop> -->
+				<prop key="javax.persistence.validation.mode">none</prop>
+				<prop key="hibernate.validator.apply_to_ddl">false</prop> 
+				<prop key="hibernate.validator.autoregister_listeners">false</prop>
+			</props>
+		</property>	
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="nestedTransactionAllowed" value="true" />
+	</bean>
+	
+	<aop:aspectj-autoproxy proxy-target-class="false" />
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- 事务通知 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" isolation="READ_COMMITTED"
+				propagation="REQUIRED" rollback-for="Exception,RuntimeException"
+				timeout="180" />
+			<tx:method name="cfg*" isolation="READ_COMMITTED"
+				propagation="REQUIRED" rollback-for="Exception,RuntimeException"
+				timeout="180" />
+			<tx:method name="create*" isolation="READ_COMMITTED"
+				propagation="REQUIRED" rollback-for="Exception,RuntimeException"
+				timeout="180" />
+			<tx:method name="update*" isolation="READ_COMMITTED"
+				propagation="REQUIRED" rollback-for="Exception,RuntimeException"
+				timeout="180" />
+			<tx:method name="del*" isolation="READ_COMMITTED"
+				propagation="REQUIRED" rollback-for="Exception,RuntimeException"
+				timeout="180" />
+			<tx:method name="add*" isolation="READ_COMMITTED"
+				propagation="REQUIRED" rollback-for="Exception,RuntimeException"
+				timeout="180" />
+			<tx:method name="*Tx" isolation="READ_COMMITTED"
+				propagation="REQUIRED" rollback-for="Exception,RuntimeException"
+				timeout="180" />
+			<tx:method name="remove*" isolation="READ_COMMITTED"
+				propagation="REQUIRED" rollback-for="Exception,RuntimeException"
+				timeout="180" />
+			<tx:method name="send*" isolation="READ_COMMITTED"
+				propagation="REQUIRED" rollback-for="Exception,RuntimeException"
+				timeout="180" />
+			<tx:method name="tsc*" isolation="READ_COMMITTED"
+				propagation="REQUIRED" rollback-for="Exception,RuntimeException"
+				timeout="180" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<!-- AOP配置事务织入 -->
+	<aop:config>
+		<aop:pointcut id="interceptorPointCuts"
+			expression="execution(public * com.sealinkin..*.service..*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="interceptorPointCuts" />
+	</aop:config>
+
+	<bean id="genDao" class="com.sealinkin.dao.service.GenericManagerImpl">
+		<constructor-arg>
+			<bean class="com.sealinkin.dao.service.GenericDaoHibernate">
+				<constructor-arg type="java.lang.Class" value="java.lang.Object" />
+				<property name="sessionFactory" ref="sessionFactory" />
+			</bean>
+		</constructor-arg>
+	</bean>
+	
+</beans>
+

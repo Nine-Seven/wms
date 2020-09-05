@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="print" extends="struts-default" namespace="/">
+	
+		<!-- 标签报表 -->
+		<action name="printerAction_*" method="{1}" class="printerAction"></action>
+
+		<!-- 本地打印 -->
+		<action name="localPrinterAciton_*" method="{1}" class="localPrinterAciton"></action>
+		
+		<!-- 条码报表 -->
+		<action name="printerTagAction_*" method="{1}" class="printerTagAction"></action>
+		
+	</package>
+</struts>

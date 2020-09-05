@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- 储位-->
+	<bean id="cdef_DefWareAction" class="com.sealinkin.cdef.action.Cdef_DefWareAction" scope="prototype">
+		<property name="cdef_DefWareImpl" ref="cdef_DefWareImpl"/>
+	</bean>
+	
+</beans>
+

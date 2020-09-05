@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- 保拣关系设置-->
+	<bean id="cset_AreaBackupAction" class="com.sealinkin.cset.action.Cset_AreaBackupAction" scope="prototype">
+		<property name="cset_AreaBackupImpl" ref="cset_AreaBackupImpl"/>
+	</bean>
+	
+	
+	<!-- 商品储位对照关系-->
+	<bean id="cset_CellArticleAction" class="com.sealinkin.cset.action.Cset_CellArticleAction" scope="prototype">
+		<property name="cset_CellArticleImpl" ref="cset_CellArticleImpl"/>
+	</bean>
+	
+	<!-- 仓别维护 -->
+	<bean id="cset_deflocAction" class="com.sealinkin.cset.action.Cset_deflocAction" scope="prototype">
+		<property name="cset_deflocServiceImpl" ref="cset_deflocServiceImpl"/>
+	</bean>
+	
+	<!-- 类别储位对照关系-->
+	<bean id="cset_GroupArticleAction" class="com.sealinkin.cset.action.Cset_GroupArticleAction" scope="prototype">
+		<property name="cset_GroupArticleImpl" ref="cset_GroupArticleImpl"/>
+	</bean>
+	<!-- 货主货位对照关系-->
+	<bean id="cset_CellOwnerAction" class="com.sealinkin.cset.action.Cset_CellOwnerAction" scope="prototype">
+		<property name="cset_CellOwnerImpl" ref="cset_CellOwnerImpl"/>
+	</bean>
+	<!-- 暂存区维护-->
+	<bean id="cset_BufferAction" class="com.sealinkin.cset.action.Cset_BufferAction" scope="prototype">
+		<property name="cset_BufferImpl" ref="cset_BufferImpl"/>
+	</bean>
+</beans>
+

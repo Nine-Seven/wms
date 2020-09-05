@@ -1,0 +1,69 @@
+/**
+ * 模块名称：商品类别
+ * 模块编码：200008
+ * 创建：周欢
+ */
+Ext.define('cms.model.bdef.bdef_ArticleGroupModel',{
+	extend:'Ext.data.Model',
+	idProperty:'ownerNo,groupNo,groupLevel',
+	fields:[
+	        {name:'ownerNo'},
+	    	{name:'groupNo'},
+	    	{name:'groupLevel'},
+	    	{name:'groupName'},
+	    	{name:'MGroupNo'},
+	    	{name:'MGroupName'},
+	    	{name:'LGroupNo'},
+	    	{name:'LGroupName'},
+	    	{name:'status'},
+	    	{name:'createFlag'},
+	    	{name:'alarmrate'},
+	    	{name:'freezerate'},
+	    	{name:'turnOverRule'},
+	    	{name:'checkExcess'},
+	    	{name:'umCheckExcess'},
+	    	{name:'pickExcess'},
+	    	{name:'divideExcess'},
+	    	{name:'temperatureFlag'},
+	    	{name:'measureMode'},
+	    	{name:'scanFlag'},
+	    	{name:'checkQtyFlag'},
+	    	{name:'checkQtyRate'},
+	    	{name:'checkWeightFlag'},
+	    	{name:'checkWeightRate'},
+	    	{name:'qcFlag'},
+	    	{name:'qcRate'},
+	    	{name:'mixFlag'},
+	    	{name:'doubleCheck'},
+	    	{name:'IStrategy'},
+	    	{name:'OStrategy'},
+	    	{name:'MStrategy'},
+	    	{name:'riStrategy'},
+	    	{name:'roStrategy'},
+	    	{name:'fcStrategy'},
+	    	{name:'rsvStrategy1'},
+	    	{name:'rsvStrategy2'},
+	    	{name:'rsvStrategy3'},
+	    	{name:'rsvStrategy4'},
+	    	{name:'rsvStrategy5'},
+	    	{name:'rsvStrategy6'},
+	    	{name:'rgstName'},
+	    	{name:'rgstDate'},
+	    	{name:'updtName'},
+	    	{name:'updtDate'},
+	    	{name:'printFlag'},
+	    	
+	    	{name:'batchId'},
+	    	{name:'ownerName'},
+	    	{name:'grouplevelText'},
+	    	{name:'statusText'},
+
+	    	{name:'fcText'},
+	    	{name:'iText'},
+	    	{name:'mText'},
+	    	{name:'oText'},
+	    	{name:'riText'},
+	    	{name:'roText'}
+	 
+	        ]
+});

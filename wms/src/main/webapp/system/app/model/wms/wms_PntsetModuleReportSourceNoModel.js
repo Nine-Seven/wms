@@ -1,0 +1,18 @@
+Ext.define('cms.model.wms.wms_PntsetModuleReportSourceNoModel',{
+extend:'Ext.data.Model',
+fields:[{name:'moduleId'},
+		{name:'reportType'},
+		{name:'taskType'},
+		{name:'pickType'},
+		{name:'operateType'},
+		{name:'paperType'},
+		{name:'orderType'},
+		{name:'deliverObjLevel'},
+		{name:'ownerNo'},
+		{name:'CustNo'},
+		{name:'sourceNo'},
+		{name:'enterpriseNo'},
+		{name:'shipperNo'}
+		],
+idProperty:'moduleId'
+});

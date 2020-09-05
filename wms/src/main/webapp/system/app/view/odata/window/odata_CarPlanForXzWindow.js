@@ -1,0 +1,72 @@
+Ext.define('cms.view.odata.window.odata_CarPlanForXzWindow',{
+	extend : 'Ext.window.Window',
+	alias:'widget.odata_CarPlanForXzWindow',
+	layout:'border',
+	height:350,
+	width:850,
+	modal : true,
+	items: [
+	{
+		region:'center',
+	    xtype:'grid',
+	    id:'grid_01_3802_d',
+	    width:'100%',
+	    height:'100%',
+	    store:Ext.create('cms.store.odata.odata_LabelDStore',{
+	    	autoLoad:false,
+	    	proxy:{
+				type:'ajax',
+				method:'post',
+				url:'odata_CarPlanForXzAction_searchDetail.action',
+				reader:{
+					root:'rootList',
+					totalProperty:'totalCount'
+				}
+			}
+	    	}),
+	    columns:[{
+	    	xtype:'rownumberer',
+	       	width:30 
+		},{
+    	    width:100,
+    	    text:$i18n.label_no1,//容器号
+    	    dataIndex:'labelNo'
+		},{
+    	    width:100,
+    	    text:'箱标签号',//箱标签号
+    	    dataIndex:'subLabelNo'
+		},{
+			width:120,
+    	    text:$i18n.article_no,//商品编码
+    	    dataIndex:'articleNo'
+		},{
+			width : 100,
+			text : $i18n.owner_article_no,//货主商品编码
+			dataIndex : 'ownerArticleNo'
+		},{
+			width:150,
+    	    text:$i18n.article_name,//商品名称
+    	    dataIndex:'articleName'
+		},{
+			width:130,
+    	    text:$i18n.barcode,//商品条码'
+    	    dataIndex:'barcode'
+		},{
+			width:100,
+    	    text:$i18n.packing_qty,//包装数量
+    	    dataIndex:'packingQty'
+		},{
+			width:100,
+    	    text:$i18n.packing_unit,//包装单位
+    	    dataIndex:'packingUnit'
+		},{
+			width:100,
+    	    text:$i18n.spec,//规格
+    	    dataIndex:'spec'
+		},{
+			width:100,
+    	    text:$i18n.qty1,//箱数
+    	    dataIndex:'poBox'
+		}]
+	}]
+});

@@ -1,0 +1,19 @@
+Ext.define('cms.model.bdef.bdef_WmsWarehouseBaseModel',{
+	extend:'Ext.data.Model',
+	fields:[
+
+            {name:'articleNo'},
+            {name:'packingQty'},
+			{name:'warehouseNo'},
+			{name:'packingUnit'},
+			{name:'palBaseQbox'},
+		    {name:'palHeightQbox'},
+			{name:'qpalette'},
+			{name:'rgstName'},
+			{name:'rgstDate'},
+			{name:'updtName'},
+			{name:'updtDate'},
+			{name:'groupNoText'}
+		],	
+		idProperty:'articleNo,packingQty'
+});

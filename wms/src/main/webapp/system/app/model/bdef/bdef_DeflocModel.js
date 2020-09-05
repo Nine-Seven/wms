@@ -1,0 +1,15 @@
+Ext.define('cms.model.bdef.bdef_DeflocModel',{
+	extend:'Ext.data.Model',
+	fields:[
+		{name:'warehouseNo'},
+		{name:'warehouseName'},
+		{name:'memo'},
+		{name:'flag'},
+		{name:'createFlag'},
+		{name:'rgstName'},
+		{name:'rgstDate'},
+		{name:'updtName'},
+		{name:'updtDate'}
+	],	
+	idProperty:'warehouseNo'
+});

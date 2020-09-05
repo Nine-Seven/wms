@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="ridata" extends="struts" namespace="/">
+	
+		<!-- 返配手建单 -->
+		<action name="ridata_UntreadAction_*" method="{1}" class="ridata_UntreadAction"/>
+		
+		<!-- 返配扫描验收 -->
+		<action name="ridata_CheckAction_*" method="{1}" class="ridata_CheckAction"/>
+		
+		<!-- 返配上架回单 -->
+		<action name="ridata_InstockAction_*" method="{1}" class="ridata_InstockAction"/>
+		
+		<!-- 返配表单验收 -->
+		<action name="ridata_CheckAction2_*" method="{1}" class="ridata_CheckAction2"/>
+		
+		<!-- 返配批次管理 -->
+		<action name="ridata_BatchAction_*" method="{1}" class="ridata_BatchAction"/>
+	    
+	    <!-- 返配验收确认 -->
+		<action name="ridata_CheckConfirmAction_*" method="{1}" class="ridata_CheckConfirmAction"/>
+		
+		<!-- 返配验收确认GSD -->
+		<action name="ridata_CheckConfirmGsdAction_*" method="{1}" class="ridata_CheckConfirmGsdAction"/>
+	
+	    <!-- 返配验收确认LNS -->
+		<action name="ridata_CheckConfirmLnsAction_*" method="{1}" class="ridata_CheckConfirmLnsAction"/>
+	
+	    <!-- 返配分播回单 -->
+		<action name="ridata_DivideReceiptAction_*" method="{1}" class="ridata_DivideReceiptAction"/>
+	
+	    <!-- 返配次品扫描验收 -->
+		<action name="ridata_CheckBadAction_*" method="{1}" class="ridata_CheckBadAction"/>
+		
+	     <!-- 返配次品扫描验收 -->
+		<action name="ridata_WaveAction_*" method="{1}" class="ridata_WaveAction"/>
+		 <!-- 返配清场扫描验收 -->
+		<action name="ridata_QingchangAction_*" method="{1}" class="ridata_QingchangAction"/>
+		 <!-- 返配策略配置 -->
+		<action name="ridata_TacticsAction_*" method="{1}" class="ridata_TacticsAction"/>
+		
+	</package>
+</struts>

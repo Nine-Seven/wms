@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/acdata/acdata.iml" filepath="$PROJECT_DIR$/acdata/acdata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth/auth.iml" filepath="$PROJECT_DIR$/auth/auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bdef/bdef.iml" filepath="$PROJECT_DIR$/bdef/bdef.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cdef/cdef.iml" filepath="$PROJECT_DIR$/cdef/cdef.iml" />
+      <module fileurl="file://$PROJECT_DIR$/comm/comm.iml" filepath="$PROJECT_DIR$/comm/comm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cost/cost.iml" filepath="$PROJECT_DIR$/cost/cost.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cset/cset.iml" filepath="$PROJECT_DIR$/cset/cset.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fcdata/fcdata.iml" filepath="$PROJECT_DIR$/fcdata/fcdata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/idata/idata.iml" filepath="$PROJECT_DIR$/idata/idata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mdata/mdata.iml" filepath="$PROJECT_DIR$/mdata/mdata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/model/model.iml" filepath="$PROJECT_DIR$/model/model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/odata/odata.iml" filepath="$PROJECT_DIR$/odata/odata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/print/print.iml" filepath="$PROJECT_DIR$/print/print.iml" />
+      <module fileurl="file://$PROJECT_DIR$/report/report.iml" filepath="$PROJECT_DIR$/report/report.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rf_server/rf_server.iml" filepath="$PROJECT_DIR$/rf_server/rf_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ridata/ridata.iml" filepath="$PROJECT_DIR$/ridata/ridata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rodata/rodata.iml" filepath="$PROJECT_DIR$/rodata/rodata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sodata/sodata.iml" filepath="$PROJECT_DIR$/sodata/sodata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stock/stock.iml" filepath="$PROJECT_DIR$/stock/stock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wms/wms.iml" filepath="$PROJECT_DIR$/wms/wms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/wms-parent.iml" filepath="$PROJECT_DIR$/.idea/wms-parent.iml" />
+    </modules>
+  </component>
+</project>

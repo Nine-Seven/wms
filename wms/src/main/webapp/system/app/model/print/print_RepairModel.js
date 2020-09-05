@@ -1,0 +1,9 @@
+Ext.define('cms.model.print.print_RepairModel',{
+	extend:'Ext.data.Model',
+	idProperty:'reportId',
+	fields:[{
+		name:'reportId',type:'string'
+	},{
+		name:'reportName',type:'string'
+	}]
+});

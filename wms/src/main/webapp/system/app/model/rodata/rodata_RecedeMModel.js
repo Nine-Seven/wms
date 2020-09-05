@@ -1,0 +1,43 @@
+/**
+ * 退货单单头
+ * zhouhuan
+ */
+Ext.define('cms.model.rodata.rodata_RecedeMModel',{
+	extend:'Ext.data.Model',
+	fields:[
+	{name:'enterpriseNo'},
+	{name:'recedeNo'},
+	{name:'warehouseNo'},
+	{name:'ownerNo'},
+	{name:'recedeType'},
+	{name:'poType'},
+	{name:'poNo'},
+	{name:'supplierNo'},
+	{name:'classType'},
+	{name:'untreadNo'},
+	{name:'recedeDate'},
+	{name:'status'},
+	{name:'createFlag'},
+	{name:'errorStatus'},
+	{name:'sendFlag'},
+	{name:'stockType'},
+	{name:'stockValue'},
+	{name:'quality'},
+	{name:'locateareaFlg'},
+	{name:'recedeRemark'},
+	{name:'requestDate'},
+	{name:'deptNo'},
+	{name:'rgstName'},
+	{name:'rgstDate'},
+	{name:'updtName'},
+	{name:'updtDate'},
+	{name:'takeType'},
+	{name:'supplierName'},
+	{name:'locateTimes'},
+	
+	{name:'statusText'},
+	{name:'orgNo'},
+	{name:'waveNo'}
+		],
+	idProperty:'enterpriseNo,recedeNo,warehouseNo,ownerNo'
+});

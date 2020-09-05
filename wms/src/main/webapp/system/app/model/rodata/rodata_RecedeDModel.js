@@ -1,0 +1,49 @@
+/**
+ * 退货单明细档
+ * zhouhuan
+ */
+Ext.define('cms.model.rodata.rodata_RecedeDModel',{
+	extend:'Ext.data.Model',
+	fields:[
+	    {name:'enterpriseNo'},
+		{name:'recedeNo'},
+		{name:'warehouseNo'},
+		{name:'ownerNo'},
+		{name:'poId'},
+		{name:'ownerArticleNo'},
+		{name:'articleNo'},
+		{name:'packingQty'},
+		{name:'lotNo'},
+		{name:'quality'},
+		{name:'produceDate'},
+		{name:'expireDate'},
+		{name:'recedeQty'},
+		{name:'outstockQty'},
+		{name:'realQty'},
+		{name:'unitCost'},
+		{name:'recedeDes'},
+		{name:'errorStatus'},
+		{name:'batchSerialNo'},
+				
+		{name:'recedeWholeNum'},
+		{name:'recedeScatteredNum'},
+		{name:'barcode'},
+		{name:'articleName'},
+		{name:'status'},
+		{name:'packingUnit'},
+		{name:'qminOperatePacking'},
+		{name:'unitPacking'},
+		{name:'packingUnitQmin'},
+		{name:'Unit'},
+		{name:'packingSpec'},
+		{name:'packingSpecQmin'},
+		{name:'spec'},
+		{name:'planBox'},		
+		{name:'planDis'},
+		{name:'planQmin'},
+		{name:'realBox'},
+		{name:'realDis'},		
+		{name:'realQmin'}
+		],
+	idProperty:'enterpriseNo,recedeNo,warehouseNo,ownerNo,poId'
+});

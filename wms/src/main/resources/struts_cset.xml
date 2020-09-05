@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+	<package name="cset" extends="struts-default" namespace="/">
+		<action name="cset_CellArticleAction_*" method="{1}" class="cset_CellArticleAction" ></action>
+	    <action name="cset_AreaBackupAction_*" method="{1}" class="cset_AreaBackupAction" ></action>
+	    <action name="cset_deflocAction_*" method="{1}" class="cset_deflocAction" ></action>
+	
+	 	<action name="cset_GroupArticleAction_*" method="{1}" class="cset_GroupArticleAction" ></action> 
+	 	<action name="cset_CellOwnerAction_*" method="{1}" class="cset_CellOwnerAction" ></action> 
+	 	 <!--暂存区维护  -->
+	 	 <action name="cset_BufferAction_*" method="{1}" class="cset_BufferAction" ></action> 
+	 
+	</package>        
+</struts>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="bdef" extends="struts-default" namespace="/">
+		<action name="bdef_DefarticleAction_*" method="{1}" class="bdef_DefarticleAction"></action>
+		
+		<!-- 接口配置 -->
+		<action name="bdef_WmsInterfacePlatAction_*" method="{1}" class="bdef_WmsInterfacePlatAction"></action>
+		
+		<!-- 商品类别维护 -->
+		<action name="bdef_ArticleGroupAction_*" method="{1}" class="bdef_ArticleGroupAction"></action>
+		
+		<!-- 货主维护 -->
+		<action name="bdef_DefOwnerAction_*" method="{1}" class="bdef_DefOwnerAction"></action>
+		
+		<!-- 员工 -->
+		<action name="bdef_DefWorkerAction_*" method="{1}" class="bdef_DefWorkerAction"></action>
+		
+		<!-- 供应商 -->
+		<action name="bdef_DefSupplierAction_*" method="{1}" class="bdef_DefSupplierAction"></action>
+		
+		<!-- 码头 -->
+		<action name="bdef_DefDockAction_*" method="{1}" class="bdef_DefDockAction"></action>
+		
+		<!-- 客户 -->
+		<action name="bdef_DefCustAction_*" method="{1}" class="bdef_DefCustAction"></action>
+		
+		<!-- 工作站 -->
+		<action name="bdef_DefWorkstationAction_*" method="{1}" class="bdef_DefWorkstationAction"></action>
+		
+		<!-- 承运商资料维护 -->
+		<action name="bdef_DefShipperAction_*" method="{1}" class="bdef_DefShipperAction"></action>
+		
+		<!-- 打印机维护 -->
+		<action name="bdef_DefPrinterAction_*" method="{1}" class="bdef_DefPrinterAction"></action>
+		
+		<!-- 客户与线路关系-->
+		<action name="oset_DefLineAction_*" method="{1}" class="oset_DefLineAction"></action>
+		
+		<!-- 系统参数配置 -->
+		<action name="bdef_WmsDefbaseAction_*" method="{1}" class="bdef_WmsDefbaseAction"></action>
+		
+		<!-- 货主参数配置-->
+		<action name="bdef_WmsOwnerBaseAction_*" method="{1}" class="bdef_WmsOwnerBaseAction"></action>
+		
+		<!-- 仓别参数配置-->
+		<action name="bdef_WmsWarehouseBaseAction_*" method="{1}" class="bdef_WmsWarehouseBaseAction"></action>
+		
+		<!-- 货主仓别参数配置-->
+		<action name="bdef_WmsWarehouseOwnerBaseAction_*" method="{1}" class="bdef_WmsWarehouseOwnerBaseAction"></action>
+		
+
+		<!-- 货主仓别参数配置-->
+		<action name="bset_ValuePolicySetAction_*" method="{1}" class="bset_ValuePolicySetAction"></action>
+		
+
+		<!-- 计费公式管理-->
+		<action name="bill_FormulasetAction_*" method="{1}" class="bill_FormulasetAction"></action>
+		
+		<!-- 科目和计费项目的关系维护-->
+		<action name="bill_AccountAction_*" method="{1}" class="bill_AccountAction"></action>
+        <!-- 费用清单维护-->
+		<action name="bill_BaseAmountAction_*" method="{1}" class="bill_BaseAmountAction"></action>				
+     
+        <!-- 条码信息采集-->
+		<action name="bset_Article_BarcodeAction_*" method="{1}" class="bset_Article_BarcodeAction"></action>
+		
+		<!-- 客户与电子标签储位对应关系-->
+		<action name="bdef_CsetCustDpscellAction_*" method="{1}" class="bdef_CsetCustDpscellAction"></action>
+		
+		<!-- 客户与电子标签储位对应关系-->
+		<action name="bill_ResetBillAction_*" method="{1}" class="bill_ResetBillAction"></action>
+		
+		<!--色码维护-->
+		<action name="bdef_ColourCodeAction_*" method="{1}" class="bdef_ColourCodeAction"></action>		
+
+		<!-- 数据导入-->
+		<action name="dataImportAction_*" method="{1}" class="dataImportAction"></action>				
+	
+	    <!-- 商品与商品群组关系维护-->
+		<action name="bdef_ArticleFamilyAction_*" method="{1}" class="bdef_ArticleFamilyAction"></action>				
+	
+	    <!-- 设备维护-->
+		<action name="Divice_DivideAction_*" method="{1}" class="Divice_DivideAction"></action>				
+	    
+	    <!-- 打印机群组与打印机组关系维护-->
+		<action name="pntdef_PrinterGrpgatherAction_*" method="{1}" class="pntdef_PrinterGrpgatherAction"></action>				
+	 
+	    <!-- 工作站与设备组关系维护-->
+		<action name="bset_workstationDivideAction_*" method="{1}" class="bset_workstationDivideAction"></action>				
+	
+		<!-- 文件管理 -->
+		<action name="bdef_DefAppendixAction_*" method="{1}" class="bdef_DefAppendixAction"></action>
+		
+        <!-- 车辆信息维护 -->
+		<action name="bdef_DefCarAction_*" method="{1}" class="bdef_DefCarAction"></action>
+		
+		<!-- 任务切分规则配置 huangb20160612 -->  
+		<action name="bdef_WmsTaskallotRuleMAction_*" method="{1}" class="bdef_WmsTaskallotRuleMAction"></action>
+		
+		 <!-- 策略配置-->
+		<action name="bdef_WmsDefstrategyAction_*" method="{1}" class="bdef_WmsDefstrategyAction"></action>
+		 <!-- 监控日志查询-->
+		<action name="bdef_ControlLogAction_*" method="{1}" class="bdef_ControlLogAction"></action>
+		
+			<!--物流箱规则策略配置 -->
+		<action name="bdef_WmsLogiboxRuleAction_*" method="{1}" class="bdef_WmsLogiboxRuleAction"></action>
+		
+	</package>
+</struts>

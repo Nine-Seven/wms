@@ -1,0 +1,20 @@
+Ext.define('cms.view.Header', {
+    extend: 'Ext.Component',
+    initComponent: function() {
+        Ext.applyIf(this, {
+            xtype: 'box',
+            region: 'north',
+            html:'<div class="top_div">'+
+                // '<div style="float:left;margin-top:5px;margin-left:20px;color:#FFFFFF"><img src="system/extjs/resources/images/logo_bs.png"/></div>'+
+                '<div style="float:left;margin-top:5px;margin-left:20px;color:#FFFFFF">仓储管理系统</div>'+
+                '<div style="float:right; padding-top:20px;padding-right:10px;padding-left:10px;color:#FFFFFF;text-decoration: none;">'+
+                '<a href="javascript:commonSelectWareHouseNO();" style="color:#FFFFFF;text-decoration: none;display:none;">切换作业仓别              </a>'+
+                '<a href="javascript:updatePwd();" style="color:#FFFFFF;text-decoration: none;">修改密码              </a>'+
+                '<a href="javascript:setWorkSpace();" style="color:#FFFFFF;text-decoration: none;">设置工作站</a><span style="padding-right:10px;" id="workSpaceTips">(暂未设置)</span>'+
+                '<a href="javascript:doLogout()" style="color:#FFFFFF;text-decoration: none;">注销系统</a></div><div style="both:clear;"></div></div>',
+            height:40,
+            width:1000
+        });
+        this.callParent(arguments);
+    }
+});

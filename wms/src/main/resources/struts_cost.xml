@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="cost" extends="struts-default" namespace="/">
+	
+		<!-- 计费公式管理-->
+		<action name="cost_FormulasetAction_*" method="{1}" class="cost_FormulasetAction"></action>
+		
+		<!-- 计费取值方式维护-->
+		<action name="cost_BillingRuleAction_*" method="{1}" class="cost_BillingRuleAction"></action>
+
+		<!-- 杂项费用维护-->
+		<action name="cost_OtherAction_*" method="{1}" class="cost_OtherAction"></action>
+			
+		<!-- 科目设置维护-->
+		<action name="cost_AccountAction_*" method="{1}" class="cost_AccountAction"></action>
+		
+        <!-- 消费清单查询-->
+		<action name="cost_ExpensesListAction_*" method="{1}" class="cost_ExpensesListAction"></action>
+		
+        <!-- 未出账清单查询-->
+		<action name="cost_NoAccountListAction_*" method="{1}" class="cost_NoAccountListAction"></action>
+		
+        <!-- 已出账账单查询-->
+		<action name="cost_FinancialAction_*" method="{1}" class="cost_FinancialAction"></action>
+	    
+        <!-- 手工出账-->
+		<action name="cost_ManualAccountAction_*" method="{1}" class="cost_ManualAccountAction"></action>
+	    
+	    <!-- 收款-->
+		<action name="cost_ReceivingAction_*" method="{1}" class="cost_ReceivingAction"></action>
+		
+		<!-- 手工生成费用明细-->
+		<action name="cost_ManualCostAction_*" method="{1}" class="cost_ManualCostAction"></action>
+		
+		<!-- 手工录入消费清单-->
+		<action name="cost_HandleListAction_*" method="{1}" class="cost_HandleListAction"></action>
+	</package>
+</struts>

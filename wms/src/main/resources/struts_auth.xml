@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="auth" extends="struts-default" namespace="/">
+		<action name="loginAction_*" method="{1}" class="loginAction"></action>
+		
+		<action name="bset_Worker_LocAction_*" method="{1}" class="bset_Worker_LocAction"></action>
+		
+		<!-- 权限 -->
+		<action name="authAction_*" method="{1}" class="authAction"></action>
+		
+		<!-- 打印机组与打印机关系维护 -->
+		<action name="bset_GroupAction_*" method="{1}" class="bset_GroupAction"></action>
+		
+	</package>
+</struts>

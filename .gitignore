@@ -1,0 +1,21 @@
+# Project exclude paths
+/acdata/target/
+/auth/target/
+/bdef/target/
+/cdef/target/
+/comm/target/
+/cost/target/
+/cset/target/
+/fcdata/target/
+/idata/target/
+/mdata/target/
+/model/target/
+/odata/target/
+/print/target/
+/report/target/
+/rf_server/target/
+/ridata/target/
+/rodata/target/
+/sodata/target/
+/stock/target/
+/wms/target/

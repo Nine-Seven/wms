@@ -1,0 +1,14 @@
+Ext.define('cms.model.cset.cset_AreaBackupMModel',{
+	extend:'Ext.data.Model',
+	fields:[
+	        {name:'lineId'},
+	        {name:'lineName'},
+	        {name:'defaultFlag'},
+	        {name:'rgstName'},
+	        {name:'rgstDate'},
+	        {name:'SWareNo'},
+	        {name:'SAreaNo'},
+	        {name:'SStockNo'},
+	        {name:'defaultFlagText'}
+	]
+});

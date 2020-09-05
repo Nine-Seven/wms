@@ -1,0 +1,19 @@
+/**
+ *库存调账
+ *创建：hcx
+ */
+Ext.define('cms.store.stock.stock_PlanMStore',{
+	extend:'Ext.data.Store',
+	model:'cms.model.stock.stock_PlanMModel',
+	pageSize : appConfig.getPageSize(),
+	proxy:{
+		type:'ajax',
+		method:'post',
+		url:'stock_PlanImportAction_getStockPlanMList',
+		reader:{
+			type:'json',
+			root:'rootList',
+			totalProperty:'totalCount'
+		}
+	}
+});

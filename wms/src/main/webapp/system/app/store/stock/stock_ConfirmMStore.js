@@ -1,0 +1,19 @@
+/**
+ *库存调账确认
+ *创建：hcx
+ */
+Ext.define('cms.store.stock.stock_ConfirmMStore',{
+	extend:'Ext.data.Store',
+	model:'cms.model.stock.stock_ConfirmMModel',
+	pageSize : appConfig.getPageSize(),
+	proxy:{
+		type:'ajax',
+		method:'post',
+		url:'stock_ConfirmAction_getStockConfirmMList',
+		reader:{
+			type:'json',
+			root:'rootList',
+			totalProperty:'totalCount'
+		}
+	}
+});

@@ -1,0 +1,57 @@
+/**
+ * 盘点定位指示
+ * 创建人:周欢
+ */
+Ext.define('cms.model.fcdata.fcdata_CheckDirectModel', {
+    extend: 'Ext.data.Model',
+    fields: [
+    	    {name:'warehouseNo'},
+			{name:'ownerNo'},
+			{name:'directSerial'},
+			{name:'planNo'},
+			{name:'requestNo'},
+			{name:'cellNo'},
+			{name:'articleNo'},
+			{name:'packingQty'},
+			{name:'articleQty'},
+			{name:'status'},
+			{name:'requestDate'},
+			{name:'fcdataType'},
+			{name:'labelNo'},
+			{name:'subLabelNo'},
+			{name:'deptNo'},
+			{name:'barcode'},
+			{name:'produceDate'},
+			{name:'expireDate'},
+			{name:'quality'},
+			{name:'lotNo'},
+			{name:'rsvBatch1'},
+			{name:'rsvBatch2'},
+			{name:'rsvBatch3'},
+			{name:'rsvBatch4'},
+			{name:'rsvBatch5'},
+			{name:'rsvBatch6'},
+			{name:'rsvBatch7'},
+			{name:'rsvBatch8'},
+			{name:'stockType'},
+			{name:'stockValue'},
+			{name:'rgstName'},
+			{name:'rgstDate'},
+			{name:'updtName'},
+			{name:'updtDate'},
+			
+			{name:'articleName'},
+			{name:'spec'},
+			{name:'packingUnit'},
+			{name:'qualityText'},
+			{name:'wareNo'},
+			{name:'wareName'},
+			{name:'areaNo'},
+			{name:'areaName'},
+			{name:'stockNo'},
+			{name:'checkNo'},
+			{name:'cutFlag'},
+			{name:'moveType'},
+			{name:'fcdataType'}
+    ]
+});

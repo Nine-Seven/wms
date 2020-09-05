@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="idata" extends="struts-default" namespace="/">
+	
+		<!-- 进货手建单 -->
+		<action name="idata_ImPortAction_*" method="{1}" class="idata_ImPortAction"></action>
+		
+		<!-- 验收 -->
+		<action name="idata_CheckAction_*" method="{1}" class="idata_CheckAction"></action>
+		
+		<!-- 上架回单 -->
+		<action name="idata_InstockAction_*" method="{1}" class="idata_InstockAction"></action>
+		
+		<!-- 进货预约 -->
+		<action name="idata_Order_TimeAction_*" method="{1}" class="idata_Order_TimeAction"></action>
+		
+		<!-- 直通验收批次管理 -->
+		<action name="idata_StraightCheckBatchAction_*" method="{1}" class="idata_StraightCheckBatchAction"></action>
+		
+		<!-- 直通验收作业 -->
+		<action name="idata_StraightCheckWorkAction_*" method="{1}" class="idata_StraightCheckWorkAction"></action>
+		
+		<!-- 指定储位验收 -->
+		<action name="idata_StorageCloseAction_*" method="{1}" class="idata_StorageCloseAction"></action>
+	
+	    <!-- 移动台车验收 -->
+		<action name="idata_MovieTrolleyCheckAction_*" method="{1}" class="idata_MovieTrolleyCheckAction"></action>
+	
+	    <!-- 门卫登记-->
+		<action name="idata_GuardRegisteAction_*" method="{1}" class="idata_GuardRegisteAction"></action>
+	
+	</package>
+</struts>

@@ -1,0 +1,52 @@
+/**
+ * 模块名称：仓租账单Model
+ * 创建：hcx 
+ */
+Ext.define('cms.model.cost.cost_FinancialModel', {
+    extend: 'Ext.data.Model',
+    fields: [
+			{name:'enterpriseNo'},
+			{name:'warehouseNo'},
+			{name:'ownerNo'},
+			{name:'accountNo'},
+			{name:'checkNo'},
+			{name:'amount'},
+			{name:'discountAmount'},
+			{name:'realAmount'},
+			{name:'beginDate'},
+			{name:'endDate'},
+			{name:'flag'},
+			{name:'buildDate'},
+			{name:'status'},
+			{name:'rgstName'},
+			{name:'rgstDate'},
+			{name:'updtName'},
+			{name:'updtDate'},
+			{name:'createFlag'},
+			{name:'costFlag'},
+			{name:'accountGroupNo'},
+			{name:'reserved1'},
+			{name:'reserved2'},
+			{name:'reserved3'},
+			{name:'reserved4'},
+			{name:'reserved5'},
+			{name:'reserved6'},
+			{name:'otherCost1'},
+			{name:'otherCost2'},
+			{name:'otherCost3'},
+			{name:'otherCost4'},
+			{name:'otherCost5'},
+			{name:'ownerNoText'},
+			{name:'accountNoText'},
+			{name:'statusText'},
+			{name:'flagText'},
+			{name:'buildDateText'},
+			{name:'beginDateText'},
+			{name:'endDateText'},
+			{name:'total'},
+			{name:'spareAmount'},
+			{name:'planAmount'},
+			{name:'discountFlag'},
+			{name:'costFlagText'}
+    ]
+});

@@ -1,0 +1,22 @@
+Ext.define('cms.model.wms.Wms_InterfaceLogModel',{
+extend:'Ext.data.Model',
+fields:[ 
+		{name:'operateDate'},
+		{name:'seqNo'},
+		{name:'platType'},
+		{name:'platNo'},
+		{name:'platDesc'},
+		{name:'enterpriseNo'},
+		{name:'warehourceNo'},
+		{name:'apiNo'},
+		{name:'execTime'},
+		{name:'execStatus'},
+		{name:'execDesc'},
+		{name:'apiDesc'},
+		{name:'execTimeQty'},
+		{name:'yesTimeQty'},
+		{name:'noTimeQty'},
+		{name:'lastTime'}
+		],
+idProperty:'operateDate,seqNo,platType,platNo,platDesc,enterpriseNo,warehourceNo,apiNo,execTime,execStatus,execDesc,apiDesc'
+});

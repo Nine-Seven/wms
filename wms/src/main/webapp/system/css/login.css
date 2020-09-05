@@ -1,0 +1,48 @@
+
+/*css Document*/
+body {font-size: 12px;
+	color:#555555;
+	font-family:"宋体";
+	/*background:url(../imges/login_bg.gif);*/
+	background-repeat:repeat-x;
+	background-color:#004385;
+}
+
+/*main*/
+.login_main{margin:0 auto; width:640px; margin-top:200px; height:230px;}
+.login_main_content{float:left; height:228px; border-bottom:1px solid #bcbdbc; border-top:1px solid #bcbdbc; background-color:#ffffff; width:620px;}
+.login_main_logo{margin-top:35px; margin-left:15px; margin-bottom:18px; }
+.login_main_field{height:76px; background-color:#eeeeee; border-bottom:1px solid #dddddc; border-top:1px solid #dddddc;}
+.login_main_field_content{margin-left:170px; height:37px; line-height:37px;color:#555555;font-family:"宋体";}
+.login_main_field_copyright{margin-top:30px; text-align:right; color:#b2b3b2;}
+.login_bottom{margin:0 auto; margin-top:3px; width:638px;}
+.img_botton{vertical-align:middle; border:none;}
+
+
+/*login-input*/
+input,textarea{
+border: 1px solid #CCCCCC;
+color:#4a4a4a;
+height:20px;
+}
+.bt{
+width: 38px;
+height: 20px;
+font-size: 11px;
+border: solid 1px #CCCCCC;
+background: #FBFBFB;
+text-align: center;
+}
+
+.sffocus {
+border: 1px solid #97c630;
+
+}
+textarea:focus, input:focus {
+border: 1px solid #97c630;
+}
+.myDisabledClass input{
+    opacity: .3;
+    -moz-opacity: .3;
+    filter: alpha(opacity=30);
+}

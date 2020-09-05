@@ -1,0 +1,25 @@
+2020-05-27 12:28:59,921  INFO (com.opensymphony.xwork2.config.ConfigurationManager:42) - Detected container provider Struts XML configuration provider (struts.xml) needs to be reloaded.  Reloading all providers.
+2020-05-27 12:28:59,958  INFO (com.opensymphony.xwork2.config.providers.XmlConfigurationProvider:42) - Parsing configuration file [struts-default.xml]
+2020-05-27 12:28:59,969  INFO (com.opensymphony.xwork2.config.providers.XmlConfigurationProvider:42) - Parsing configuration file [struts-plugin.xml]
+2020-05-27 12:29:00,056  INFO (com.opensymphony.xwork2.config.providers.XmlConfigurationProvider:42) - Parsing configuration file [struts.xml]
+2020-05-27 12:29:00,058  INFO (org.apache.struts2.config.BeanSelectionProvider:42) - Choosing bean (spring) for class com.opensymphony.xwork2.ObjectFactory
+2020-05-27 12:29:00,058  INFO (org.apache.struts2.config.BeanSelectionProvider:42) - Choosing bean (struts) for class com.opensymphony.xwork2.conversion.impl.XWorkConverter
+2020-05-27 12:29:00,059  INFO (org.apache.struts2.config.BeanSelectionProvider:42) - Choosing bean (struts) for interface com.opensymphony.xwork2.TextProvider
+2020-05-27 12:29:00,059  INFO (org.apache.struts2.config.BeanSelectionProvider:42) - Choosing bean (struts) for interface com.opensymphony.xwork2.ActionProxyFactory
+2020-05-27 12:29:00,059  INFO (org.apache.struts2.config.BeanSelectionProvider:42) - Choosing bean (struts) for interface com.opensymphony.xwork2.conversion.ObjectTypeDeterminer
+2020-05-27 12:29:00,060  INFO (org.apache.struts2.config.BeanSelectionProvider:42) - Choosing bean (struts) for interface org.apache.struts2.dispatcher.mapper.ActionMapper
+2020-05-27 12:29:00,060  INFO (org.apache.struts2.config.BeanSelectionProvider:42) - Choosing bean (jakarta) for interface org.apache.struts2.dispatcher.multipart.MultiPartRequest
+2020-05-27 12:29:00,060  INFO (org.apache.struts2.config.BeanSelectionProvider:42) - Choosing bean (struts) for class org.apache.struts2.views.freemarker.FreemarkerManager
+2020-05-27 12:29:00,063  INFO (org.apache.struts2.config.BeanSelectionProvider:42) - Choosing bean (struts) for interface org.apache.struts2.components.UrlRenderer
+2020-05-27 12:29:00,064  INFO (org.apache.struts2.config.BeanSelectionProvider:42) - Choosing bean (struts) for interface com.opensymphony.xwork2.validator.ActionValidatorManager
+2020-05-27 12:29:00,064  INFO (org.apache.struts2.config.BeanSelectionProvider:42) - Choosing bean (struts) for interface com.opensymphony.xwork2.util.ValueStackFactory
+2020-05-27 12:29:00,065  INFO (org.apache.struts2.config.BeanSelectionProvider:42) - Choosing bean (struts) for interface com.opensymphony.xwork2.util.reflection.ReflectionProvider
+2020-05-27 12:29:00,065  INFO (org.apache.struts2.config.BeanSelectionProvider:42) - Choosing bean (struts) for interface com.opensymphony.xwork2.util.reflection.ReflectionContextFactory
+2020-05-27 12:29:00,065  INFO (org.apache.struts2.config.BeanSelectionProvider:42) - Choosing bean (struts) for interface com.opensymphony.xwork2.util.PatternMatcher
+2020-05-27 12:29:00,065  INFO (org.apache.struts2.config.BeanSelectionProvider:42) - Choosing bean (struts) for interface org.apache.struts2.dispatcher.StaticContentLoader
+2020-05-27 12:29:00,066  INFO (org.apache.struts2.config.BeanSelectionProvider:42) - Choosing bean (struts) for interface com.opensymphony.xwork2.UnknownHandlerManager
+2020-05-27 12:29:00,066  INFO (com.opensymphony.xwork2.config.impl.DefaultConfiguration:42) - Overriding property struts.i18n.reload - old value: false new value: true
+2020-05-27 12:29:00,066  INFO (com.opensymphony.xwork2.config.impl.DefaultConfiguration:42) - Overriding property struts.configuration.xml.reload - old value: false new value: true
+2020-05-27 12:29:00,074  INFO (org.apache.struts2.spring.StrutsSpringObjectFactory:42) - Initializing Struts-Spring integration...
+2020-05-27 12:29:00,074  INFO (com.opensymphony.xwork2.spring.SpringObjectFactory:42) - Setting autowire strategy to name
+2020-05-27 12:29:00,075  INFO (org.apache.struts2.spring.StrutsSpringObjectFactory:42) - ... initialized Struts-Spring integration successfully

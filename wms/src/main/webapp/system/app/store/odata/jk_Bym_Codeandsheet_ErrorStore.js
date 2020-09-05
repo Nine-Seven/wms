@@ -1,0 +1,15 @@
+Ext.define('cms.store.odata.jk_Bym_Codeandsheet_ErrorStore',{
+	extend:'Ext.data.Store',
+	model:'cms.model.odata.odata_JKBYMSheetModel',
+	autoLoad:false,
+	proxy:{
+		type:'ajax',
+		method:'post',
+		url:'odata_BYMSheetAction_getBymSheetErrorInfo.action',
+		reader:{
+			type:'json',
+			root:'rootList',
+			totalProperty:'totalCount'
+		}
+	}
+});

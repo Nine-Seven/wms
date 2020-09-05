@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/aop 
+            http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context/spring-context-2.5.xsd
+            http://www.springframework.org/schema/tx 
+            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+    
+	<bean id="bdef_ArticleGroupImpl" class="com.sealinkin.bdef.service.impl.Bdef_ArticleGroupImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 接口配置 -->
+	<bean id="bdef_WmsInterfacePlatImpl" class="com.sealinkin.bdef.service.impl.Bdef_WmsInterfacePlatImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 商品资料 -->
+	<bean id="bdef_DefarticleImpl" class="com.sealinkin.bdef.service.impl.Bdef_DefarticleImpl">
+		<property name="genDao" ref="genDao" />
+		<property name="getArticleForBarcodeImpl" ref="getArticleForBarcodeImpl" />
+	</bean>
+	
+	<!-- 货主资料 -->
+	<bean id="bdef_DefOwnerImpl" class="com.sealinkin.bdef.service.impl.Bdef_DefOwnerImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>	
+
+	<!-- 货主资料 -->
+	<bean id="bdef_DefWorkerImpl" class="com.sealinkin.bdef.service.impl.Bdef_DefWorkerImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>		
+	
+	<!-- 错误信息 -->
+	<bean id="wmsDefErrorServiceImpl" class="com.sealinkin.bdef.service.impl.Wms_DefErrorServiceImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 供应商 -->
+	<bean id="bdef_DefSupplierImpl" class="com.sealinkin.bdef.service.impl.Bdef_DefSupplierImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 码头 -->
+	<bean id="bdef_DefDockImpl" class="com.sealinkin.bdef.service.impl.Bdef_DefDockImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 客户 -->
+	<bean id="bdef_DefCustImpl" class="com.sealinkin.bdef.service.impl.Bdef_DefCustImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 工作站 -->
+	<bean id="bdef_DefWorkstationImpl" class="com.sealinkin.bdef.service.impl.Bdef_DefWorkstationImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 承运商资料维护 -->
+	<bean id="bdef_DefShipperImpl" class="com.sealinkin.bdef.service.impl.Bdef_DefShipperImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 工作站 -->
+	<bean id="bdef_defprinterImpl" class="com.sealinkin.bdef.service.impl.Bdef_DefPrinterImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 客户与线路关系 -->
+	<bean id="oset_DefLineImpl" class="com.sealinkin.bdef.service.impl.Oset_DefLineServiceImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 系统参数配置 -->
+	<bean id="bdef_WmsDefbaseImpl" class="com.sealinkin.bdef.service.impl.Bdef_WmsDefbaseImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	
+	<!-- 货主参数配置 -->
+	<bean id="bdef_WmsOwnerBaseImpl" class="com.sealinkin.bdef.service.impl.Bdef_WmsOwnerBaseImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+
+	
+	<!-- 仓别参数配置 -->
+	<bean id="bdef_WmsWarehouseBaseImpl" class="com.sealinkin.bdef.service.impl.Bdef_WmsWarehouseBaseImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+	
+	<!-- 货主仓别参数配置 -->
+	<bean id="bdef_WmsWarehouseOwnerBaseImpl" class="com.sealinkin.bdef.service.impl.Bdef_WmsWarehouseOwnerBaseImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+
+	<!-- 租仓策略配置 -->
+	<bean id="bset_ValuePolicySetImpl" class="com.sealinkin.bdef.service.impl.Bset_ValuePolicySetImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+	
+	<!-- 计费公式管理-->
+	<bean id="bill_FormulasetImpl" class="com.sealinkin.bdef.service.impl.Bill_FormulasetImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+
+	
+	<!-- 科目和计费项目的关系维护-->
+	<bean id="bill_AccountImpl" class="com.sealinkin.bdef.service.impl.Bill_AccountImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+	<!-- 费用清单维护-->
+	<bean id="bill_BaseAmountImpl" class="com.sealinkin.bdef.service.impl.Bill_BaseAmountImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	<!-- 条码信息采集-->
+	<bean id="bset_Article_BarcodeImpl" class="com.sealinkin.bdef.service.impl.Bset_Article_BarcodeImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+	
+	<!-- 客户与电子标签储位对应关系-->
+	<bean id="bdef_CsetCustDpscellImpl" class="com.sealinkin.bdef.service.impl.Bdef_CsetCustDpscellImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>	
+
+	<!-- 科目和计费项目的关系维护-->
+	<bean id="bill_ResetBillImpl" class="com.sealinkin.bdef.service.impl.Bill_ResetBillImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>		
+	
+	<!-- 色码维护-->
+	<bean id="bdef_ColourCodeImpl" class="com.sealinkin.bdef.service.impl.Bdef_ColourCodeImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	
+	<!-- 数据导入-->
+	<bean id="dataImportImpl" class="com.sealinkin.bdef.service.impl.DataImportImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	<!-- 商品与商品群组的对应关系-->
+	<bean id="bdef_ArticleFamilyImpl" class="com.sealinkin.bdef.service.impl.Bdef_ArticleFamilyImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	<!-- 设备管理-->
+	<bean id="Divice_DivideImpl" class="com.sealinkin.bdef.service.impl.Divice_DivideImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+
+    <!-- 打印机群组与商品机组关系维护-->
+	<bean id="pntdef_PrinterGrpgatherImpl" class="com.sealinkin.bdef.service.impl.Pntdef_PrinterGrpgatherImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	
+	<!-- 工作站与设备组关系维护-->
+	<bean id="bset_workstationDivideImpl" class="com.sealinkin.bdef.service.impl.Bset_workstationDivideImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	
+	<!-- 文件管理-->
+	<bean id="bdef_DefAppendixImpl" class="com.sealinkin.bdef.service.impl.Bdef_DefAppendixImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	
+    <!-- 车辆信息维护 -->
+	<bean id="bdef_DefCarImpl" class="com.sealinkin.bdef.service.impl.Bdef_DefCarImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	
+    <!--策略配置-->
+	<bean id="bdef_WmsDefstrategyImpl" class="com.sealinkin.bdef.service.impl.Bdef_WmsDefstrategyImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	
+	 <!--监控日志查询-->
+	<bean id="bdef_ControlLogServiceImpl" class="com.sealinkin.bdef.service.impl.Bdef_ControlLogImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+    
+    <!-- 任务切分规则配置 huangb 20160612 -->
+    <bean id='bdef_WmsTaskallotRuleMImpl' class="com.sealinkin.bdef.service.impl.Bdef_WmsTaskallotRuleMImpl">
+   		<property name="genDao" ref="genDao"/>
+    </bean>
+   
+   	<!-- 物流箱规则配置 -->
+	<bean id="bdef_WmsLogiboxRuleImpl" class="com.sealinkin.bdef.service.impl.Bdef_WmsLogiboxRuleImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>	
+	
+	<!--拣货策略配置-->
+	<bean id="Bdef_WmsOutPickImpl" class="com.sealinkin.bdef.service.impl.Bdef_WmsOutPickImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+</beans>
+

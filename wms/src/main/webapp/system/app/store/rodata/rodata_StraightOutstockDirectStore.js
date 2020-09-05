@@ -1,0 +1,19 @@
+/**
+ *退厂发单
+ *创建：zhouhuan
+ */
+Ext.define('cms.store.rodata.rodata_StraightOutstockDirectStore',{
+	extend:'Ext.data.Store',
+	pageSize : appConfig.getPageSize(),
+	model:'cms.model.rodata.rodata_OutstockDirectModel',
+	autoLoad:false,
+	proxy:{
+		type:'ajax',
+		method:'post',
+		url:'rodata_StraightOutstockDirectAction_getRodata_OutstockDirect',
+		reader:{
+			root:'rootList',
+			totalProperty:'totalCount'
+		}
+	}
+});

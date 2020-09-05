@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	
+	
+	<!-- 补印中心 -->
+	<bean id="printerAction" class="com.sealinkin.print.action.PrinterAction" scope="prototype">
+		<property name="printerImpl" ref="printerImpl"/>
+	</bean>
+	<!-- 本地打印 -->
+	<bean id="localPrinterAciton" class="com.sealinkin.print.action.LocalPrinterAciton" scope="prototype">
+		<property name="localPrinterImpl" ref="localPrinterImpl"/>
+	</bean>
+	<!-- 条码打印 -->
+	<!--<bean id="printerTagAction" class="com.sealinkin.print.action.PrinterTagAction" scope="prototype">
+		<property name="printerTagImpl" ref="printerTagImpl"/>
+	</bean>
+-->
+
+</beans>
+

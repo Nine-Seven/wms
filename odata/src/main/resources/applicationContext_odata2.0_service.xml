@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/aop 
+            http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context/spring-context-2.5.xsd
+            http://www.springframework.org/schema/tx 
+            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+    <!-- 拣货发单 -->
+	<bean id="odata_OutstockMImpl" class="com.sealinkin.odata.service.impl.Odata_OutstockMImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 出货调度 -->
+	<bean id="odata_LocateImpl" class="com.sealinkin.odata.service.impl.Odata_LocateImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	 <!-- 拣货回单 -->
+	<bean id="odata_OutstockMReceiptImpl" class="com.sealinkin.odata.service.impl.Odata_OutstockMReceiptImpl">
+		<property name="genDao" ref="genDao" />
+		<property name="odata_OutstockMImpl" ref="odata_OutstockMImpl" />
+		<property name="getArticleForBarcodeImpl" ref="getArticleForBarcodeImpl" />
+	</bean>
+	
+	<!-- 分播回单 -->
+	<bean id="odata_DivideImpl" class="com.sealinkin.odata.service.impl.Odata_DivideImpl">
+		<property name="genDao" ref="genDao" />
+		<property name="odata_OutstockMImpl" ref="odata_OutstockMImpl" />
+	</bean>
+	
+	<!-- 出货手建单 -->
+	<bean id="odata_ExpImpl" class="com.sealinkin.odata.service.impl.Odata_ExpImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 出货装车 -->
+	<bean id="odata_CarPlanImpl" class="com.sealinkin.odata.service.impl.Odata_CarPlanImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	<!-- 出货装车(小嘴) -->
+	<bean id="odata_CarPlanForXzImpl" class="com.sealinkin.odata.service.impl.Odata_CarPlanForXzImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	<!-- dps -->
+	<bean id="dps_SystemImpl" class="com.sealinkin.odata.service.impl.DPS_SystemImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	<!-- 容器整理 -->
+	<bean id="odata_ArrangeImpl" class="com.sealinkin.odata.service.impl.Odata_ArrangeImpl">
+		<property name="genDao" ref="genDao" />
+		<property name="getArticleForBarcodeImpl" ref="getArticleForBarcodeImpl" />
+		<property name="odata_OutstockMImpl" ref="odata_OutstockMImpl" />
+	</bean>	
+	
+	<!-- 出货策略配置 -->
+	<bean id="odata_TacticsImpl" class="com.sealinkin.odata.service.impl.Odata_TacticsImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+		
+	<!-- BYM出货订单接口-->
+	<bean id="odata_BYMSheetImpl" class="com.sealinkin.odata.service.impl.Odata_BYMSheetImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 切单规则配置 -->
+	<bean id="oset_TaskAllotImpl" class="com.sealinkin.odata.service.impl.Oset_TaskAllotImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	
+	<!-- 出货装车 -->
+	<bean id="odata_CarPlanForTthImpl" class="com.sealinkin.odata.service.impl.Odata_CarPlanForTthImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+		<!-- 波次计划规则 -->
+	<bean id="odata_WmsWavePlanImpl" class="com.sealinkin.odata.service.impl.Odata_WmsWavePlanImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 出货整理打包（电商）-->
+	<bean id="odata_CheckPackOnlineImpl" class="com.sealinkin.odata.service.impl.Odata_CheckPackOnlineImpl">
+		<property name="genDao" ref="genDao" />
+		<property name="getArticleForBarcodeImpl" ref="getArticleForBarcodeImpl" />
+		
+	</bean>	
+	
+		<!-- 病单处理 -->
+	<bean id="odata_ExpCancelImpl" class="com.sealinkin.odata.service.impl.Odata_ExpCancelImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+		<!-- 病单审核 -->
+	<bean id="odata_ExpCancelCheckImpl" class="com.sealinkin.odata.service.impl.Odata_ExpCancelCheckImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+
+	<!-- 分播墙拣货 -->
+	<bean id="odata_DivideWallImpl" class="com.sealinkin.odata.service.impl.Odata_DivideWallImpl">
+		<property name="genDao" ref="genDao" />
+		<property name="getArticleForBarcodeImpl" ref="getArticleForBarcodeImpl" />
+	</bean>	
+	
+	<!-- 出货自提确认 -->
+	<bean id="odata_OJComfirmImpl" class="com.sealinkin.odata.service.impl.Odata_OJComfirmImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>	
+	
+	<!-- 出货日期确认 -->
+	<bean id="odata_CustSendDateImpl" class="com.sealinkin.odata.service.impl.Odata_CustSendDateImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>	
+	
+	<!-- 装并板 -->
+	<bean id="Odata_MergePalImpl" class="com.sealinkin.odata.service.impl.Odata_MergePalImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>	
+	
+	<!-- 出车回单 -->
+	<bean id="odata_CarReceiptImpl" class="com.sealinkin.odata.service.impl.Odata_CarReceiptImpl">
+		<property name="genDao" ref="genDao" />
+    </bean>	
+    
+	<!-- 流水标签回单 -->
+	<bean id="odata_OutstockMWaterImpl" class="com.sealinkin.odata.service.impl.Odata_OutstockMWaterImpl">
+		<property name="genDao" ref="genDao" />
+    </bean>
+    
+    <!-- 出库扫描 -->
+	<bean id="odata_ExpCheckImpl" class="com.sealinkin.odata.service.impl.Odata_ExpCheckImpl">
+		<property name="genDao" ref="genDao" />
+	    <property name="getArticleForBarcodeImpl" ref="getArticleForBarcodeImpl" />
+    </bean>
+    
+       
+    <!-- 拆零复核打包 -->
+	<bean id="odata_BArrangeImpl" class="com.sealinkin.odata.service.impl.Odata_BArrangeImpl">
+		<property name="genDao" ref="genDao" />
+		<property name="getArticleForBarcodeImpl" ref="getArticleForBarcodeImpl" />
+		<property name="odata_OutstockMImpl" ref="odata_OutstockMImpl" />
+	</bean>	
+	
+	 <!-- 自动出货调度 -->
+	<bean id="odata_LocateAutoServiceImpl" class="com.sealinkin.odata.service.impl.Odata_LocateAutoImpl">
+		<property name="genDao" ref="genDao" />
+    </bean>
+    <!-- 集货作业 -->
+	<bean id="odata_PackageServiceImpl" class="com.sealinkin.odata.service.impl.Odata_PackageImpl">
+		<property name="genDao" ref="genDao" />
+    </bean>
+    
+    <!-- 出货定位策略配置 -->
+	<bean id="Odata_outLocateStrategyImpl" class="com.sealinkin.odata.service.impl.Odata_outLocateStrategyImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+	
+	<!-- 复核策略配置 -->
+	<bean id="Odata_CheckStrategyImpl" class="com.sealinkin.odata.service.impl.Odata_CheckStrategyImpl">
+		<property name="genDao" ref="genDao" />
+	</bean>
+
+</beans>
+

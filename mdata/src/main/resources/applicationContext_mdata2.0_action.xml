@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	
+	<!-- 移库手建单 -->
+	<bean id="mdata_PlanMAction" class="com.sealinkin.mdata.action.Mdata_PlanMAction" scope="prototype">
+		<property name="mdata_PlanMImpl" ref="mdata_PlanMImpl"/>
+	</bean>
+	
+	<!-- 移库回单 -->
+	<bean id="odata_OutstockDAction" class="com.sealinkin.mdata.action.Odata_OutstockDAction" scope="prototype">
+		<property name="odata_OutstockDImpl" ref="odata_OutstockDImpl"/>
+	</bean>
+	
+	<!-- 移库发单 -->
+	<bean id="odata_OutstockDirectAction" class="com.sealinkin.mdata.action.Odata_OutstockDirectAction" scope="prototype">
+		<property name="odata_OutstockDirectImpl" ref="odata_OutstockDirectImpl"/>
+	</bean>
+	
+</beans>
+

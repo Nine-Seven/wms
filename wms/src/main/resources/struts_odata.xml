@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="odata" extends="struts-default" namespace="/">
+	
+		<!-- 拣货发单自动成单 -->
+		<action name="odata_OutstockMAction_*" method="{1}" class="odata_OutstockMAction"></action>
+		
+		<!-- 拣货回单标签回单 -->
+		<action name="odata_OutstockMReceiptAction_*" method="{1}" class="odata_OutstockMReceiptAction"/>
+		
+		<!-- 分播回单 -->
+		<action name="odata_DivideAction_*" method="{1}" class="odata_DivideAction"/>
+		
+		<!-- 出货调度 -->
+		<action name="odata_LocateAction_*" method="{1}" class="odata_LocateAction"/>
+		
+		<!-- 出货手建单 -->
+		<action name="odata_ExpAction_*" method="{1}" class="odata_ExpAction"/>
+		
+		<!-- 出货装车 -->
+		<action name="odata_CarPlanAction_*" method="{1}" class="odata_CarPlanAction"/>
+		
+		<!-- 出货装车(小嘴) -->
+		<action name="odata_CarPlanForXzAction_*" method="{1}" class="odata_CarPlanForXzAction"/>
+		
+		<!-- 出货装车 (天天惠)-->
+		<action name="odata_CarPlanForTthAction_*" method="{1}" class="odata_CarPlanForTthAction"/>
+		
+		<!-- 出货策略配置 -->
+		<action name="odata_TacticsAction_*" method="{1}" class="odata_TacticsAction"/>
+
+		<!-- BYM出货订单接口 -->
+		<action name="odata_BYMSheetAction_*" method="{1}" class="odata_BYMSheetAction"/>
+		
+		<!-- 切单规则配置 -->
+		<action name="oset_TaskAllotAction_*" method="{1}" class="oset_TaskAllotAction"/>
+		
+		<!-- 出货整理打包 -->
+		<action name="odata_ArrangePackAction_*" method="{1}" class="odata_ArrangePackAction"/>
+		
+		<!-- 波次计划规则-->
+		<action name="odata_WmsWavePlanAction_*" method="{1}" class="odata_WmsWavePlanAction"/>
+		
+		<!-- 出货整理打包（电商） -->
+		<action name="odata_CheckPackOnlineAction_*" method="{1}" class="odata_CheckPackOnlineAction"/>
+		
+		 <!-- 病单处理-->
+		<action name="odata_ExpCancelAction_*" method="{1}" class="odata_ExpCancelAction"/>
+	    <!-- 病单审核-->
+		<action name="odata_ExpCancelCheckAction_*" method="{1}" class="odata_ExpCancelCheckAction"/>
+		
+		<!-- 分播墙拣货-->
+		<action name="odata_DivideWallAction_*" method="{1}" class="odata_DivideWallAction"/>
+	    
+	    <!-- 出货自提确认-->
+		<action name="odata_OJComfirmAction_*" method="{1}" class="odata_OJComfirmAction"/>
+	  
+	    <!-- 出货日期确认-->
+		<action name="odata_CustSendDateAction_*" method="{1}" class="odata_CustSendDateAction"/>
+	
+	    <!-- 出车回单 -->
+		<action name="odata_CarReceiptAction_*" method="{1}" class="odata_CarReceiptAction"/>
+	
+	 	<!-- 流水标签回单 -->
+		<action name="odata_OutstockMWaterAction_*" method="{1}" class="odata_OutstockMWaterAction"/>
+	
+		<!-- 出库扫描 -->
+		<action name="odata_ExpCheckAction_*" method="{1}" class="odata_ExpCheckAction"/>
+			<!-- 拆零出货整理打包 -->
+		<action name="odata_BArrangePackAction_*" method="{1}" class="odata_BArrangePackAction"/>
+		
+		<!-- 自动出货调度 -->
+		<action name="odata_LocateAutoAction_*" method="{1}" class="odata_LocateAutoAction"/>
+		
+		<!-- 集货作业 -->
+		<action name="odata_PackageAction_*" method="{1}" class="odata_PackageAction"/>
+		
+		 <!-- 出货定位策略配置 -->
+		<action name="Odata_outLocateStrategyAction_*" method="{1}" class="Odata_outLocateStrategyAction"/>	
+		<!-- 拣货策略配置 -->
+		<action name="wms_outPickStrategyAction_*" method="{1}" class="Bdef_WmsOutPickAction"/>
+		
+		 <!-- 复核策略配置 -->
+		<action name="Odata_CheckStrategyAction_*" method="{1}" class="Odata_CheckStrategyAction"/>
+		<!--接收快递数据接口-->
+		<action name="odata_ReceiveSeverAction_*" method="{1}" class="com.sealinkin.odata.action.Odata_ReceiveSeverAction"/>
+	</package>
+	
+</struts>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

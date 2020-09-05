@@ -1,0 +1,15 @@
+Ext.define('cms.store.odata.odata_CheckDStore',{
+	extend:'Ext.data.Store',
+	model:'cms.model.odata.odata_CheckLabelDModel',
+	autoLoad:false,
+	proxy:{
+		type:'ajax',
+		method:'post',
+		url:'odata_CheckPackOnlineAction_getCheckD.action',
+		reader:{
+			type:'json',
+			root:'rootList',
+			totalProperty:'totalCount'
+		}
+	}
+});

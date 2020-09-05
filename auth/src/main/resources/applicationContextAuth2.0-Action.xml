@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+	default-lazy-init="false">
+	
+	<bean id="loginAction" class="com.sealinkin.auth.action.LoginAction" scope="prototype">
+		<property name="loginImpl" ref="loginImpl"></property>
+	</bean>	
+	
+	<!-- 用户与仓别与货主关系维护 -->
+	<bean id="bset_Worker_LocAction" class="com.sealinkin.auth.action.Bset_Worker_LocAction" scope="prototype">
+		<property name="bset_Worker_LocImpl" ref="bset_Worker_LocImpl"></property>
+	</bean>	
+	
+	<!-- 权限 -->
+	<bean id="authAction" class="com.sealinkin.auth.action.AuthAction" scope="prototype">
+		<property name="authImpl" ref="authImpl"></property>
+	</bean>	
+	
+	<!-- 打印机组与打印机关系维护 -->
+	<bean id="bset_GroupAction" class="com.sealinkin.auth.action.Bset_GroupAction" scope="prototype">
+		<property name="bset_groupImpl" ref="bset_groupImpl"></property>
+	</bean>	
+</beans>
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="applicationContext-comm2.0-service.xml" />
+    <import resource="applicationContext-comm2.0-action.xml"/>
+    <import resource="applicationContext.xml" />
+    <!--<import resource="classpath*:applicationContext_*.xml" />-->
+    <import resource="applicationContextAuth2.0-Action.xml" />
+    <import resource="applicationContextAuth2.0-Service.xml" />
+    <import resource="applicationContext_bdef2.0_action.xml" />
+    <import resource="applicationContext_bdef2.0_service.xml" />
+    <import resource="applicationContext_fcdata2.0_action.xml" />
+    <import resource="applicationContext_fcdata2.0_service.xml" />
+    <import resource="applicationContext_cset2.0_action.xml" />
+    <import resource="applicationContext_cset2.0_service.xml" />
+    <import resource="applicationContext_cset2.0_service.xml" />
+    <import resource="applicationContext_odata2.0_service.xml" />
+    <import resource="applicationContext_odata2.0_action.xml" />
+    <import resource="applicationContext_cdef_service.xml" />
+    <import resource="applicationContext_cdef_action.xml" />
+    <import resource="applicationContext_idata2.0_service.xml" />
+    <import resource="applicationContext_idata2.0_action.xml" />
+    <import resource="applicationContext_Stock2.0-Service.xml" />
+    <import resource="applicationContext_Stock2.0-Action.xml" />
+    <import resource="applicationContextProcess2.0-Service.xml" />
+    <import resource="applicationContext_print2.0_service.xml" />
+    <import resource="applicationContext_print2.0_action.xml" />
+    <import resource="applicationContext_mdata2.0_action.xml" />
+    <import resource="applicationContext_mdata2.0_service.xml" />
+    <import resource="applicationContext_ridata2.0_action.xml" />
+    <import resource="applicationContext_ridata2.0_service.xml" />
+
+
+</beans>

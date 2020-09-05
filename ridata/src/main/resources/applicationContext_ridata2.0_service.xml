@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/aop 
+            http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context/spring-context-2.5.xsd
+            http://www.springframework.org/schema/tx 
+            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+            
+    	<!-- 返配手建单 -->
+	<bean id="ridata_UntreadImpl" class="com.sealinkin.ridata.service.impl.Ridata_UntreadImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	
+	<!-- 返配扫描验收 -->
+	<bean id="ridata_CheckImpl" class="com.sealinkin.ridata.service.impl.Ridata_CheckImpl">
+		<property name="genDao" ref="genDao"/>
+		<property name="getArticleForBarcodeImpl" ref="getArticleForBarcodeImpl"/>
+		<property name="getSystemParameterImpl" ref="getSystemParameterImpl"/> 
+	</bean>
+	
+	<!-- 返配上架回单 -->
+	<bean id="ridata_InstockImpl" class="com.sealinkin.ridata.service.impl.Ridata_InstockImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	
+	<!-- 返配表单验收  -->
+	<bean id="ridata_checkImpl2" class="com.sealinkin.ridata.service.impl.Ridata_CheckImpl2">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	
+	<!-- 返配批次管理  -->
+	<bean id="ridata_BatchImpl" class="com.sealinkin.ridata.service.impl.Ridata_BatchImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	
+	<!-- 返配验收确认-->
+	<bean id="ridata_CheckConfirmImpl" class="com.sealinkin.ridata.service.impl.Ridata_CheckConfirmImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	
+	<!-- 返配验收确认GSD -->
+	<bean id="ridata_CheckConfirmGsdImpl" class="com.sealinkin.ridata.service.impl.Ridata_CheckConfirmGsdImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	
+	<!-- 返配验收确认LNS -->
+	<bean id="ridata_CheckConfirmLnsImpl" class="com.sealinkin.ridata.service.impl.Ridata_CheckConfirmLnsImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	
+	<!-- 返配分播回单 -->
+	<bean id="ridata_DivideReceiptImpl" class="com.sealinkin.ridata.service.impl.Ridata_DivideReceiptImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	
+	<!-- 返配次品扫描验收 -->
+	<bean id="ridata_CheckBadImpl" class="com.sealinkin.ridata.service.impl.Ridata_CheckBadImpl">
+		<property name="genDao" ref="genDao"/>
+		<property name="getArticleForBarcodeImpl" ref="getArticleForBarcodeImpl"/>
+	</bean>
+	
+	<!-- 返配波次管理  -->
+	<bean id="ridata_WaveImpl" class="com.sealinkin.ridata.service.impl.Ridata_WaveImpl">
+		<property name="genDao" ref="genDao"/>
+	</bean>
+	
+	<!-- 返配清场扫描验收 -->
+	<bean id="ridata_QingchangImpl" class="com.sealinkin.ridata.service.impl.Ridata_QingchangImpl">
+		<property name="genDao" ref="genDao"/>
+		<property name="getArticleForBarcodeImpl" ref="getArticleForBarcodeImpl"/>
+	</bean>
+	
+	<!-- 返配策略配置 -->
+	<bean id="ridata_TacticsImpl" class="com.sealinkin.ridata.service.impl.Ridata_TacticsImpl">
+		<property name="genDao" ref="genDao"/>
+		 
+	</bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

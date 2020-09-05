@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 开发模式下使用，这样可以打印出更详细的错误信息 -->
+	<constant name="struts.devMode" value="true"/>
+	<constant name="struts.multipart.maxSize" value="20971520"/>
+	<include file="struts_auth.xml"></include>
+	<include file="struts_bdef.xml"></include>
+	<include file="struts_fcdata.xml"></include>
+	<include file="struts_idata.xml"></include>
+	<include file="struts_odata.xml"></include>
+	<include file="struts_wms.xml"></include>
+	<include file="struts_cset.xml"></include>
+	<include file="struts_mdata.xml"></include>
+	<include file="struts_ridata.xml"></include>
+	<include file="struts_rodata.xml"></include> 
+	<include file="struts_cdef.xml"></include>
+	<include file="struts_report.xml"></include> 
+	<include file="struts_print.xml"></include>
+	<include file="struts_acdata.xml"></include>
+	<include file="struts_stock.xml"></include>
+	
+	<include file="struts_sodata.xml"></include>
+	<include file="struts_cost.xml"></include>
+
+	<constant name="struts.objectFactory" value="spring" />
+
+	<package name="struts" extends="struts-default" namespace="/">
+	<action name="setUserWorkSpaceNo" method="setUserWorkSpaceNo" class="com.sealinkin.ridata.ridata.comm.action.DdefDefWorkStationAction"></action>
+	
+	<!-- 获取系统配置 -->
+	<action name="getSystemParameterAction_*" method="{1}" class="getSystemParameterAction"></action>
+	
+	<!-- 分播回单目的容器号校验-->
+	<action name="checkDivideLabelNoAction_*" method="{1}" class="checkDivideLabelNoAction"></action>
+	
+	<!-- 根据条码获取商品-->
+	<action name="getArticleForBarcodeAction_*" method="{1}" class="com.sealinkin.ridata.ridata.comm.action.GetArticleForBarcodeAction"></action>
+	
+	<!--储位校验-->
+	<action name="checkCellAction_*" method="{1}" class="com.sealinkin.ridata.ridata.comm.action.CheckCellAction"></action>
+	
+	</package> 
+</struts>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	
+	<!-- 返配手建单 -->
+	<bean id="ridata_UntreadAction" class="com.sealinkin.ridata.action.Ridata_UntreadAction" scope="prototype">
+		<property name="ridata_UntreadImpl" ref="ridata_UntreadImpl"/>
+	</bean>
+	
+	<!-- 返配扫描验收 -->
+	<bean id="ridata_CheckAction" class="com.sealinkin.ridata.action.Ridata_CheckAction" scope="prototype">
+		<property name="ridata_CheckImpl" ref="ridata_CheckImpl"/>
+	</bean>
+	
+	<!-- 返配上架回单 -->
+	<bean id="ridata_InstockAction" class="com.sealinkin.ridata.action.Ridata_InstockAction" scope="prototype">
+		<property name="ridata_InstockImpl" ref="ridata_InstockImpl"/>
+	</bean>
+	
+	<!-- 返配表单验收 -->
+	<bean id="ridata_CheckAction2" class="com.sealinkin.ridata.action.Ridata_CheckAction2" scope="prototype">
+		<property name="ridata_checkImpl2" ref="ridata_checkImpl2"/>
+	</bean>
+	
+	<!-- 返配批次管理 -->
+	<bean id="ridata_BatchAction" class="com.sealinkin.ridata.action.Ridata_BatchAction" scope="prototype">
+		<property name="ridata_BatchImpl" ref="ridata_BatchImpl"/>
+	</bean>
+	
+	<!-- 返配验收确认 -->
+	<bean id="ridata_CheckConfirmAction" class="com.sealinkin.ridata.action.Ridata_CheckConfirmAction" scope="prototype">
+		<property name="ridata_CheckConfirmImpl" ref="ridata_CheckConfirmImpl"/>
+	</bean>
+	
+	<!-- 返配验收确认GSD -->
+	<bean id="ridata_CheckConfirmGsdAction" class="com.sealinkin.ridata.action.Ridata_CheckConfirmGsdAction" scope="prototype">
+		<property name="ridata_CheckConfirmGsdImpl" ref="ridata_CheckConfirmGsdImpl"/>
+	</bean>
+	
+	<!-- 返配验收确认LNS -->
+	<bean id="ridata_CheckConfirmLnsAction" class="com.sealinkin.ridata.action.Ridata_CheckConfirmLnsAction" scope="prototype">
+		<property name="ridata_CheckConfirmLnsImpl" ref="ridata_CheckConfirmLnsImpl"/>
+	</bean>
+	
+	<!-- 返配分播回单 -->
+	<bean id="ridata_DivideReceiptAction" class="com.sealinkin.ridata.action.Ridata_DivideReceiptAction" scope="prototype">
+		<property name="ridata_DivideReceiptImpl" ref="ridata_DivideReceiptImpl"/>
+	</bean>
+	
+	<!-- 返配次品扫描验收 -->
+	<bean id="ridata_CheckBadAction" class="com.sealinkin.ridata.action.Ridata_CheckBadAction" scope="prototype">
+		<property name="ridata_CheckBadImpl" ref="ridata_CheckBadImpl"/>
+	</bean>
+    <!-- 返配清场扫描验收 -->
+	<bean id="ridata_QingchangAction" class="com.sealinkin.ridata.action.Ridata_QingchangAction" scope="prototype">
+		<property name="ridata_QingchangImpl" ref="ridata_QingchangImpl"/>
+	</bean>
+	<!-- 返配波次管理 -->
+	<bean id="ridata_WaveAction" class="com.sealinkin.ridata.action.Ridata_WaveAction" scope="prototype">
+		<property name="ridata_WaveImpl" ref="ridata_WaveImpl"/>
+	</bean>
+		<!-- 返配策略配置 -->
+	<bean id="ridata_TacticsAction" class="com.sealinkin.ridata.action.Ridata_TacticsAction" scope="prototype">
+		<property name="ridata_TacticsImpl" ref="ridata_TacticsImpl"/>
+	</bean>
+</beans>
+
