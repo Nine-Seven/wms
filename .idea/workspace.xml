@@ -15,13 +15,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92583550-d7a2-4f2b-a0e0-2aa47d7c8d77" name="Default Changelist" comment="Default Changelist">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6620a8d8-c024-4d91-9823-579b99530081.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6620a8d8-c024-4d91-9823-579b99530081.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6620a8d8-c024-4d91-9823-579b99530081/storage_v2/_src_/schema/ZDMWMS.-rZ2nQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6620a8d8-c024-4d91-9823-579b99530081/storage_v2/_src_/schema/ZDMWMS.-rZ2nQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6620a8d8-c024-4d91-9823-579b99530081/storage_v2/_src_/schema/ZDMWMS.-rZ2nQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6620a8d8-c024-4d91-9823-579b99530081/storage_v2/_src_/schema/ZDMWMS.-rZ2nQ.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="92583550-d7a2-4f2b-a0e0-2aa47d7c8d77" name="Default Changelist" comment="Default Changelist" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -347,7 +341,7 @@
       <workItem from="1599700414936" duration="626000" />
       <workItem from="1599717187114" duration="667000" />
       <workItem from="1599787395285" duration="1058000" />
-      <workItem from="1599792394519" duration="2083000" />
+      <workItem from="1599792394519" duration="2708000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1599278399930</created>
@@ -370,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599284425470</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Default Changelist">
+      <created>1599797611261</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1599797611261</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,6 +567,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1596854349303" />
+    <state x="752" y="267" key="Vcs.Push.Dialog.v2" timestamp="1599797615323">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="752" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1599797615323" />
     <state width="968" height="548" key="XDebugger.FullValuePopup" timestamp="1598515206494">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
