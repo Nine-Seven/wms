@@ -711,6 +711,7 @@ Ext.define('cms.controller.odata.odata_checkPackOnlineController',{
 			}
 		});}
 	},
+
 	boxkeydown:function(th,e,eOpts){
 		var rdoCheckType = Ext.getCmp('rdoCheckType3916').getValue().rd;
 	  	if (e.getKey() == e.ENTER) {
