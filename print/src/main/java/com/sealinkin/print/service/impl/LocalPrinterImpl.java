@@ -37,46 +37,44 @@ public class LocalPrinterImpl implements LocalPrinterService {
         Odata_ExpM expM = expMS.get(0);
         if (expM.getRsvVarod5() != null) {
             list.add("0");
-            sql = "select * FROM BDEF_DEFOWNER  WHERE OWNER_NO = '" + checkLabelDS.get(0).getOwnerNo() + "'";
+            sql = "select * FROM BDEF_DEFOWNER  WHERE OWNER_NO = '" + expM.getOwnerNo() + "'";
             List<Bdef_DefOwner> owner = genDao.getListByNativeSql(sql, Bdef_DefOwner.class);
-            list.add(expM);
-            list.add(owner);
+            list.add(owner.get(0));
         } else {
             list.add("1");
-            //出货信息加入返回值
-            list.add(expMS.get(0));
-            //获取商品详情
-            sql = "select a.exp_no,a.article_no,c.barcode,c.article_name," +
-                    "a.packing_qty," +
-                    "c.qmin_operate_packing,c.unit_packing, " +
-                    "f_get_packingunit(a.enterprise_no,a.owner_no,a.article_no,a.packing_qty) packingUnit," +
-                    "f_get_packingunit(a.enterprise_no,a.owner_no,a.article_no,c.qmin_operate_packing) packingUnitQmin," +
-                    "f_get_packingunit(a.enterprise_no,a.owner_no,a.article_no,c.unit_packing) Unit," +
-                    "f_get_spec(a.enterprise_no,a.owner_no,a.article_no,a.packing_qty) packingSpec," +
-                    "f_get_spec(a.enterprise_no,a.owner_no,a.article_no,c.qmin_operate_packing) packingSpecQmin," +
-                    "f_get_spec(a.enterprise_no,a.owner_no,a.article_no,c.unit_packing) spec," +
-                    "a.owner_article_no," +
-                    "a.article_qty,a.unit_cost," +
-                    "trunc(a.article_qty/a.packing_qty) as planBox," +
-                    "trunc(mod(a.article_qty,a.packing_qty)/c.QMIN_OPERATE_PACKING) as planQmin," +
-                    "(a.article_qty - trunc(a.article_qty/a.packing_qty) * a.packing_qty - trunc(mod(a.article_qty,a.packing_qty)/c.QMIN_OPERATE_PACKING) * c.QMIN_OPERATE_PACKING) as planDis," +
-
-                    "a.produce_condition as produceCond," +
-                    "a.produce_value1 as produceV1," +
-                    "a.produce_value2 as produceV2, " +
-                    "a.lotno_condition as lotnoCondition," +
-                    "a.lotno_value1 as lotnoValue1," +
-                    "a.lotno_value2 as lotnoValue2, " +
-                    "A.SPECIFY_FIELD,A.SPECIFY_CONDITION,A.SPECIFY_VALUE1,A.SPECIFY_VALUE2 " +
-                    "from Odata_Exp_D a,bdef_defarticle c," +
-                    "bdef_article_packing d " +
-                    "where a.enterprise_no=c.enterprise_no and a.enterprise_no=d.enterprise_no(+) and " +
-                    "a.article_no=c.article_no and " +
-                    "a.article_no=d.article_no(+) and " +
-                    "a.packing_qty=d.packing_qty(+) and a.exp_no='" + checkLabelDS.get(0).getExpNo() + "'";
-            List<Odata_ExpDModel> expDs = genDao.getListByNativeSql(sql, Odata_ExpDModel.class);
-            list.add(expDs);
         }
+        list.add(expM);
+        //获取商品详情
+        sql = "select a.exp_no,a.article_no,c.barcode,c.article_name," +
+                "a.packing_qty," +
+                "c.qmin_operate_packing,c.unit_packing, " +
+                "f_get_packingunit(a.enterprise_no,a.owner_no,a.article_no,a.packing_qty) packingUnit," +
+                "f_get_packingunit(a.enterprise_no,a.owner_no,a.article_no,c.qmin_operate_packing) packingUnitQmin," +
+                "f_get_packingunit(a.enterprise_no,a.owner_no,a.article_no,c.unit_packing) Unit," +
+                "f_get_spec(a.enterprise_no,a.owner_no,a.article_no,a.packing_qty) packingSpec," +
+                "f_get_spec(a.enterprise_no,a.owner_no,a.article_no,c.qmin_operate_packing) packingSpecQmin," +
+                "f_get_spec(a.enterprise_no,a.owner_no,a.article_no,c.unit_packing) spec," +
+                "a.owner_article_no," +
+                "a.article_qty,a.unit_cost," +
+                "trunc(a.article_qty/a.packing_qty) as planBox," +
+                "trunc(mod(a.article_qty,a.packing_qty)/c.QMIN_OPERATE_PACKING) as planQmin," +
+                "(a.article_qty - trunc(a.article_qty/a.packing_qty) * a.packing_qty - trunc(mod(a.article_qty,a.packing_qty)/c.QMIN_OPERATE_PACKING) * c.QMIN_OPERATE_PACKING) as planDis," +
+
+                "a.produce_condition as produceCond," +
+                "a.produce_value1 as produceV1," +
+                "a.produce_value2 as produceV2, " +
+                "a.lotno_condition as lotnoCondition," +
+                "a.lotno_value1 as lotnoValue1," +
+                "a.lotno_value2 as lotnoValue2, " +
+                "A.SPECIFY_FIELD,A.SPECIFY_CONDITION,A.SPECIFY_VALUE1,A.SPECIFY_VALUE2 " +
+                "from Odata_Exp_D a,bdef_defarticle c," +
+                "bdef_article_packing d " +
+                "where a.enterprise_no=c.enterprise_no and a.enterprise_no=d.enterprise_no(+) and " +
+                "a.article_no=c.article_no and " +
+                "a.article_no=d.article_no(+) and " +
+                "a.packing_qty=d.packing_qty(+) and a.exp_no='" + checkLabelDS.get(0).getExpNo() + "'";
+        List<Odata_ExpDModel> expDs = genDao.getListByNativeSql(sql, Odata_ExpDModel.class);
+        list.add(expDs);
         return list;
     }
 }

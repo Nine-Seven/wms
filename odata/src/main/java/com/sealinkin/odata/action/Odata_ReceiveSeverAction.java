@@ -2,6 +2,7 @@ package com.sealinkin.odata.action;
 
 import com.sealinkin.comm.action.CommAction;
 import com.sealinkin.odata.service.Odata_ReceiveSeverService;
+import com.sealinkin.odata.util.PinduoduoUtil;
 import org.apache.struts2.ServletActionContext;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,27 +38,26 @@ public class Odata_ReceiveSeverAction extends CommAction {
             }
             json = new String(buffer, "utf-8");
         } catch (IOException e) {
-            e.printStackTrace();
+         //   e.printStackTrace();
         }
         //调用Service
         List<String> list = new ArrayList();
-      //  list.add("json---"+json);
         try {
             odata_ReceiveSeverImpl.sendOrderData(json);
             list.add("200");
+            super.writeArray(list);
         } catch (Exception e) {
-            e.printStackTrace();
+         //   e.printStackTrace();
+
             list.add("500");
+            list.add(e.getMessage());
+            super.writeArray(list);
+            e.printStackTrace();
         }
 
 
-     //   System.out.println("接收成功");
-    //    System.out.println(json);
 
-
-        super.writeArray(list);
     }
-
 
 
 }

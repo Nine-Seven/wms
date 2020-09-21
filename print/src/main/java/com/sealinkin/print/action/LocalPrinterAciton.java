@@ -19,6 +19,8 @@ public class LocalPrinterAciton extends CommAction {
         }
     }
 
+
+
     public void setLocalPrinterImpl(LocalPrinterService localPrinterImpl) {
         this.localPrinterImpl = localPrinterImpl;
     }

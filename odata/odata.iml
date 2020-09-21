@@ -44,15 +44,9 @@
     <orderEntry type="library" name="Maven: aspectj:aspectjweaver:1.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-commons-annotations:3.2.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:3.1.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-core:3.1.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-asm:3.1.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:3.1.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:3.1.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:3.1.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:3.1.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context:3.1.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-expression:3.1.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: c3p0:c3p0:0.9.1" level="project" />
     <orderEntry type="library" name="Maven: com.sealinkin:base_db:1.0" level="project" />
     <orderEntry type="library" name="Maven: com.sealinkin:base_util:1.0" level="project" />
@@ -72,5 +66,13 @@
     <orderEntry type="library" name="Maven: stax:stax-api:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: dom4j:dom4j:1.6.1" level="project" />
     <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.0.b2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-web:3.1.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:3.1.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:3.1.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-expression:3.1.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-asm:3.1.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:3.1.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.pop:pop-sdk:1.9.45" level="project" />
   </component>
 </module>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.pop:pop-sdk:1.9.45">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../java/apache-maven-3.6.3/repository/com/pop/pop-sdk/1.9.45/pop-sdk-1.9.45.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../java/apache-maven-3.6.3/repository/com/pop/pop-sdk/1.9.45/pop-sdk-1.9.45-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../java/apache-maven-3.6.3/repository/com/pop/pop-sdk/1.9.45/pop-sdk-1.9.45-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -529,8 +529,8 @@ Ext.define('cms.controller.odata.odata_B2CExpController', {
                 success: function (data) {
                     console.log(data);
                     if (data[0] === "0") {
-                    var data = "{\n" +
-                        "    \"ERPId\":303379400,\n" +
+                    var strData = "{\n" +
+                        "    \"ERPId\":\""+data[1].rsvVar5+"\",\n" +
                         "    \"cmd\":\"print\",\n" +
                         "    \"requestID\":\""+(new Date()).valueOf()+"\",\n" +
                         "    \"task\":{\n" +
@@ -538,46 +538,23 @@ Ext.define('cms.controller.odata.odata_B2CExpController', {
                         "            {\n" +
                         "                \"contents\":[\n" +
                         "                    {\n" +
-                        "                        \"addData\":{\n" +
-                        "                            \"sender\":{\n" +
-                        "                                \"address\":{\n" +
-                        "                                    \"city\":\""+data[1].receiveCity+"\",\n" +
-                        "                                    \"detail\":\""+data[1].receiveCountry+data[1].custAddress+"\",\n" +
-                        "                                    \"district\":\""+data[1].receiveZone+"\",\n" +
-                        "                                    \"province\":\""+data[1].receiveProvince+"\"\n" +
-                        "                                },\n" +
-                        "                                \"mobile\":\""+data[1].custPhone+"\",\n" +
-                        "                                \"name\":\""+data[1].contactorName+"\"\n" +
-                        "                            }\n" +
-                        "                        },\n" +
-                        "                        \"encryptedData\":\""+data[1].rsvVarod5+"\",\n" +
-                        "                        \"signature\":\""+data[1].rsvVarod6+"\",\n" +
-                        "                        \"templateUrl\":\""+data[1].rsvVarod7+"\",\n" +
-                        "                        \"userid\":\""+data[2].rsvVar4+"\",\n" +
-                        "                        \"ver\":\""+data[1].rsvVarod8+"\"\n" +
+                        "                        \"encryptedData\":\""+data[2].rsvVarod5+"\",\n" +
+                        "                        \"signature\":\""+data[2].rsvVarod6+"\",\n" +
+                        "                        \"templateUrl\":\""+data[2].rsvVarod7+"\",\n" +
+                        "                        \"userid\":\""+data[1].rsvVar4+"\",\n" +
+                        "                        \"ver\":\""+data[2].rsvVarod8+"\"\n" +
                         "                    },\n" +
                         "                    {\n" +
-                        "                        \"data\":{\n" +
-                        "                            \"height\":240,\n" +
-                        "                            \"list\":[\n" +
-                        "                                {\n" +
-                        "                                    \"fontSize\":31.2,\n" +
-                        "                                    \"height\":45.68,\n" +
-                        "                                    \"left\":2.08,\n" +
-                        "                                    \"text\":\"[备注: 没有什么备注]\",\n" +
-                        "                                    \"top\":2.08,\n" +
-                        "                                    \"width\":413.52\n" +
-                        "                                }\n" +
-                        "                            ],\n" +
-                        "                            \"waterdata\":{\n" +
-                        "                                \"text\":\"\"\n" +
-                        "                            },\n" +
-                        "                            \"width\":560\n" +
-                        "                        },\n" +
-                        "                        \"templateURL\":\""+data[2].rsvVar6+"\"\n" +
+                        "                        \"data\":{\n \"userdata\":\"";
+                        for (var i = 0; i < data[3].length; i++) {
+                            strData += data[3][i].articleName + " * " + data[3][i].planBox + '\r\n';
+
+                        }
+                        strData+="\"\n},\n" +
+                        "                        \"templateURL\":\""+data[1].rsvVar6+"\"\n" +
                         "                    }\n" +
                         "                ],\n" +
-                        "                \"documentID\":\""+data[1].sourceexpNo+"\"\n" +
+                        "                \"documentID\":\""+data[2].sourceexpNo+"\"\n" +
                         "            }\n" +
                         "        ],\n" +
                         "        \"notifyType\":[\n" +
@@ -595,7 +572,7 @@ Ext.define('cms.controller.odata.odata_B2CExpController', {
 
                         ws.onopen = function(evt) {
                             console.log("打开成功");
-                            ws.send(data);
+                            ws.send(strData);
                         };
 
                         ws.onmessage = function(evt) {

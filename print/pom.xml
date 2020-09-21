@@ -11,52 +11,57 @@
 
     <artifactId>print</artifactId>
 
-        <dependencies>
-            <dependency>
-                <groupId>com.sealinkin</groupId>
-                <artifactId>model</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>com.sealinkin</groupId>
-                <artifactId>comm</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>com.sealinkin</groupId>
-                <artifactId>base_db</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>com.sealinkin</groupId>
-                <artifactId>base_util</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>net.sf.json-lib</groupId>
-                <artifactId>json-lib</artifactId>
-                <classifier>jdk15</classifier>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-jdbc</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.poi</groupId>
-                <artifactId>poi</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.poi</groupId>
-                <artifactId>poi-ooxml</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-            </dependency>
-            <dependency>
+    <dependencies>
+        <dependency>
+            <groupId>com.sealinkin</groupId>
+            <artifactId>model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sealinkin</groupId>
+            <artifactId>comm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sealinkin</groupId>
+            <artifactId>base_db</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sealinkin</groupId>
+            <artifactId>base_util</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <classifier>jdk15</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.java-websocket</groupId>
             <artifactId>Java-WebSocket</artifactId>
         </dependency>
-        </dependencies>
+
+    </dependencies>
 
 </project>

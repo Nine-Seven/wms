@@ -93,6 +93,7 @@
     <orderEntry type="module" module-name="idata" />
     <orderEntry type="module" module-name="mdata" />
     <orderEntry type="module" module-name="odata" />
+    <orderEntry type="library" name="Maven: com.pop:pop-sdk:1.9.45" level="project" />
     <orderEntry type="library" name="Maven: com.sealinkin:base_util:1.0" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.1.34" level="project" />
     <orderEntry type="library" name="Maven: org.apache.mina:mina-core:2.0.7" level="project" />

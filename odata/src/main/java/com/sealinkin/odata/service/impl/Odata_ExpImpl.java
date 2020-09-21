@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.alibaba.fastjson.JSONObject;
+import com.sealinkin.odata.util.PinduoduoUtil;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
@@ -216,6 +218,8 @@ public class Odata_ExpImpl implements IOdata_ExpService{
 	public MsgRes changeExp(String expM, String expD)
 			throws Exception {
 		Odata_ExpM om=(Odata_ExpM)JSON.parseObject(expM,Odata_ExpM.class);
+
+
 		List<Odata_ExpD> list=JSON.parseArray(expD,Odata_ExpD.class);
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat sdf2=new SimpleDateFormat("yyyy-MM-dd");
@@ -240,9 +244,28 @@ public class Odata_ExpImpl implements IOdata_ExpService{
 		String sql="update odata_exp_m m set m.cust_mail='"+om.getCustMail()+"',m.cust_address='"+om.getCustAddress()+"' " +
 				",m.contactor_name='"+om.getContactorName()+"',m.cust_phone='"+om.getCustPhone()+
 				"',m.exp_remark='"+om.getExpRemark()+"',"+s1 + s2 +
-				"m.SHIPPER_NO='"+om.getShipperNo()+"', " +
-				
-				"m.send_address='"+om.getSendAddress()+"', m.send_name='"+om.getSendName()+"' ," +
+				"m.SHIPPER_NO='"+om.getShipperNo()+"', " ;
+		//如果是拼多多订单调用拼多多接口更新快递信息获取printData
+		String sqle = "SELECT * FROM odata_exp_m om   WHERE  om.EXP_NO = '" + om.getId().getExpNo() + "'";
+		List<Odata_ExpMModel> omls = genDao.getListByNativeSql(sqle,Odata_ExpMModel.class);
+		Odata_ExpMModel oml = omls.get(0);
+		if (oml.getRsvVarod5() != null && "AYMM".equals(oml.getOwnerNo())){
+			PinduoduoUtil pinduoduoUtil = new PinduoduoUtil();
+			String printData = pinduoduoUtil.getPrintData(om);
+			if (printData == null || printData.length()==0)return new MsgRes(false, "快递信息更新失败！", "");
+			JSONObject json = null;
+			try {
+				json = JSON.parseObject(printData);
+			} catch (Exception e) {
+				return new MsgRes(false, printData, "");
+			}
+			sql+="m.RSV_VAROD5='"+json.get("encryptedData")+"', " ;
+			sql+="m.RSV_VAROD6='"+json.get("signature")+"', " ;
+			sql+="m.RSV_VAROD7='"+json.get("templateUrl")+"', " ;
+			sql+="m.RSV_VAROD8='"+json.get("ver")+"', " ;
+		}
+
+			sql +="m.send_address='"+om.getSendAddress()+"', m.send_name='"+om.getSendName()+"' ," +
 				"m.send_company_name='"+om.getSendCompanyName()+"' ,m.send_postcode='"+om.getSendPostcode()+"' ," +
 				"m.send_mobile_phone='"+om.getSendMobilePhone()+"' ,m.send_telephone='"+om.getSendTelephone()+"' , " +
 				"m.send_jpn='"+om.getSendJpn()+"' ,m.send_province='"+om.getSendPostcode()+"'," +

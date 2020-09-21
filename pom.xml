@@ -130,6 +130,11 @@
                 <version>1.0</version>
             </dependency>
             <dependency>
+                <groupId>com.pop</groupId>
+                <artifactId>pop-sdk</artifactId>
+                <version>1.9.45</version>
+            </dependency>
+            <dependency>
                 <groupId>com.sealinkin</groupId>
                 <artifactId>excel_export</artifactId>
                 <version>1.0</version>
