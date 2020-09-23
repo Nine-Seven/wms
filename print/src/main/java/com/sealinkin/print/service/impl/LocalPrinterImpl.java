@@ -75,6 +75,8 @@ public class LocalPrinterImpl implements LocalPrinterService {
                 "a.packing_qty=d.packing_qty(+) and a.exp_no='" + checkLabelDS.get(0).getExpNo() + "'";
         List<Odata_ExpDModel> expDs = genDao.getListByNativeSql(sql, Odata_ExpDModel.class);
         list.add(expDs);
+        sql="update odata_exp_m  set WAYBILL_PRINT_STATUS=WAYBILL_PRINT_STATUS+1 WHERE EXP_NO = '" + checkLabelDS.get(0).getExpNo() + "'";
+        this.genDao.updateBySql(sql);
         return list;
     }
 }

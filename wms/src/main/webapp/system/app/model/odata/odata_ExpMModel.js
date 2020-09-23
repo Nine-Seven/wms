@@ -89,7 +89,8 @@ Ext.define('cms.model.odata.odata_ExpMModel', {
 		{name:'contactorName1'},
 		///////////////////////////////////
 		{name:'strRgstDate'},
-		
+		{name:'waybillPrintStatus'},
+
 	     {name:'reportUpSerial'},
 	     {name:'shopNo'},
 	     {name:'skucount'},

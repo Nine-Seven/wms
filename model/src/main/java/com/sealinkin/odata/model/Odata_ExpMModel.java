@@ -31,7 +31,8 @@ public class Odata_ExpMModel extends Odata_ExpM{
 	private String contactorName1;
 	
 	private String strRgstDate;
-	
+	private String waybillPrintStatus;
+
 	
 	public String getStrRgstDate() {
 		return strRgstDate;
@@ -172,6 +173,12 @@ public class Odata_ExpMModel extends Odata_ExpM{
 	public void setCustAlias(String custAlias) {
 		this.custAlias = custAlias;
 	}
-	
-	
+
+	public String getWaybillPrintStatus() {
+		return waybillPrintStatus;
+	}
+
+	public void setWaybillPrintStatus(String waybillPrintStatus) {
+		this.waybillPrintStatus = waybillPrintStatus;
+	}
 }
