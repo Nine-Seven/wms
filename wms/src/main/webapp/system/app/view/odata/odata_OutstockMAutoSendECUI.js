@@ -206,7 +206,7 @@ Ext.define('cms.view.odata.odata_OutstockMAutoSendECUI',{
 								}
 			   				}),
 							beforeLabelTextTpl : required
-						},
+						/*},
 						{
 							xtype : 'checkboxfield',
 							id : 'checkBoxPrint_type3302',
@@ -226,7 +226,7 @@ Ext.define('cms.view.odata.odata_OutstockMAutoSendECUI',{
 						{
 							xtype : 'checkboxfield',
 							id : 'printInvoice3302',
-							boxLabel : '打印发票'//打印发票
+							boxLabel : '打印发票'//打印发票*/
 						}
 					]
 					},

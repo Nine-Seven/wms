@@ -1047,10 +1047,10 @@ Ext.define('cms.controller.cdef.cdef_DefWareController',{
 					Ext.getCmp('stockMax').setFieldLabel("<font color='red'>*</font>通道最大值");
 					Ext.getCmp('stockMax').allowBlank=false;
 					
-					Ext.getCmp('floorMin').setFieldLabel("<font color='red'>*</font>层最小值");
-					Ext.getCmp('floorMin').allowBlank=false;
-					Ext.getCmp('floorMax').setFieldLabel("<font color='red'>*</font>层最大值");
-					Ext.getCmp('floorMax').allowBlank=false;
+					Ext.getCmp('floorMin').setFieldLabel("<font color='red'></font>层最小值");
+					Ext.getCmp('floorMin').allowBlank=true;
+					Ext.getCmp('floorMax').setFieldLabel("<font color='red'></font>层最大值");
+					Ext.getCmp('floorMax').allowBlank=true;
 				}else{
 					Ext.getCmp('perfix').setFieldLabel("<font color='red'></font>前缀");
 					Ext.getCmp('perfix').allowBlank=true;
@@ -1893,7 +1893,7 @@ function addCdef_DefArea(){
 	Ext.getCmp('d2_keep_label2101').setValue("0");
 	Ext.getCmp('d2_max_weight2101').setValue("0");
 	Ext.getCmp('d2_max_volume2101').setValue("0");
-	Ext.getCmp('d2_item_type2101').setValue("1");
+	Ext.getCmp('d2_item_type2101').setValue("0");
 	Ext.getCmp('d2_pick_level2101').setValue("0");
 
 	

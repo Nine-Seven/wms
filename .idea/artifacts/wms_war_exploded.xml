@@ -81,6 +81,9 @@
           </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:3.1.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.java-websocket:Java-WebSocket:1.3.0" />
+          <element id="archive" name="report-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="report" />
+          </element>
           <element id="archive" name="ridata-1.0-SNAPSHOT.jar">
             <element id="module-output" name="ridata" />
           </element>

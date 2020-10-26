@@ -517,6 +517,7 @@ public class Cdef_DefWareImpl implements ICdef_DefWare{
 
 				"and a.cell_no=d.cell_no " +
 				"and d.area_no=e.area_no " +
+				"and d.WAREHOUSE_NO=e.WAREHOUSE_NO " +
 				"and d.ware_no=f.ware_no " +
 				"and a.warehouse_no=f.warehouse_no " +
 

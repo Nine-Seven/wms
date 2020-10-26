@@ -40,6 +40,10 @@
         </dependency>
         <dependency>
             <groupId>com.sealinkin</groupId>
+            <artifactId>report</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sealinkin</groupId>
             <artifactId>ridata</artifactId>
         </dependency>
         <dependency>
@@ -89,7 +93,9 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
     </dependencies>
-
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <build>
         <finalName>wms</finalName>
         <plugins>

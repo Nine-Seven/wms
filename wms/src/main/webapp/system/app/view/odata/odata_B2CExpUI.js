@@ -512,6 +512,11 @@ Ext.define('cms.view.odata.odata_B2CExpUI',{
 	    	    xtype:'grid',
 	    	    id:'grid_01_3103',
 	    	    store:odata_Exp_MStore,
+				multiSelect: true,
+				selModel: {
+						selType:'checkboxmodel',
+						checkOnly:true
+				},
 	    	    columns:[{
 	    	        xtype:'rownumberer',
 	    	       	width:30 

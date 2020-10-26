@@ -25,7 +25,7 @@ public class PinduoduoUtil {
 
         //获取token,clientId,clientSecret
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://39.98.178.86:8055/aymorder/GetAccessToken?sysflag=AYMM";
+        String url = "http://39.98.178.86:8055/aymorder/GetAccessToken?sysflag="+odata_expM.getOwnerNo();
         String json = restTemplate.getForObject(url, String.class);
         System.out.println(json);
         JSONObject result = JSON.parseObject(json);
@@ -67,12 +67,12 @@ public class PinduoduoUtil {
         ParamWaybillCloudPrintUpdateRequestRecipient recipient = new ParamWaybillCloudPrintUpdateRequestRecipient();
         //收货地址
         ParamWaybillCloudPrintUpdateRequestRecipientAddress address = new ParamWaybillCloudPrintUpdateRequestRecipientAddress();
-        address.setCity(odata_expM.getReceiveCity());
+       /* address.setCity(odata_expM.getReceiveCity());
         address.setDetail(odata_expM.getCustAddress());
         address.setDistrict(odata_expM.getReceiveZone());
         address.setProvince(odata_expM.getReceiveProvince());
         address.setTown(odata_expM.getReceiveCountry());
-     //   address.setCountry("str");
+        address.setCountry("中国");*/
         recipient.setAddress(address);
         recipient.setMobile(odata_expM.getCustPhone());
         recipient.setName(odata_expM.getContactorName());
@@ -95,14 +95,15 @@ public class PinduoduoUtil {
             e.printStackTrace();
         }
         System.out.println(JsonUtil.transferToJson(plcgResponse));*/
+        if(odata_expM.getShipperNo().equals("3301963H57")){paramWaybillCloudPrintUpdateRequest.setWpCode("HT");}
+        else if(odata_expM.getShipperNo().equals("3120980110")){paramWaybillCloudPrintUpdateRequest.setWpCode("STO");}
 
-        paramWaybillCloudPrintUpdateRequest.setWpCode("HT");
         request.setParamWaybillCloudPrintUpdateRequest(paramWaybillCloudPrintUpdateRequest);
         PddWaybillUpdateResponse response = null;
         try {
             response = client.syncInvoke(request, accessToken);
         } catch (Exception e) {
-            e.printStackTrace();
+       //     e.printStackTrace();
         }
 
         System.out.println(JsonUtil.transferToJson(response));

@@ -31,6 +31,8 @@
     <import resource="applicationContext_mdata2.0_service.xml" />
     <import resource="applicationContext_ridata2.0_action.xml" />
     <import resource="applicationContext_ridata2.0_service.xml" />
+    <import resource="applicationContext_report2.0_action.xml" />
+    <import resource="applicationContext_report2.0_service.xml" />
 
 
 </beans>

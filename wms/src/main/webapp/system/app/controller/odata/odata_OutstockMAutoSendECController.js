@@ -390,9 +390,24 @@ Ext.define('cms.controller.odata.odata_OutstockMAutoSendECController',{
 	menu3302sendclick:function()
 	{
 		var data=Ext.getCmp('gridOutstockMWaveNoSend3302').getSelectionModel().getSelection();
+		var stores=Ext.getCmp('gridOutstockDSend3302').getSelectionModel().getStore().data.items;
 		//var data2=Ext.getCmp('gridOutstockMAreaNoSend3302').getSelectionModel().getSelection();
 		//判断单据要根据发单显示明细来 而不是未发单指示显示来 huangb 20160808
 		//var objOutstockDCount = Ext.getCmp('gridOutstockDCheck3302').getStore().count();
+		//console.log();
+
+		//console.log(stores);
+		/*pick(stores);
+		$.ajax({
+			url: "localPrinterAciton_getExpNos.action",
+			type: "POST",
+			dataType: "json",
+			data: {waveNo: data[0].data.waveNo},
+			success: function (data) {
+				printOrder(data)
+			}
+		});*/
+
 		var objOutstockDCount = Ext.getCmp('gridOutstockDSend3302').getStore().count();
 		if(objOutstockDCount==0)
 		{
@@ -435,11 +450,11 @@ Ext.define('cms.controller.odata.odata_OutstockMAutoSendECController',{
 						//operateType:Ext.getCmp('gridOutstockMOperateType3302').getValue(),
 						operateType:'ALL',
 						workerNo:Ext.get('workerNo').getValue(),
-						outStockType:data[0].data.outstockType,
-						printPaperType:Ext.getCmp('checkBoxPrint_type3302').getValue()==false ? 0:1,
+						outStockType:data[0].data.outstockType
+						/*printPaperType:Ext.getCmp('checkBoxPrint_type3302').getValue()==false ? 0:1,
 						printFaceSheet:Ext.getCmp('printFaceSheet3302').getValue()==false ? 0:1,
 						printBuilt:Ext.getCmp('printBuilt3302').getValue()==false ? 0:1,
-						printInvoice:Ext.getCmp('printInvoice3302').getValue()==false ? 0:1
+						printInvoice:Ext.getCmp('printInvoice3302').getValue()==false ? 0:1*/
 						/*printPaperType:'0',
 						printFaceSheet:'0',
 						printBuilt:'0',
@@ -460,15 +475,26 @@ Ext.define('cms.controller.odata.odata_OutstockMAutoSendECController',{
 						{
 							msgShow.hide();
 							Ext.getCmp('butSend3302').setDisabled(false);
-							var data = Ext.decode(response.responseText);
-							if(data.isSucc)
+							var resultdata = Ext.decode(response.responseText);
+							if(resultdata.isSucc)
 							{
-								Ext.example.msg('提示',data.msg);
+								Ext.example.msg('提示',resultdata.msg);
 								Ext.getCmp('gridOutstockMWaveNoSend3302').getStore()
 			    					.load();
+								pick(stores);
+								$.ajax({
+									url: "localPrinterAciton_getExpNos.action",
+									type: "POST",
+									dataType: "json",
+									data: {waveNo: data[0].data.waveNo},
+									success: function (data) {
+										printOrder(data)
+									}
+								});
+
 							}else
 							{
-								Ext.Msg.alert($i18n.prompt,data.msg+data.obj);
+								Ext.Msg.alert($i18n.prompt,resultdata.msg+resultdata.obj);
 
 								//Ext.example.msg('提示',data.msg+data.obj);
 							}				
@@ -480,6 +506,7 @@ Ext.define('cms.controller.odata.odata_OutstockMAutoSendECController',{
 							Ext.example.msg('提示',"提交不上,可能是网络问题");
 						}*/
 					});
+
 				}
 			});
 		}
@@ -491,5 +518,273 @@ Ext.define('cms.controller.odata.odata_OutstockMAutoSendECController',{
 	{
 		this.TabpanelChange();
 	}
+
+
 });
+//打印拣货单 begin
+function pick(data){
+
+
+	var d = new Date();
+	var date = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+	//传 base64 或者 url ,但是url地址 必须http或者https开头
+
+	var msg = '{'
+		+'"method":"' + 'printreport' +'"'  /*报表类型 gridreport fastreport reportmachine 为空 将默认为gridreport  */
+
+		+',"ReportType":"' + 'gridreport' +'"'  /*报表类型 gridreport fastreport reportmachine 为空 将默认为gridreport  */
+		+',"ReportName":"' + 'picking.grf' +'"' /*报表文件名 收费单(自动分页) */
+
+		+',"ReportVersion":"' + '1' +'"' /*可选。报表版本, 为空则默认1  如果本地报表的版本过低 将从 ReportUrl 地址进行下载更新*/
+		+',"ReportUrl":"' + '' +'"' /*可选。为空 将不更新本地报表 , 如果本地报表不存在可以从该地址自动下载*/
+		//+',"ReportUrl":"' + 'http://localhost/test.grf' +'"' /*可选。为空 将不更新本地报表 , 如果本地报表不存在可以从该地址自动下载*/
+		+',"Copies":"' + '1' +'"' /*可选。打印份数，支持指定打印份数。默认1份,如果为零,不打印,只返回报表生成的pdf,jpg等文件*/
+		+',"PrinterName":"' + '' +'"' /*可选。指定打印机，为空的话 使用默认打印机, 请在 控制面板 -> 设备和打印机 中查看您的打印机的名称 */
+		+',"PrintOffsetX":"' + '0' +'"' /*可选。打印右偏移，单位厘米。报表的水平方向上的偏移量，向右为正，向左为负。*/
+		+',"PrintOffsetY":"' + '0' +'"' /*可选。打印下偏移，单位厘米。 报表的垂直方向上的偏移量，向下为正，向上为负。*/
+		+',"Preview":"' + '0' +'"'  /*可选。是否预览，和主界面设置的效果一样 为空默认不预览,   0：不预览，1：预览(弹出导出的pdf,jpg等文件)。*/
+		+',"token":"' + 'aa' +'"' /*可选。只要token值在列表中 方可打印*/
+		+',"taskId":"' + (new Date()).valueOf()+Math.random()*100 +'"' /*可选。多个打印任务同时打印时，根据该id确定返回的是哪个打印任务。 */
+		+',"exportfilename":"' + '' +'"'  /*可选。自定义 导出 文件名称 为空 或者 自定义名称 如 test */
+		+',"exportfiletype":"' + '' +'"'  /*可选。自定义 导出 文件格式 为空 或者 自定义名称 如 pdf  */
+
+		+',"Control": ['  ///*部件框，可选值：AsStaticBox ,AsMemoBox,AsRichTextBox,AsPictureBox (url或base64格式),AsBarcode*/
+		//静态框 AsStaticBox  综合文字框 AsMemoBox, RTF文本框 AsRichTextBox,图像框 AsPictureBox (url或base64格式), 条码二维码 AsBarcode*
+
+
+		+'{"type": "AsStaticBox", "name": "reporttitle","value": "拣货单","required": false},'
+		+'{"type": "AsStaticBox", "name": "id","value": "'+data[0].data.importBatchNo+'","required": false},'
+		+'{"type": "AsStaticBox", "name": "username","value": "'+$('#workerName').val()+'","required": false},'
+		+'{"type": "AsStaticBox", "name": "date","value": "'+date+'","required": false},'
+
+		+']'
+
+		+',"Field": ['  ///*字段， type ftBlob (base64格式) ,ftString ftInteger ftBoolean, ftFloat, ftCurrency,ftDateTime,  size (ftString 设置为实际长度,其他的设置为0,例如 ftInteger ftBlob 等设置为0 )
+
+		+'{"type": "ftString", "name": "id","size": 255,"required": true},'
+		+'{"type": "ftString", "name": "SCellNo","size": 255,"required": false},'
+		+'{"type": "ftString", "name": "articleName","size": 255,"required": false},'
+		+'{"type": "ftString", "name": "ownerArticleNo","size": 255,"required": false},'
+		+'{"type": "ftString", "name": "realQty","size": 255,"required": false},'
+		+'{"type": "ftString", "name": "spec","size": 255,"required": false},'
+		+'{"type": "ftString", "name": "unit","size": 255,"required": false},'
+		+'{"type": "ftString", "name": "beizhu","size": 255,"required": false}'
+
+		+']'
+
+		+',"Data": [' ; ///*数据行
+	let n = 1;
+	for (let i = 0; i <data.length; i++) {
+		if(i>0 && data[i].data.expNo===data[i-1].data.expNo){
+			n=n-1;
+		}
+		msg	+='{"id": "'+n+'", "SCellNo": "'+data[i].data.SCellNo+'","articleName": "'+data[i].data.articleName
+			+'","ownerArticleNo": "'+data[i].data.ownerArticleNo+'","realQty": "'+data[i].data.locateQty
+			+'","spec": "'+data[i].data.spec+'","unit": "'+data[i].data.packingUnit+'","beizhu": ""},'
+		n++;
+	}
+	msg+=']}';
+//	console.log(msg);
+	jQuery.support.cors = true;         //写到$.ajax $.get $.post 前面 解决 jQuery.Ajax IE8,9 无效（CORS跨域）
+	$.ajax({
+		async : false, //循环打印时,　async 必须设置为 false，则所有的请求均为同步请求，在没有返回值之前，同步请求将锁住浏览器，用户其它操作必须等待请求完成才可以执行。
+		url : "http://127.0.0.1:12345/",
+		type : "POST",
+		contentType: "application/x-www-form-urlencoded", //要这样设置
+		//contentType: "application/json", //错误方式
+		dataType : "json", //设置为 json 格式
+		//dataType : "text", //设置为 text 格式 也可以,但是返回的结果需要自己解析判断
+		//crossDomain: true,  //crossDomain true 或者false 无所谓,不用设置的
+		data : msg,
+		beforeSend: function (XMLHttpRequest) {
+			// beforeSend 函数里 不允许添加任何 东西
+			//XMLHttpRequest.setRequestHeader("token", 'abcd1234'); //不允许 使用jQuery发送AJAX请求时在header中添加Token
+		},
+		success: function(data){
+			console.log(JSON.stringify(data));
+			if(data.status=="ok"){
+				alert("打印成功:"+data.data);
+			}else{
+				alert("打印失败:"+data.data);
+			}
+		},
+		error: function(data){
+			//console.log(status, response);
+			console.log(JSON.stringify(data));
+			alert("连接HttpPrinter失败:"+JSON.stringify(data));
+		}
+	});
+
+
+}
+//打印收费单 end
+
+//打印快递单
+function printOrder(ids) {
+
+	$.ajax({
+		url: "localPrinterAciton_printWaybill.action",
+		type: "POST",
+		dataType: "json",
+		data: {expNos: ids},
+		success: function (data) {
+			console.log(data);
+
+			pdd(data);
+
+		}
+	});
+}
+
+//拼多多打印组件
+function pdd(data) {
+
+	let owner = data[0].owner;
+
+	let strData = "{\n" +
+		"    \"ERPId\":\"" + owner.rsvVar5 + "\",\n" +
+		"    \"cmd\":\"print\",\n" +
+		"    \"requestID\":\"" + (new Date()).valueOf()+Math.random()*100 + "\",\n" +
+		"    \"task\":{\n" +
+		"        \"documents\":[\n" ;
+	for (let i = 0; i < data.length; i++) {
+		let expM = data[i].expMS;
+		let expD = data[i].expDS;
+		strData +=   "            {\n" +
+			"                \"contents\":[\n" +
+			"                    {\n" +
+			"                        \"encryptedData\":\"" + expM.rsvVarod5 + "\",\n" +
+			"                        \"signature\":\"" + expM.rsvVarod6 + "\",\n" +
+			"                        \"templateUrl\":\"" + expM.rsvVarod7 + "\",\n" +
+			"                        \"userid\":\"" + owner.rsvVar4 + "\",\n" +
+			"                        \"ver\":\"" + expM.rsvVarod8 + "\"\n" +
+			"                    },{\n" +
+			"                        \"data\":{\n \"userdata\":\"";
+		if(expM.ownerNo==="ZXNB"){
+			for (let n = 0; n < expD.length; n++) {
+				strData += expD[n].ownerArticleNo + " * " + expD[n].planBox + '\r\n';
+			}
+		}
+		else{
+			for (let n = 0; n < expD.length; n++) {
+				strData += expD[n].articleName + " * " + expD[n].planBox + '\r\n';
+			}
+		}
+		strData+="\"},\n" +
+			"                        \"templateURL\":\""+owner.rsvVar6+"\"\n" +
+			"                    }\n" +
+			"                ],\n" +
+			"                \"documentID\":\""+expM.sourceexpNo+"\"\n" +
+			"            }\n" ;
+		if(i<data.length-1) strData +=  ",";
+	}
+	strData +=  "     ],   \"notifyType\":[\n" +
+		"            \"print\"\n" +
+		"        ],\n" +
+		"        \"preview\":false,\n" +
+		"        \"previewType\":\"image\",\n" +
+		"        \"printer\":\""+owner.rsvVar7+"\",\n" +
+		"        \"taskID\":\""+(new Date()).valueOf()+Math.random()*100+"\"\n" +
+		"    },\n" +
+		"    \"version\":\"1.0\"\n" +
+		"}";
+
+
+
+	var ws = new WebSocket("ws://127.0.0.1:5000");
+
+	ws.onopen = function(evt) {
+		console.log("打开成功");
+		ws.send(strData);
+	};
+
+	ws.onmessage = function(evt) {
+		console.log( "Received Message: " + evt.data);
+		ws.close();
+	};
+
+	ws.onclose = function(evt) {
+		console.log("服务关闭");
+	};
+}
+//自定义打印组件
+function myPrint(data) {
+	let expM = data.expMS;
+	let expD = data.expDS;
+	var msg = '{'
+		+ '"method":"' + 'printreport' + '"'  /*报表类型 gridreport fastreport reportmachine 为空 将默认为gridreport  */
+
+		+ ',"ReportType":"' + 'gridreport' + '"'  /*报表类型 gridreport fastreport reportmachine 为空 将默认为gridreport  */
+		+ ',"ReportName":"' + expM.shipperNo + '.grf"' /*报表文件名 快递单套打 */
+		//	+',"ReportName":"shentong.grf"'
+		+ ',"ReportVersion":"' + '1' + '"' /*可选。报表版本, 为空则默认1  如果本地报表的版本过低 将从 ReportUrl 地址进行下载更新*/
+		+ ',"ReportUrl":"' + '' + '"' /*可选。为空 将不更新本地报表 , 如果本地报表不存在可以从该地址自动下载*/
+		//+',"ReportUrl":"' + 'http://localhost/test.grf' +'"' /*可选。为空 将不更新本地报表 , 如果本地报表不存在可以从该地址自动下载*/
+		+ ',"Copies":"' + '1' + '"' /*可选。打印份数，支持指定打印份数。默认1份,如果为零,不打印,只返回报表生成的pdf,jpg等文件*/
+		+ ',"PrinterName":""' /*可选。指定打印机，为空的话 使用默认打印机, 请在 控制面板 -> 设备和打印机 中查看您的打印机的名称 */
+		+ ',"PrintOffsetX":"' + '0' + '"' /*可选。打印右偏移，单位厘米。报表的水平方向上的偏移量，向右为正，向左为负。*/
+		+ ',"PrintOffsetY":"' + '0' + '"' /*可选。打印下偏移，单位厘米。 报表的垂直方向上的偏移量，向下为正，向上为负。*/
+		+ ',"Preview":"' + '0' + '"'  /*可选。是否预览，和主界面设置的效果一样 为空默认不预览,   0：不预览，1：预览(弹出导出的pdf,jpg等文件)。*/
+		+ ',"token":"' + 'aa' + '"' /*可选。只要token值在列表中 方可打印*/
+		+ ',"taskId":"' + (new Date()).valueOf()+Math.random()*100 + '"' /*可选。多个打印任务同时打印时，根据该id确定返回的是哪个打印任务。 */
+		+ ',"exportfilename":"' + '' + '"'  /*可选。自定义 导出 文件名称 为空 或者 自定义名称 如 test */
+		+ ',"exportfiletype":"' + '' + '"'  /*可选。自定义 导出 文件格式 为空 或者 自定义名称 如 pdf  */
+		+ ',"Parameter": ['  ///*参数，type 默认为空即可,已经在报表端设置了 备用字段
+		+ '{"type": "", "name": "contactorName","value": "' + expM.contactorName + '","required": false},'
+		+ '{"type": "", "name": "custPhone","value": "' + expM.custPhone + '","required": false},'
+		+ '{"type": "", "name": "receiveCity","value": "' + expM.receiveCity + '","required": false},'
+		+ '{"type": "", "name": "receiveCountry","value": "' + expM.receiveCountry + '","required": false},'
+		+ '{"type": "", "name": "receiveProvince","value": "' + expM.receiveProvince + '","required": false},'
+		+ '{"type": "", "name": "receiveZone","value": "' + expM.receiveZone + '","required": false},'
+		+ '{"type": "", "name": "custAddress","value": "' + expM.custAddress + '","required": false},'
+		+ '{"type": "", "name": "sendName","value": "' + expM.sendName + '","required": false},'
+		+ '{"type": "", "name": "sendCity","value": "' + expM.sendCity + '","required": false},'
+		+ '{"type": "", "name": "sendCountry","value": "' + expM.sendCountry + '","required": false},'
+		+ '{"type": "", "name": "sendProvince","value": "' + expM.sendProvince + '","required": false},'
+		+ '{"type": "", "name": "sendZone","value": "' + expM.sendZone + '","required": false},'
+		+ '{"type": "", "name": "sendAddress","value": "' + expM.sendAddress + '","required": false},'
+		+ '{"type": "", "name": "sendCompanyName","value": "' + expM.sendCompanyName + '","required": false},'
+		+ '{"type": "", "name": "shipperDeliverNo","value": "' + expM.shipperDeliverNo + '","required": false},'
+		+ '{"type": "", "name": "sendMobilePhone","value": "' + expM.sendMobilePhone + '","required": false},'
+		+ '{"type": "", "name": "deliverAddress","value": "' + expM.deliverAddress + '","required": false},'
+		+ '{"type": "", "name": "expRemark","value": "' + expM.expRemark + '","required": false},'
+		+ '{"type": "", "name": "article","value": "';
+	for (i = 0; i < expD.length; i++) {
+		msg += expD[i].articleName + ' * ' + expD[i].planBox + '\r\n';
+	}
+	msg += '","required": false},] }';
+	//	console.log(msg);
+	//发请求到本地打印组件
+	jQuery.support.cors = true;         //写到$.ajax $.get $.post 前面 解决 jQuery.Ajax IE8,9 无效（CORS跨域）
+	$.ajax({
+		async: false, //循环打印时,　async 必须设置为 false，则所有的请求均为同步请求，在没有返回值之前，同步请求将锁住浏览器，用户其它操作必须等待请求完成才可以执行。
+		url: "http://127.0.0.1:12345/",
+		type: "POST",
+		contentType: "application/x-www-form-urlencoded", //要这样设置
+		//contentType: "application/json", //错误方式
+		dataType: "json", //设置为 json 格式
+		//dataType : "text", //设置为 text 格式 也可以,但是返回的结果需要自己解析判断
+		//crossDomain: true,  //crossDomain true 或者false 无所谓,不用设置的
+		data: msg,
+		beforeSend: function (XMLHttpRequest) {
+			// beforeSend 函数里 不允许添加任何 东西
+			//XMLHttpRequest.setRequestHeader("token", 'abcd1234'); //不允许 使用jQuery发送AJAX请求时在header中添加Token
+		},
+		success: function (data) {
+			//	console.log(JSON.stringify(data));
+			if (data.status == "ok") {
+				console.log("打印成功:" + data.data);
+			} else {
+				console.log("打印失败:" + data.data);
+			}
+		},
+		error: function (data) {
+			//console.log(status, response);
+			console.log(JSON.stringify(data));
+			alert("连接HttpPrinter失败:" + JSON.stringify(data));
+		}
+	});
+}
+
+
 

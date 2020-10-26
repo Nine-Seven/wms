@@ -47,8 +47,6 @@ public class Odata_ReceiveSeverAction extends CommAction {
             list.add("200");
             super.writeArray(list);
         } catch (Exception e) {
-         //   e.printStackTrace();
-
             list.add("500");
             list.add(e.getMessage());
             super.writeArray(list);

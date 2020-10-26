@@ -249,7 +249,7 @@ public class Odata_ExpImpl implements IOdata_ExpService{
 		String sqle = "SELECT * FROM odata_exp_m om   WHERE  om.EXP_NO = '" + om.getId().getExpNo() + "'";
 		List<Odata_ExpMModel> omls = genDao.getListByNativeSql(sqle,Odata_ExpMModel.class);
 		Odata_ExpMModel oml = omls.get(0);
-		if (oml.getRsvVarod5() != null && "AYMM".equals(oml.getOwnerNo())){
+		if (oml.getRsvVarod5() != null ){
 			PinduoduoUtil pinduoduoUtil = new PinduoduoUtil();
 			String printData = pinduoduoUtil.getPrintData(om);
 			if (printData == null || printData.length()==0)return new MsgRes(false, "快递信息更新失败！", "");

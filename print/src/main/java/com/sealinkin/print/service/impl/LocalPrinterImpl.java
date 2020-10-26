@@ -4,12 +4,13 @@ import com.sealinkin.bdef.po.Bdef_DefOwner;
 import com.sealinkin.dao.service.IGenericManager;
 import com.sealinkin.odata.model.Odata_ExpDModel;
 import com.sealinkin.odata.model.Odata_ExpMModel;
-import com.sealinkin.odata.po.Odata_CheckLabelD;
-import com.sealinkin.odata.po.Odata_ExpM;
+import com.sealinkin.odata.model.Odata_OutstockDModel;
 import com.sealinkin.print.service.LocalPrinterService;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @SuppressWarnings({"rawtypes", "unchecked"})
 public class LocalPrinterImpl implements LocalPrinterService {
@@ -24,59 +25,76 @@ public class LocalPrinterImpl implements LocalPrinterService {
     }
 
     @Override
-    public List getExp_MList(String lableNo) throws Exception {
-        List list = new ArrayList();
+    public List getExp_MList(List<String> expNos) throws Exception {
         //获取expNo 出货单号
-        String sql = "SELECT EXP_NO expNo FROM ODATA_EXP_M  WHERE SOURCEEXP_NO= '" + lableNo + "'";
-        List<Odata_ExpMModel> checkLabelDS = genDao.getListByNativeSql(sql, Odata_ExpMModel.class);
-        if (checkLabelDS.size() == 0) return list;
+        StringBuilder sb = new StringBuilder();
+        if (expNos.size() == 0) return null;
         //获取出货详情
-        sql = "select * FROM ODATA_EXP_M  WHERE EXP_NO = '" + checkLabelDS.get(0).getExpNo() + "'";
-        List<Odata_ExpM> expMS = genDao.getListByNativeSql(sql, Odata_ExpM.class);
-        //判断是否为拼多多订单
-        Odata_ExpM expM = expMS.get(0);
-        if (expM.getRsvVarod5() != null) {
-            list.add("0");
-            sql = "select * FROM BDEF_DEFOWNER  WHERE OWNER_NO = '" + expM.getOwnerNo() + "'";
-            List<Bdef_DefOwner> owner = genDao.getListByNativeSql(sql, Bdef_DefOwner.class);
-            list.add(owner.get(0));
-        } else {
-            list.add("1");
+        sb.setLength(0);
+        sb.append("select * FROM ODATA_EXP_M  WHERE EXP_NO in (");
+        for (String expNo : expNos) {
+            sb.append("'").append(expNo).append("',");
         }
-        list.add(expM);
-        //获取商品详情
-        sql = "select a.exp_no,a.article_no,c.barcode,c.article_name," +
-                "a.packing_qty," +
-                "c.qmin_operate_packing,c.unit_packing, " +
-                "f_get_packingunit(a.enterprise_no,a.owner_no,a.article_no,a.packing_qty) packingUnit," +
-                "f_get_packingunit(a.enterprise_no,a.owner_no,a.article_no,c.qmin_operate_packing) packingUnitQmin," +
-                "f_get_packingunit(a.enterprise_no,a.owner_no,a.article_no,c.unit_packing) Unit," +
-                "f_get_spec(a.enterprise_no,a.owner_no,a.article_no,a.packing_qty) packingSpec," +
-                "f_get_spec(a.enterprise_no,a.owner_no,a.article_no,c.qmin_operate_packing) packingSpecQmin," +
-                "f_get_spec(a.enterprise_no,a.owner_no,a.article_no,c.unit_packing) spec," +
-                "a.owner_article_no," +
-                "a.article_qty,a.unit_cost," +
-                "trunc(a.article_qty/a.packing_qty) as planBox," +
-                "trunc(mod(a.article_qty,a.packing_qty)/c.QMIN_OPERATE_PACKING) as planQmin," +
-                "(a.article_qty - trunc(a.article_qty/a.packing_qty) * a.packing_qty - trunc(mod(a.article_qty,a.packing_qty)/c.QMIN_OPERATE_PACKING) * c.QMIN_OPERATE_PACKING) as planDis," +
+        sb.deleteCharAt(sb.length() - 1);
+        sb.append(") order by  exp_no");
 
-                "a.produce_condition as produceCond," +
-                "a.produce_value1 as produceV1," +
-                "a.produce_value2 as produceV2, " +
-                "a.lotno_condition as lotnoCondition," +
-                "a.lotno_value1 as lotnoValue1," +
-                "a.lotno_value2 as lotnoValue2, " +
-                "A.SPECIFY_FIELD,A.SPECIFY_CONDITION,A.SPECIFY_VALUE1,A.SPECIFY_VALUE2 " +
-                "from Odata_Exp_D a,bdef_defarticle c," +
-                "bdef_article_packing d " +
-                "where a.enterprise_no=c.enterprise_no and a.enterprise_no=d.enterprise_no(+) and " +
-                "a.article_no=c.article_no and " +
-                "a.article_no=d.article_no(+) and " +
-                "a.packing_qty=d.packing_qty(+) and a.exp_no='" + checkLabelDS.get(0).getExpNo() + "'";
-        List<Odata_ExpDModel> expDs = genDao.getListByNativeSql(sql, Odata_ExpDModel.class);
-        list.add(expDs);
-        sql="update odata_exp_m  set WAYBILL_PRINT_STATUS=WAYBILL_PRINT_STATUS+1 WHERE EXP_NO = '" + checkLabelDS.get(0).getExpNo() + "'";
-        this.genDao.updateBySql(sql);
+        List<Odata_ExpMModel> expMS = genDao.getListByNativeSql(sb.toString(), Odata_ExpMModel.class);
+        List oms = new ArrayList();
+        for (Odata_ExpMModel m : expMS) {
+            Map om = new HashMap();
+            //判断是否为拼多多订单
+            if (m.getRsvVarod5() != null) {
+                om.put("status",0);
+                //获取拼多多信息
+                String sql = "select * FROM BDEF_DEFOWNER  WHERE OWNER_NO = '" + m.getOwnerNo() + "'";
+                List<Bdef_DefOwner> owner = genDao.getListByNativeSql(sql, Bdef_DefOwner.class);
+                om.put("owner",owner.get(0));
+            } else {
+                om.put("status",1);
+            }
+
+            om.put("expMS", m);
+            //获取商品详情
+            String sql = "SELECT a.exp_no,a.article_no,a.OWNER_ARTICLE_NO,c.article_name," +
+                    "trunc(a.article_qty / a.packing_qty) AS planbox " +
+                    "FROM  odata_exp_d  a left JOIN  bdef_defarticle  c " +
+                    "ON a.ARTICLE_NO = c.ARTICLE_NO " +
+                    "where EXP_NO = '" + m.getExpNo() + "'";
+            List<Odata_ExpDModel> expDs = genDao.getListByNativeSql(sql, Odata_ExpDModel.class);
+            om.put("expDS", expDs);
+            //循环打印次数
+            sql = "update odata_exp_m  set WAYBILL_PRINT_STATUS=WAYBILL_PRINT_STATUS+1 WHERE EXP_NO = '" + m.getExpNo() + "'";
+            this.genDao.updateBySql(sql);
+            oms.add(om);
+        }
+
+
+        return oms;
+    }
+
+    @Override
+    public List getPickList(String waveNo) {
+        String sql = "SELECT\n" +
+                "	ood.s_cell_no,\n" +
+                "	ood.realqty,\n" +
+                "	ood.outstock_no,\n" +
+                "	bd.owner_article_no,\n" +
+                "	bd.article_name,\n" +
+                "	bd.UNIT,\n" +
+                "	bd.SPEC \n" +
+                "FROM\n" +
+                "	bdef_defarticle bd,\n" +
+                "	( SELECT SUM( article_qty ) realqty, s_cell_no, article_no, outstock_no, wave_no FROM odata_outstock_d GROUP BY s_cell_no, article_no, outstock_no, wave_no ) ood \n" +
+                "WHERE\n" +
+                "	ood.article_no = bd.article_no \n" +
+                "	AND ood.wave_no = '"+waveNo+"'";
+        List<Odata_OutstockDModel> list=genDao.getListByNativeSql(sql, Odata_OutstockDModel.class);
         return list;
+    }
+
+    @Override
+    public List getExpNos(String waveNo) {
+        String sql = " SELECT exp_no  FROM odata_exp_m   WHERE wave_no = '"+waveNo+"' order by  exp_no";
+        return  genDao.getListByNativeSql(sql);
     }
 }

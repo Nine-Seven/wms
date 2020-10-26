@@ -876,7 +876,8 @@ public class Idata_CheckImpl implements Iidata_CheckService{
 			inList2.add(poMaster.getDockNo());//strDockNo
 			System.out.println(inList2);
 			resultList2 = genDao.execProc(inList2, outList2, "PKLG_IDATA.P_RF_Close_Pal");
-			if(resultList2.get(0).toString().indexOf("N|")!=-1)
+			System.out.println(resultList2);
+			if(resultList2.get(0).toString().contains("N|"))
 			{
 				throw new Exception(resultList2.get(0).toString());
 			}	

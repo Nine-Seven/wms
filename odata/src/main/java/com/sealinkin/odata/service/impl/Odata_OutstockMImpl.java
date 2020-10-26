@@ -412,7 +412,7 @@ public class Odata_OutstockMImpl implements IOdata_OutstockM
 		}
 		if(strFlag != null && strFlag.equals("2"))
 		{
-			strSql = strSql + "order by  ood.s_cell_no,ood.article_no,ood.exp_no " ;
+			strSql = strSql + "order by  ood.exp_no,ood.s_cell_no,ood.article_no " ;
 		}
 		if(strFlag != null && strFlag.equals("3"))
 		{

@@ -35,7 +35,8 @@ public class Odata_ReceiveSeverImpl implements Odata_ReceiveSeverService {
 
         System.out.println(json);
         List<JSONObject> list = JSON.parseArray(json, JSONObject.class);
-
+        List<Odata_ExpD> odataExpDS = new ArrayList<>();
+        List<Odata_ExpM> odataExpMS = new ArrayList<>();
         for (JSONObject map : list) {
             Odata_ExpM oem = new Odata_ExpM();
             //  BeanMap map = new BeanMap(object);
@@ -122,27 +123,27 @@ public class Odata_ReceiveSeverImpl implements Odata_ReceiveSeverService {
                     oem.setContactorName(name);
                     oem.setCustAddress(address.replace("(" + name + ")", ""));
                 }
-                if (worker_no.equals("AYMM")){
+                JSONObject printData = (JSONObject) map.get("printData");
+                if (worker_no.equals("AYMM")) {
                     oem.setSendName("保税物流中心");
-                    oem.setSendMobilePhone("155****8535");
+                    oem.setSendMobilePhone("15518008535");
+
+                    PinduoduoUtil pinduoduoUtil = new PinduoduoUtil();
+                    String printDataStr = pinduoduoUtil.getPrintData(oem);
+                    if (printDataStr == null || printDataStr.length() == 0) throw new Exception("修改快递单失败");
+                    printData = JSON.parseObject(printDataStr);
+
                 }
-                PinduoduoUtil pinduoduoUtil = new PinduoduoUtil();
-                String printDataStr = pinduoduoUtil.getPrintData(oem);
-                if (printDataStr == null || printDataStr.length() == 0) throw new Exception("修改快递单失败");
-                    JSONObject printData = JSON.parseObject(printDataStr);
-                    oem.setRsvVarod5((String) printData.get("encryptedData"));
-                    oem.setRsvVarod6((String) printData.get("signature"));
-                    oem.setRsvVarod7((String) printData.get("templateUrl"));
-                    oem.setRsvVarod8((String) printData.get("ver"));
-
-
+                oem.setRsvVarod5((String) printData.get("encryptedData"));
+                oem.setRsvVarod6((String) printData.get("signature"));
+                oem.setRsvVarod7((String) printData.get("templateUrl"));
+                oem.setRsvVarod8((String) printData.get("ver"));
             }
 
 
             //   System.out.println(oem);
             //商品列表
             JSONArray ods = (JSONArray) map.get("sone");
-            List<Odata_ExpD> odataExpDS = new ArrayList<>();
             for (int i = 0; i < ods.size(); i++) {
                 JSONObject beanMap = (JSONObject) ods.get(i);
                 Odata_ExpD odata_expD = new Odata_ExpD();
@@ -168,10 +169,8 @@ public class Odata_ReceiveSeverImpl implements Odata_ReceiveSeverService {
                 odata_expD.setExpDate(new Date());
                 odataExpDS.add(odata_expD);
             }
-            //保存订单到数据库
-            this.genDao.saveOrUpdateObj(oem);
-            this.genDao.saveList(odataExpDS);
 
+            odataExpMS.add(oem);
             //订单跟踪
             List inList = new ArrayList();
             List outList = new ArrayList();
@@ -188,6 +187,12 @@ public class Odata_ReceiveSeverImpl implements Odata_ReceiveSeverService {
                 }*/
 
         }
+        //保存订单到数据库
+        this.genDao.saveList(odataExpMS);
+        this.genDao.saveList(odataExpDS);
+
 
     }
+
+
 }

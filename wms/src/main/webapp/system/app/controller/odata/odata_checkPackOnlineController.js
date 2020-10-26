@@ -755,6 +755,8 @@ Ext.define('cms.controller.odata.odata_checkPackOnlineController',{
 		}
 
 	},
+
+	//打印面单
 	clickcheckExpressNo3916:function(){
 		//ip和端口
 		var ip = "127.0.0.1";

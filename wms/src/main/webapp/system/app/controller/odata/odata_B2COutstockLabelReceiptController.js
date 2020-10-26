@@ -795,6 +795,9 @@ Ext.define('cms.controller.odata.odata_B2COutstockLabelReceiptController',{
 		var outstock_name = Ext.getCmp('cmbWorkerNo3503').getValue();
 		var objOutstockM = Ext.getCmp('gridOutstockM3503').getSelectionModel().getSelection();
 		var gridcount=Ext.getCmp('gridOutstockM3503').getStore().getCount();
+
+		console.log(objOutstockM[0].get('waveNo'));
+
 		if(Ext.isEmpty(outstock_name))
 		{
 			Ext.example.msg($i18n.prompt,$i18n_prompt.realOutstockWork);
@@ -869,7 +872,6 @@ Ext.define('cms.controller.odata.odata_B2COutstockLabelReceiptController',{
 						if(data.isSucc){
 							Ext.example.msg($i18n.prompt,data.msg);
 							g_Refresh = true;
-							
 //							Ext.getCmp('cmbOwnerNo3503').setValue(null);
 //							Ext.getCmp('cmbOwnerNo3503').getStore().load();
 							g_strIisCanEdit3503=false;
@@ -884,6 +886,7 @@ Ext.define('cms.controller.odata.odata_B2COutstockLabelReceiptController',{
 							Ext.getCmp('cmbOwnerNo3503').focus();
 							Ext.getCmp('butReceipt3503').setDisabled(true);
 							Ext.getCmp('outstockAutoCheckTab3503').setDisabled(false);
+
 						}else{
 							Ext.Msg.alert($i18n.prompt,data.msg+data.obj);
 							//Ext.example.msg($i18n.prompt,data.msg+data.obj);

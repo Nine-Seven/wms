@@ -35,8 +35,8 @@
 		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl" />
  		<property name="user" value="sealinkwms2" />
 		<property name="password" value="sealinkwms2" /> -->
-		
-		<property name="driverClass" value="${driverClass}"></property>
+
+		<property name="driverClass" value="${driverClass}"/>
 		<property name="jdbcUrl" value="${jdbc.url.value}" />
  		<property name="user" value="${jdbc.user.value}" />
 		<property name="password" value="${jdbc.password.value}" />
@@ -44,6 +44,7 @@
 		<property name="initialPoolSize" value="${c3p0.initialPoolSize}" />
 		<property name="minPoolSize" value="${c3p0.minPoolSize}" />
 		<property name="maxPoolSize" value="${c3p0.maxPoolSize}" />
+		<property name="maxIdleTime" value="${c3p0.maxIdleTime}" />
 		<property name="acquireIncrement" value="${c3p0.acquireIncrement}" />
 		<property name="checkoutTimeout" value="${c3p0.checkoutTimeout}" />
 		
@@ -82,7 +83,7 @@
 				<prop key="hibernate.dialect">com.sealinkin.util.FixedOracleDBDialect</prop> -->
 				
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
-				
+
 				<prop key="hibernate.hbm2ddl.auto">none</prop>
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.show_sql">true</prop>
@@ -143,7 +144,7 @@
 				timeout="180" />
 			<tx:method name="send*" isolation="READ_COMMITTED"
 				propagation="REQUIRED" rollback-for="Exception,RuntimeException"
-				timeout="180" />
+				timeout="1800" />
 			<tx:method name="upLoad*" isolation="READ_COMMITTED"
 				propagation="REQUIRED" rollback-for="Exception,RuntimeException"
 				timeout="180" />

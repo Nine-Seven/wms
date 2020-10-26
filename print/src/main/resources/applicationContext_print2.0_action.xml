@@ -14,6 +14,7 @@
 	<bean id="localPrinterAciton" class="com.sealinkin.print.action.LocalPrinterAciton" scope="prototype">
 		<property name="localPrinterImpl" ref="localPrinterImpl"/>
 	</bean>
+
 	<!-- 条码打印 -->
 	<!--<bean id="printerTagAction" class="com.sealinkin.print.action.PrinterTagAction" scope="prototype">
 		<property name="printerTagImpl" ref="printerTagImpl"/>

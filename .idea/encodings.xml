@@ -8,6 +8,8 @@
     <file url="file://$PROJECT_DIR$/stock/src/main/java/com/sealinkin/stock/action/Stock_AdjustAccountsAction.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/stock/src/main/java/com/sealinkin/stock/action/Stock_ConfirmAction.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/stock/src/main/java/com/sealinkin/stock/action/Stock_PlanImportAction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/wms/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wms/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
